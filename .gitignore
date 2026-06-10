@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# design source / scratch (kept locally, not tracked)
+/drafts/
+
+# claude code (personal settings only; shared settings.json is tracked)
+.claude/settings.local.json
