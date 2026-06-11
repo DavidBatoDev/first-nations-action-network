@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 type Partner = { name: string; file: string; url: string | null };
@@ -38,14 +39,24 @@ export default function LogoCarousel() {
     const N = partners.length;
     const PAUSE = 2000;
     const itemW = () => items[0].getBoundingClientRect().width || 248;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     let idx = 0;
     let timer: number | undefined;
-    let paused = false;
+    let hoverPaused = false;
+    let inViewport = true;
+    let documentHidden = document.hidden;
     let rafId = 0;
 
-    // Colour the logo nearest the centre, continuously.
+    const isPaused = () =>
+      hoverPaused || !inViewport || documentHidden || reducedMotion.matches;
+
+    // Colour the logo nearest the centre only while the carousel is visible.
     const centre = () => {
+      if (!inViewport || documentHidden) {
+        rafId = 0;
+        return;
+      }
       const c = vp.getBoundingClientRect();
       const mid = c.left + c.width / 2;
       let best: HTMLElement | null = null;
@@ -61,10 +72,15 @@ export default function LogoCarousel() {
       items.forEach((it) => it.classList.toggle("is-center", it === best));
       rafId = requestAnimationFrame(centre);
     };
-    rafId = requestAnimationFrame(centre);
+
+    const startCentre = () => {
+      if (!rafId && inViewport && !documentHidden) {
+        rafId = requestAnimationFrame(centre);
+      }
+    };
 
     const advance = () => {
-      if (paused) return;
+      if (isPaused()) return;
       idx++;
       track.style.transition = "transform .9s cubic-bezier(.45,.05,.25,1)";
       track.style.transform = "translateX(" + -idx * itemW() + "px)";
@@ -72,7 +88,12 @@ export default function LogoCarousel() {
 
     const schedule = () => {
       window.clearTimeout(timer);
-      timer = window.setTimeout(advance, PAUSE);
+      if (!isPaused()) timer = window.setTimeout(advance, PAUSE);
+    };
+
+    const updatePlayback = () => {
+      schedule();
+      startCentre();
     };
 
     const onTransitionEnd = (e: TransitionEvent) => {
@@ -87,32 +108,58 @@ export default function LogoCarousel() {
     };
 
     const onEnter = () => {
-      paused = true;
-      window.clearTimeout(timer);
-    };
-    const onLeave = () => {
-      paused = false;
+      hoverPaused = true;
       schedule();
     };
+    const onLeave = () => {
+      hoverPaused = false;
+      updatePlayback();
+    };
+    const onVisibilityChange = () => {
+      documentHidden = document.hidden;
+      updatePlayback();
+    };
+    const onReducedMotionChange = () => {
+      updatePlayback();
+    };
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        inViewport = entry.isIntersecting;
+        updatePlayback();
+      },
+      { rootMargin: "160px 0px" },
+    );
 
     track.addEventListener("transitionend", onTransitionEnd);
     section.addEventListener("mouseenter", onEnter);
     section.addEventListener("mouseleave", onLeave);
-    schedule();
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    reducedMotion.addEventListener("change", onReducedMotionChange);
+    visibilityObserver.observe(section);
+    updatePlayback();
 
     return () => {
       cancelAnimationFrame(rafId);
       window.clearTimeout(timer);
+      visibilityObserver.disconnect();
       track.removeEventListener("transitionend", onTransitionEnd);
       section.removeEventListener("mouseenter", onEnter);
       section.removeEventListener("mouseleave", onLeave);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      reducedMotion.removeEventListener("change", onReducedMotionChange);
     };
   }, []);
 
   const renderItem = (p: Partner, key: string) => {
     const inner = (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img src={p.file} alt={p.name} loading="lazy" />
+      <Image
+        src={p.file}
+        alt={p.name}
+        width={501}
+        height={251}
+        sizes="220px"
+        loading="lazy"
+      />
     );
     return (
       <div key={key} className={`logo-item ${slug(p.name)}`}>

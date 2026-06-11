@@ -81,6 +81,8 @@ export default function Membership() {
                 alt="Community leaders and organisations together"
                 note="Community leaders & organisations together"
                 rounded={20}
+                sizes="(max-width: 980px) calc(100vw - 48px), 42vw"
+                preload
               />
             </div>
             <div className="hero-badge">

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type ImageSlotProps = {
   src: string;
   alt: string;
@@ -7,6 +9,12 @@ type ImageSlotProps = {
   rounded?: boolean | number;
   /** Extra classes for the slot container (sizing comes from the parent CSS). */
   className?: string;
+  /** Responsive rendered-width hint used by next/image. */
+  sizes?: string;
+  /** Preload only the single image expected to be the route's LCP element. */
+  preload?: boolean;
+  /** Crop focus passed to the fill image. */
+  objectPosition?: string;
 };
 
 /**
@@ -20,6 +28,9 @@ export default function ImageSlot({
   note,
   rounded,
   className = "",
+  sizes = "(max-width: 900px) calc(100vw - 48px), 50vw",
+  preload = false,
+  objectPosition = "center",
 }: ImageSlotProps) {
   const isRounded = rounded !== undefined && rounded !== false;
   const radius =
@@ -32,8 +43,15 @@ export default function ImageSlot({
       }`}
       style={radius !== undefined ? { borderRadius: radius } : undefined}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt={alt} loading="lazy" />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes={sizes}
+        preload={preload}
+        loading={preload ? undefined : "lazy"}
+        style={{ objectFit: "cover", objectPosition }}
+      />
       {note ? <span className="ph-note">{note}</span> : null}
     </div>
   );

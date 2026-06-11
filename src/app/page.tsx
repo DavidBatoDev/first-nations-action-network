@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -24,6 +25,7 @@ export default function Home() {
       />
 
       <span id="top" />
+      <main className="home-page">
 
       {/* ============ HERO ============ */}
       <header className="hero">
@@ -58,6 +60,8 @@ export default function Home() {
                 alt="Community gathering with Elders and young leaders"
                 note="Community gathering · Elders and young leaders"
                 rounded={20}
+                sizes="(max-width: 980px) calc(100vw - 48px), 42vw"
+                preload
               />
             </div>
             <div className="hero-badge">
@@ -77,12 +81,13 @@ export default function Home() {
       <section id="who" className="sec">
         <div className="wrap split media-left">
           <div className="img-frame" data-reveal>
-            <ImageSlot
-              src="/images/who.webp"
-              alt="Workshop circle with leaders in conversation"
-              note="Workshop circle · leaders in conversation"
-              rounded={18}
-            />
+              <ImageSlot
+                src="/images/who.webp"
+                alt="Workshop circle with leaders in conversation"
+                note="Workshop circle · leaders in conversation"
+                rounded={18}
+                sizes="(max-width: 900px) calc(100vw - 48px), 50vw"
+              />
           </div>
           <div data-reveal data-delay="1">
             <span className="kicker">Who we are</span>
@@ -263,6 +268,7 @@ export default function Home() {
                 src="/images/membership.webp"
                 alt="Members at a network gathering"
                 note="Members at a network gathering"
+                sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
               />
             </div>
             <div className="m-body">
@@ -334,6 +340,7 @@ export default function Home() {
                 alt="Facilitated session on Country"
                 note="Facilitated session on Country"
                 rounded={18}
+                sizes="(max-width: 900px) calc(100vw - 48px), 50vw"
               />
             </div>
             <div className="train-stat">
@@ -386,6 +393,7 @@ export default function Home() {
               alt="Allies and community together"
               note="Allies & community together"
               rounded={16}
+              sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
             />
           </div>
         </div>
@@ -412,10 +420,11 @@ export default function Home() {
             {/* Donation */}
             <article className="support-card" data-reveal>
               <div className="sc-media">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/assets/support-group.png"
                   alt="Community members and an ally wearing First Nations Action Network merchandise, smiling together"
+                  fill
+                  sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
                 />
               </div>
               <div className="sc-body">
@@ -459,10 +468,11 @@ export default function Home() {
             {/* Merchandise */}
             <article className="support-card" data-reveal data-delay="1">
               <div className="sc-media">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/assets/support-merch.png"
                   alt="Two people seen from behind wearing First Nations Action Network and First Nations Allies merchandise at a community gathering"
+                  fill
+                  sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
                 />
               </div>
               <div className="sc-body">
@@ -485,20 +495,32 @@ export default function Home() {
                 <div className="merch-row">
                   <figure className="merch-item">
                     <div className="m-thumb">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="/assets/merch-fnan-tee.jpg" alt="First Nations Action Network black t-shirt" />
+                      <Image
+                        src="/assets/merch-fnan-tee.jpg"
+                        alt="First Nations Action Network black t-shirt"
+                        fill
+                        sizes="(max-width: 900px) 28vw, 14vw"
+                      />
                     </div>
                   </figure>
                   <figure className="merch-item">
                     <div className="m-thumb">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="/assets/merch-hoodie.jpg" alt="First Nations Action Network black zip hoodie" />
+                      <Image
+                        src="/assets/merch-hoodie.jpg"
+                        alt="First Nations Action Network black zip hoodie"
+                        fill
+                        sizes="(max-width: 900px) 28vw, 14vw"
+                      />
                     </div>
                   </figure>
                   <figure className="merch-item">
                     <div className="m-thumb">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="/assets/merch-allies-tee.jpg" alt="First Nations Allies white t-shirt" />
+                      <Image
+                        src="/assets/merch-allies-tee.jpg"
+                        alt="First Nations Allies white t-shirt"
+                        fill
+                        sizes="(max-width: 900px) 28vw, 14vw"
+                      />
                     </div>
                   </figure>
                 </div>
@@ -525,7 +547,11 @@ export default function Home() {
           </div>
           <div className="story-grid">
             <article className="story-card" data-reveal>
-              <ImageSlot src="/images/story1.webp" alt="Young leaders stepping forward" />
+              <ImageSlot
+                src="/images/story1.webp"
+                alt="Young leaders stepping forward"
+                sizes="(max-width: 880px) calc(100vw - 48px), 31vw"
+              />
               <div className="s-body">
                 <span className="s-tag">Leadership</span>
                 <h3>Young leaders stepping forward</h3>
@@ -539,7 +565,11 @@ export default function Home() {
               </div>
             </article>
             <article className="story-card" data-reveal data-delay="1">
-              <ImageSlot src="/images/story2.webp" alt="Many groups, one shared campaign" />
+              <ImageSlot
+                src="/images/story2.webp"
+                alt="Many groups, one shared campaign"
+                sizes="(max-width: 880px) calc(100vw - 48px), 31vw"
+              />
               <div className="s-body">
                 <span className="s-tag">Collaboration</span>
                 <h3>Many groups, one shared campaign</h3>
@@ -553,7 +583,11 @@ export default function Home() {
               </div>
             </article>
             <article className="story-card" data-reveal data-delay="2">
-              <ImageSlot src="/images/story3.webp" alt="Culture at the centre of change" />
+              <ImageSlot
+                src="/images/story3.webp"
+                alt="Culture at the centre of change"
+                sizes="(max-width: 880px) calc(100vw - 48px), 31vw"
+              />
               <div className="s-body">
                 <span className="s-tag">Local action</span>
                 <h3>Culture at the centre of change</h3>
@@ -750,6 +784,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </>

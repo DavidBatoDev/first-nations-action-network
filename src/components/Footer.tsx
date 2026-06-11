@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -6,11 +7,13 @@ export default function Footer() {
       <div className="wrap">
         <div className="foot-top">
           <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/logo-on-dark.png"
               alt="First Nations Action Network"
               className="foot-logo-img"
+              width={1201}
+              height={794}
+              sizes="160px"
             />
             <p className="foot-blurb">
               A national network supporting First Nations and ally organisations
