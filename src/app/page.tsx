@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
 import LogoCarousel from "@/components/LogoCarousel";
 import { Tick, Arrow } from "@/components/icons";
+import { EVENTS, dateParts } from "@/lib/events";
 
 const navLinks: NavLink[] = [
   { label: "Who We Are", href: "#who" },
@@ -636,53 +637,39 @@ export default function Home() {
                 relationships, build capacity and support collaboration.
               </p>
             </div>
-            <a href="#" className="textlink">
+            <Link href="/events" className="textlink">
               View Upcoming Events <Arrow />
-            </a>
+            </Link>
           </div>
           <div className="events-list">
-            <div className="ev-row" data-reveal>
-              <div className="ev-date">
-                <div className="d">12</div>
-                <div className="m">Jul</div>
-              </div>
-              <div className="ev-main">
-                <div className="ev-type">Workshop · In person</div>
-                <h3>Community Organising Foundations</h3>
-                <div className="ev-loc">Naarm / Melbourne · 9:30am–3:00pm</div>
-              </div>
-              <a href="#" className="ev-cta">
-                Register <span>→</span>
-              </a>
-            </div>
-            <div className="ev-row" data-reveal>
-              <div className="ev-date">
-                <div className="d">29</div>
-                <div className="m">Jul</div>
-              </div>
-              <div className="ev-main">
-                <div className="ev-type">Online forum</div>
-                <h3>Leadership in Practice: A National Conversation</h3>
-                <div className="ev-loc">Online · 1:00pm–2:30pm AEST</div>
-              </div>
-              <a href="#" className="ev-cta">
-                Register <span>→</span>
-              </a>
-            </div>
-            <div className="ev-row" data-reveal>
-              <div className="ev-date">
-                <div className="d">14</div>
-                <div className="m">Aug</div>
-              </div>
-              <div className="ev-main">
-                <div className="ev-type">Gathering · In person</div>
-                <h3>First Nations Allies Yarning Circle</h3>
-                <div className="ev-loc">Meanjin / Brisbane · 10:00am–1:00pm</div>
-              </div>
-              <a href="#" className="ev-cta">
-                Register <span>→</span>
-              </a>
-            </div>
+            {EVENTS.map((event, index) => {
+              const { day, month } = dateParts(event.date);
+              return (
+                <div
+                  key={event.id}
+                  className="ev-row"
+                  data-reveal
+                  data-delay={index ? String(index) : undefined}
+                >
+                  <div className="ev-date">
+                    <div className="d">{day}</div>
+                    <div className="m">{month}</div>
+                  </div>
+                  <div className="ev-main">
+                    <div className="ev-type">
+                      {event.type} · {event.format}
+                    </div>
+                    <h3>{event.title}</h3>
+                    <div className="ev-loc">
+                      {event.location} · {event.time}
+                    </div>
+                  </div>
+                  <Link href="/events" className="ev-cta">
+                    View event <span>→</span>
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

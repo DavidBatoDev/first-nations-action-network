@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 
 export type NavLink = { label: string; href: string };
 
@@ -114,11 +114,22 @@ export default function Nav({
           />
         </Link>
         <div className="nav-links">
-          {links.map((l) => (
-            <Link key={l.label} href={l.href}>
-              {l.label}
-            </Link>
-          ))}
+          {links.map((l) =>
+            l.label === "Events" ? (
+              <div className="nav-events" key={l.label}>
+                <Link href={l.href}>{l.label}</Link>
+                <div className="nav-events-menu">
+                  <Link href="/events">
+                    View Upcoming Events <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <Link key={l.label} href={l.href}>
+                {l.label}
+              </Link>
+            ),
+          )}
         </div>
         <div className="nav-cta">
           <Link href={exploreHref} className="btn btn-sm nav-ghost">
@@ -167,15 +178,27 @@ export default function Nav({
       >
         <div className="mobile-nav-links">
           {links.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              tabIndex={menuOpen ? 0 : -1}
-              onNavigate={closeMenu}
-              onClick={closeMenu}
-            >
-              {link.label}
-            </Link>
+            <Fragment key={link.label}>
+              <Link
+                href={link.href}
+                tabIndex={menuOpen ? 0 : -1}
+                onNavigate={closeMenu}
+                onClick={closeMenu}
+              >
+                {link.label}
+              </Link>
+              {link.label === "Events" ? (
+                <Link
+                  href="/events"
+                  className="mobile-upcoming-events"
+                  tabIndex={menuOpen ? 0 : -1}
+                  onNavigate={closeMenu}
+                  onClick={closeMenu}
+                >
+                  View Upcoming Events <span aria-hidden="true">→</span>
+                </Link>
+              ) : null}
+            </Fragment>
           ))}
           <Link
             href={exploreHref}
