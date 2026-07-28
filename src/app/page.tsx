@@ -329,7 +329,7 @@ export default function Home() {
               <span className="chip">Leadership Development</span>
             </div>
             <div className="actions">
-              <Link href="#contact" className="btn btn-ghost">
+              <Link href="/training" className="btn btn-ghost">
                 Explore Learning <Arrow />
               </Link>
             </div>
