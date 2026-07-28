@@ -383,7 +383,7 @@ export default function Home() {
               <span>Community supporters</span>
             </div>
             <div className="actions">
-              <Link href="#join" className="btn btn-primary">
+              <Link href="/allyship" className="btn btn-primary">
                 Learn About First Nations Allies <Arrow />
               </Link>
             </div>

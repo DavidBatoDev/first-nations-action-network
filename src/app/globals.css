@@ -1101,7 +1101,7 @@ a.logo-box {
   gap: 72px;
   align-items: center;
 }
-.allies h2 {
+.allies :is(h1, h2) {
   font-size: clamp(36px, 4.6vw, 62px);
   color: #fff;
   line-height: 1.04;
@@ -1161,6 +1161,66 @@ a.logo-box {
   border-top: 5px solid var(--yellow);
   border-left: 5px solid var(--yellow);
 }
+
+/* ---------- First Nations Allies page ---------- */
+.allyship-mark-panel {
+  display: grid;
+  min-height: 360px;
+  place-items: center;
+  padding: 48px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+.allyship-mark {
+  width: min(100%, 380px);
+  height: auto;
+}
+.allyship-principles {
+  margin-top: 58px;
+}
+.allyship-use-note {
+  align-self: center;
+  padding: 42px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--cream-deep);
+}
+.allyship-use-note p {
+  margin-top: 20px;
+  font-family: var(--serif);
+  font-size: clamp(23px, 2.1vw, 30px);
+  font-weight: 700;
+  line-height: 1.42;
+  color: var(--ink);
+}
+.allyship-guidance {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin-top: 56px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.allyship-guidance > div {
+  padding: 30px 34px 30px 0;
+}
+.allyship-guidance > div + div {
+  padding-right: 0;
+  padding-left: 34px;
+  border-left: 1px solid var(--line);
+}
+.allyship-guidance h3 {
+  font-size: 22px;
+}
+.allyship-guidance p {
+  margin-top: 12px;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: #5b554c;
+}
+
 @media (max-width: 900px) {
   .allies-grid {
     grid-template-columns: 1fr;
@@ -1168,6 +1228,24 @@ a.logo-box {
   }
   .allies .img-slot {
     height: 380px;
+  }
+  .allyship-mark-panel {
+    min-height: 280px;
+    padding: 36px;
+  }
+  .allyship-use-note {
+    padding: 30px;
+  }
+  .allyship-guidance {
+    grid-template-columns: 1fr;
+  }
+  .allyship-guidance > div,
+  .allyship-guidance > div + div {
+    padding: 24px 0;
+    border-left: 0;
+  }
+  .allyship-guidance > div + div {
+    border-top: 1px solid var(--line);
   }
 }
 
@@ -3391,7 +3469,7 @@ button {
   .home-page .sec-head h2,
   .home-page .support-head h2,
   .home-page .member .m-body h2,
-  .home-page .allies h2 {
+  .home-page .allies :is(h1, h2) {
     font-size: clamp(30px, 9vw, 38px) !important;
     line-height: 1.1;
   }
@@ -3593,7 +3671,7 @@ button {
   .home-page .sec-head h2,
   .home-page .support-head h2,
   .home-page .member .m-body h2,
-  .home-page .allies h2 {
+  .home-page .allies :is(h1, h2) {
     font-size: 29px !important;
   }
   .home-page .hero-media .img-slot,
