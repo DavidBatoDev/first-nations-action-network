@@ -17,6 +17,7 @@ replace the source documents.
 
 ## Site structure, brand, and content
 
+- [Website sitemap](../SITEMAP.md) — current public routes, homepage sections, navigation destinations, and deferred routes.
 - [Website Information Architecture v2](Website%20Information%20Architecture%20v2.md) — site structure and page purposes.
 - [Brand Messaging Framework v2](Brand%20Messaging%20Framework%20v2.md) — brand positioning, audience, and language.
 - [Community Directory Blueprint v1](Community%20Directory%20Blueprint%20v1.md) — directory purpose, data, and member visibility.
