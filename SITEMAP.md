@@ -26,6 +26,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 │   └── #contact — Contact and conversation links in the footer
 ├── /membership — Membership information and joining journey
 ├── /allyship — First Nations Allies introduction
+├── /training — Training and Development service overview
 └── /events — Public events hub
     ├── Events — Upcoming and past event views
     ├── Calendar — Calendar view
@@ -38,7 +39,8 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | --- | --- | --- |
 | Understand FNAN | `/#who` | Homepage overview. |
 | Learn how the network works | `/#how` | Homepage section. |
-| Explore learning and development | `/#training` | Homepage section until a dedicated page is approved. |
+| Explore learning and development | `/training` | Public Training and Development overview; detailed packages and pricing remain to be confirmed. |
+| Learn from the header | `/#training` | Retains the homepage-section behaviour. |
 | Learn about First Nations Allies | `/allyship` | Provisional introduction using current homepage content; final message and CTA remain to be confirmed with Steve. |
 | Explore allyship from the header | `/#allies` | Retains the homepage-section behaviour until the final allyship journey is approved. |
 | Join the Network | `/membership` | Version 1 is an information and enquiry journey; Stripe Checkout is deferred. |
@@ -50,14 +52,13 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 
 ## Search-engine routes
 
-- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/membership`, `/allyship`, and `/events`.
+- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/membership`, `/allyship`, `/training`, and `/events`.
 - `/robots.txt` — generated from `src/app/robots.ts`; points crawlers to the XML sitemap.
 
 ## Planned or deferred routes
 
 These are not standalone public pages in the current launch site:
 
-- Learning and Development
 - Community Directory
 - Resource library
 - Community Stories

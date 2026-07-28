@@ -54,6 +54,13 @@ This is the paste-ready source for the project roadmap in Proyekto. All tasks ar
 - [ ] Build and link the Explore Allyship page using Steve-approved content. **Blocked: final content and destination.** — Assignee: Joshua
 - [ ] Verify the homepage and navigation allyship CTAs direct to the completed page. — Assignee: Joshua
 
+## Feature: Training & Development page
+
+### Tasks
+
+- [x] Build the standalone Training & Development page with documented public learning areas and a conversation CTA. — Assignee: Joshua
+- [ ] Confirm final workshop packages, pricing, facilitator information, and booking process with Steve before publishing commercial detail. **Blocked: Steve clarification meeting.** — Assignee: Joshua
+
 ## Feature: Upcoming Events page
 
 ### Tasks
