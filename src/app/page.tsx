@@ -739,7 +739,7 @@ export default function Home() {
             </article>
           </div>
           <div style={{ marginTop: 40 }} data-reveal>
-            <Link href="/directory" className="btn btn-ghost">
+            <Link href="/resources" className="btn btn-ghost">
               Explore Resources <Arrow />
             </Link>
           </div>
