@@ -61,6 +61,13 @@ This is the paste-ready source for the project roadmap in Proyekto. All tasks ar
 - [x] Build the standalone Training & Development page with documented public learning areas and a conversation CTA. — Assignee: Joshua
 - [ ] Confirm final workshop packages, pricing, facilitator information, and booking process with Steve before publishing commercial detail. **Blocked: Steve clarification meeting.** — Assignee: Joshua
 
+## Feature: Community Directory page
+
+### Tasks
+
+- [x] Build the public directory foundation with disabled discovery controls and an honest empty state. — Assignee: Joshua
+- [ ] Collect approved seed organisations, public-listing permissions, and the publishing owner/process with Steve before publishing listings. **Blocked: Steve clarification meeting.** — Assignee: Joshua
+
 ## Feature: Upcoming Events page
 
 ### Tasks

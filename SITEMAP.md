@@ -27,6 +27,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 ├── /membership — Membership information and joining journey
 ├── /allyship — First Nations Allies introduction
 ├── /training — Training and Development service overview
+├── /directory — Public Community Directory foundation
 └── /events — Public events hub
     ├── Events — Upcoming and past event views
     ├── Calendar — Calendar view
@@ -46,20 +47,19 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | Join the Network | `/membership` | Version 1 is an information and enquiry journey; Stripe Checkout is deferred. |
 | Browse upcoming events | `/events` | The homepage “View Upcoming Events” action goes here. |
 | Browse events from the navigation | `/#events` | Retains the homepage section behaviour; the Events navigation item also exposes a “View Upcoming Events” link to `/events`. |
-| Browse the community directory and resources | `/#resources` | Homepage section until a dedicated directory or resource experience is built. |
+| Browse the community directory and resources | `/directory` | Public directory foundation; approved listings are being populated. |
 | Contact or book a conversation | `/#contact` | Footer contact area. |
 | Support or shop | `/#support` | Homepage section; no separate shop route yet. |
 
 ## Search-engine routes
 
-- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/membership`, `/allyship`, `/training`, and `/events`.
+- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/membership`, `/allyship`, `/training`, `/directory`, and `/events`.
 - `/robots.txt` — generated from `src/app/robots.ts`; points crawlers to the XML sitemap.
 
 ## Planned or deferred routes
 
 These are not standalone public pages in the current launch site:
 
-- Community Directory
 - Resource library
 - Community Stories
 - Shop and contribution flow
