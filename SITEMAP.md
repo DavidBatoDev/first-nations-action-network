@@ -29,6 +29,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 ├── /training — Training and Development service overview
 ├── /directory — Public Community Directory foundation
 ├── /stories — Public Community Stories Library foundation
+├── /resources — Public member-learning library preview
 └── /events — Public events hub
     ├── Events — Upcoming and past event views
     ├── Calendar — Calendar view
@@ -46,6 +47,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | Learn about First Nations Allies | `/allyship` | Provisional introduction using current homepage content; final message and CTA remain to be confirmed with Steve. |
 | Explore allyship from the header | `/#allies` | Retains the homepage-section behaviour until the final allyship journey is approved. |
 | Browse Community Stories | `/stories` | Public library foundation; approved stories are being prepared. |
+| Explore resources | `/resources` | Public member-learning preview with three provisional homepage resources and non-indexed detail views; content requires approval. |
 | Join the Network | `/membership` | Version 1 is an information and enquiry journey; Stripe Checkout is deferred. |
 | Browse upcoming events | `/events` | The homepage “View Upcoming Events” action goes here. |
 | Browse events from the navigation | `/#events` | Retains the homepage section behaviour; the Events navigation item also exposes a “View Upcoming Events” link to `/events`. |
@@ -55,14 +57,13 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 
 ## Search-engine routes
 
-- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/membership`, `/allyship`, `/training`, `/directory`, `/stories`, and `/events`.
+- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/membership`, `/allyship`, `/training`, `/directory`, `/stories`, `/resources`, and `/events`.
 - `/robots.txt` — generated from `src/app/robots.ts`; points crawlers to the XML sitemap.
 
 ## Planned or deferred routes
 
 These are not standalone public pages in the current launch site:
 
-- Resource library
 - Shop and contribution flow
 - Contact or booking form
 - Login and member portal

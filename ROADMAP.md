@@ -75,6 +75,14 @@ This is the paste-ready source for the project roadmap in Proyekto. All tasks ar
 - [x] Build the public Community Stories Library foundation with disabled filters and an honest empty state. — Assignee: Joshua
 - [ ] Collect approved initial stories, images, public-use permissions, publishing owner, and featured-story priorities with Steve before publishing content. **Blocked: Steve clarification meeting.** — Assignee: Joshua
 
+## Feature: Resource Library
+
+### Tasks
+
+- [x] Build the public member-learning library preview with working search and resource-type filters. — Assignee: Joshua
+- [x] Add the three provisional homepage resources as catalogue cards with course-style detail pages and lesson navigation. — Assignee: Joshua
+- [ ] Confirm approved course catalogue, durations, materials, public-preview rules, and member-access requirements with Steve before publishing resources. **Blocked: Steve clarification meeting.** — Assignee: Joshua
+
 ## Feature: Upcoming Events page
 
 ### Tasks
