@@ -45,7 +45,7 @@ export default function Footer() {
                 <Link href="/#training">Learning and Development</Link>
               </li>
               <li>
-                <Link href="/#stories">Community Stories</Link>
+                <Link href="/stories">Community Stories</Link>
               </li>
               <li>
                 <Link href="/events">Events</Link>

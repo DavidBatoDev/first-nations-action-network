@@ -618,9 +618,9 @@ export default function Home() {
             </div>
           </div>
           <div style={{ marginTop: 40 }} data-reveal>
-            <a href="#" className="btn btn-ghost">
+            <Link href="/stories" className="btn btn-ghost">
               Read Community Stories <Arrow />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
