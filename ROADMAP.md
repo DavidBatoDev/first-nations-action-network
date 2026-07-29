@@ -68,6 +68,13 @@ This is the paste-ready source for the project roadmap in Proyekto. All tasks ar
 - [x] Build the public directory foundation with disabled discovery controls and an honest empty state. — Assignee: Joshua
 - [ ] Collect approved seed organisations, public-listing permissions, and the publishing owner/process with Steve before publishing listings. **Blocked: Steve clarification meeting.** — Assignee: Joshua
 
+## Feature: Community Stories Library
+
+### Tasks
+
+- [x] Build the public Community Stories Library foundation with disabled filters and an honest empty state. — Assignee: Joshua
+- [ ] Collect approved initial stories, images, public-use permissions, publishing owner, and featured-story priorities with Steve before publishing content. **Blocked: Steve clarification meeting.** — Assignee: Joshua
+
 ## Feature: Upcoming Events page
 
 ### Tasks
