@@ -3,6 +3,7 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
 import Nav, { type NavLink } from "@/components/Nav";
+import SupportCards from "@/components/SupportCards";
 
 const ALLYSHIP_DESCRIPTION =
   "Learn about First Nations Allies, a growing community committed to respectful relationships and positive outcomes for First Nations peoples.";
@@ -199,6 +200,25 @@ export default function AllyshipPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section id="support" className="sec bg-cream">
+          <div className="wrap">
+            <div className="support-head" data-reveal>
+              <span className="kicker centered">Support the movement</span>
+              <h2>
+                Turn Allyship Into{" "}
+                <span className="em-action">Practical Support.</span>
+              </h2>
+              <p className="lead">
+                Allies help carry community-led work forward by contributing
+                directly and wearing the shared message. Donate to strengthen
+                the work or shop First Nations Action Network and First Nations
+                Allies merchandise.
+              </p>
+            </div>
+            <SupportCards />
           </div>
         </section>
       </main>

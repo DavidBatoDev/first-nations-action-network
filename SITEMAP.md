@@ -26,6 +26,8 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 │   └── #contact — Contact and conversation links in the footer
 ├── /membership — Membership information and joining journey
 ├── /allyship — First Nations Allies introduction
+├── /donate — Donation options and contribution outcomes (payment mockup)
+├── /shop — First Nations Action Network and Allies merchandise (shop mockup)
 ├── /training — Training and Development service overview
 ├── /directory — Public Community Directory foundation
 ├── /stories — Public Community Stories Library foundation
@@ -53,18 +55,20 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | Browse events from the navigation | `/#events` | Retains the homepage section behaviour; the Events navigation item also exposes a “View Upcoming Events” link to `/events`. |
 | Browse the community directory and resources | `/directory` | Public directory foundation; approved listings are being populated. |
 | Contact or book a conversation | `/#contact` | Footer contact area. |
-| Support or shop | `/#support` | Homepage section; no separate shop route yet. |
+| Support the movement | `/#support` | Homepage section linking to the donation and shop journeys. |
+| Make a donation | `/donate` | Donation tiers and recurrence preview; payment processing is not yet connected. |
+| Shop merchandise | `/shop` | Merchandise and indicative pricing preview; ordering is not yet connected. |
 
 ## Search-engine routes
 
-- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/membership`, `/allyship`, `/training`, `/directory`, `/stories`, `/resources`, and `/events`.
+- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/membership`, `/allyship`, `/donate`, `/shop`, `/training`, `/directory`, `/stories`, `/resources`, and `/events`.
 - `/robots.txt` — generated from `src/app/robots.ts`; points crawlers to the XML sitemap.
 
 ## Planned or deferred routes
 
 These are not standalone public pages in the current launch site:
 
-- Shop and contribution flow
+- Connected shop checkout and donation payment processing
 - Contact or booking form
 - Login and member portal
 - Member content submission
