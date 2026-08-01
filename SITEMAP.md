@@ -25,6 +25,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 │   ├── #join — Join the Network call to action
 │   └── #contact — Contact and conversation links in the footer
 ├── /membership — Membership information and joining journey
+│   └── /membership/apply — Version 1 organisation application and Action Network handoff
 ├── /allyship — First Nations Allies introduction
 ├── /donate — Donation options and contribution outcomes (payment mockup)
 ├── /shop — First Nations Action Network and Allies merchandise (shop mockup)
@@ -51,6 +52,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | Browse Community Stories | `/stories` | Public library foundation; approved stories are being prepared. |
 | Explore resources | `/resources` | Public member-learning preview with three provisional homepage resources and non-indexed detail views; content requires approval. |
 | Join the Network | `/membership` | Version 1 is an information and enquiry journey; Stripe Checkout is deferred. |
+| Apply for membership | `/membership/apply` | Organisation application; shows an honest unavailable state until the approved Action Network widget is configured. |
 | Browse upcoming events | `/events` | The homepage “View Upcoming Events” action goes here. |
 | Browse events from the navigation | `/#events` | Retains the homepage section behaviour; the Events navigation item also exposes a “View Upcoming Events” link to `/events`. |
 | Browse the community directory and resources | `/directory` | Public directory foundation; approved listings are being populated. |
@@ -61,7 +63,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 
 ## Search-engine routes
 
-- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/membership`, `/allyship`, `/donate`, `/shop`, `/training`, `/directory`, `/stories`, `/resources`, and `/events`.
+- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/membership`, `/membership/apply`, `/allyship`, `/donate`, `/shop`, `/training`, `/directory`, `/stories`, `/resources`, and `/events`.
 - `/robots.txt` — generated from `src/app/robots.ts`; points crawlers to the XML sitemap.
 
 ## Planned or deferred routes

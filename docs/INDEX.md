@@ -14,6 +14,7 @@ replace the source documents.
 - [Membership Page Messaging Architecture v3](Membership%20Page%20Messaging%20Architecture%20v3.md) — current membership-page content and CTA architecture.
 - [Membership Page Messaging Architecture v2](Membership%20Page%20Messaging%20Architecture%20v2.md) — earlier membership-page messaging; use v3 when the two differ.
 - [Member Portal Blueprint v1](Member%20Portal%20Blueprint%20v1.md) — future member portal capabilities and screens.
+- [Action Network Membership Form Setup](Action%20Network%20Membership%20Form%20Setup.md) — Version 1 membership-application fields, consent, confirmation, and widget configuration.
 
 ## Site structure, brand, and content
 

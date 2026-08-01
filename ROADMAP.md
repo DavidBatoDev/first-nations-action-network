@@ -39,8 +39,9 @@ This is the paste-ready source for the project roadmap in Proyekto. All tasks ar
 
 ### Tasks
 
-- [ ] Define distinct labels and destinations for the public “Join the Network” CTA and the membership-page action so visitors understand the next step. — Assignee: Joshua
-- [ ] Implement the Version 1 membership information/contact form to collect organisation and primary-contact details without taking payment. — Assignee: Joshua
+- [x] Define distinct labels and destinations for public membership discovery and the “Apply to Join” action. — Assignee: Joshua
+- [x] Build the Version 1 `/membership/apply` page and the unavailable, loading, error, and embedded-widget states without taking payment. — Assignee: Joshua
+- [ ] Create the approved membership application in Action Network, configure its fields and consent, and add `ACTION_NETWORK_MEMBERSHIP_FORM_SLUG` to the deployment. **Blocked: Action Network form setup.** — Assignee: Joshua
 - [ ] Define the internal handoff process for new membership enquiries and Steve's manual Action Network account provisioning. — Assignee: Joshua
 - [ ] Update the membership page with confirmed content, A$150/month or A$1,200/year pricing, benefits, and the Version 1 application expectation; explain that Stripe Checkout will follow when payments are enabled. — Assignee: Joshua
 - [ ] Verify the membership journey works from homepage CTA through successful form submission or enquiry handoff. — Assignee: Joshua
