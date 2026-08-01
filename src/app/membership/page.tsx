@@ -34,7 +34,7 @@ export default function Membership() {
         brandHref="/"
         links={navLinks}
         exploreHref="/#allies"
-        joinHref="#pricing"
+        joinHref="/membership/apply"
       />
 
       <span id="top" />
@@ -61,8 +61,8 @@ export default function Membership() {
               and collective action.
             </p>
             <div className="hero-cta" data-reveal data-delay="2">
-              <Link href="#pricing" className="btn btn-primary">
-                Join The Network <Arrow />
+              <Link href="/membership/apply" className="btn btn-primary">
+                Apply To Join <Arrow />
               </Link>
               <Link href="#benefits" className="btn btn-ghost on-dark">
                 See What&rsquo;s Included
@@ -927,9 +927,9 @@ export default function Membership() {
                   </svg>{" "}
                   Led by a nominated Captain
                 </span>
-                <a href="#" className="btn btn-primary">
-                  Join The Network <Arrow />
-                </a>
+                <Link href="/membership/apply" className="btn btn-primary">
+                  Apply To Join <Arrow />
+                </Link>
                 <Link href="/#contact" className="textlink">
                   Have questions? Start a conversation <Arrow />
                 </Link>
@@ -1092,8 +1092,8 @@ export default function Membership() {
             change.
           </p>
           <div className="actions" data-reveal data-delay="2">
-            <Link href="#pricing" className="btn btn-primary">
-              Join The Network <Arrow />
+            <Link href="/membership/apply" className="btn btn-primary">
+              Apply To Join <Arrow />
             </Link>
             <Link href="/#contact" className="btn btn-ghost on-dark">
               Start the Conversation
