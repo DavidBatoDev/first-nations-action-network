@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { EXTERNAL_LINKS } from "@/lib/external-links";
 
 export default function Footer() {
   return (
@@ -68,10 +69,24 @@ export default function Footer() {
                 <Link href="/#contact">Contact</Link>
               </li>
               <li>
-                <Link href="/donate">Donate</Link>
+                <a
+                  href={EXTERNAL_LINKS.donate}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Donate (opens in a new tab)"
+                >
+                  Donate
+                </a>
               </li>
               <li>
-                <Link href="/shop">Shop</Link>
+                <a
+                  href={EXTERNAL_LINKS.shop}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Shop (opens in a new tab)"
+                >
+                  Shop
+                </a>
               </li>
             </ul>
           </div>

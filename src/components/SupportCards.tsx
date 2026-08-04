@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Arrow, Tick } from "@/components/icons";
+import { EXTERNAL_LINKS } from "@/lib/external-links";
 
 export default function SupportCards() {
   return (
@@ -53,9 +53,15 @@ export default function SupportCards() {
               </li>
             ))}
           </ul>
-          <Link href="/donate" className="btn btn-primary sc-cta">
+          <a
+            href={EXTERNAL_LINKS.donate}
+            className="btn btn-primary sc-cta"
+            target="_blank"
+            rel="noopener"
+            aria-label="Make a Donation (opens in a new tab)"
+          >
             Make a Donation <Arrow />
-          </Link>
+          </a>
         </div>
       </article>
 
@@ -127,9 +133,15 @@ export default function SupportCards() {
               </div>
             </figure>
           </div>
-          <Link href="/shop" className="btn btn-ochre sc-cta">
+          <a
+            href={EXTERNAL_LINKS.shop}
+            className="btn btn-ochre sc-cta"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit the Shop (opens in a new tab)"
+          >
             Visit the Shop <Arrow />
-          </Link>
+          </a>
         </div>
       </article>
     </div>

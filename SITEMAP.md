@@ -27,8 +27,8 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 ├── /membership — Membership information and joining journey
 │   └── /membership/apply — Version 1 organisation application and Action Network handoff
 ├── /allyship — First Nations Allies introduction
-├── /donate — Donation options and contribution outcomes (payment mockup)
-├── /shop — First Nations Action Network and Allies merchandise (shop mockup)
+├── /donate — Compatibility redirect to the Action Network fundraiser
+├── /shop — Compatibility redirect to the external merchandise store
 ├── /training — Training and Development service overview
 ├── /directory — Public Community Directory foundation
 ├── /stories — Public Community Stories Library foundation
@@ -57,20 +57,20 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | Browse events from the navigation | `/#events` | Retains the homepage section behaviour; the Events navigation item also exposes a “View Upcoming Events” link to `/events`. |
 | Browse the community directory and resources | `/directory` | Public directory foundation; approved listings are being populated. |
 | Contact or book a conversation | `/#contact` | Footer contact area. |
-| Support the movement | `/#support` | Homepage section linking to the donation and shop journeys. |
-| Make a donation | `/donate` | Donation tiers and recurrence preview; payment processing is not yet connected. |
-| Shop merchandise | `/shop` | Merchandise and indicative pricing preview; ordering is not yet connected. |
+| Support the movement | `/#support` | Homepage section linking directly to the external fundraiser and merchandise store. |
+| Make a donation | External Action Network fundraiser | `/donate` remains available as a temporary compatibility redirect. |
+| Shop merchandise | External Print Bar store | `/shop` remains available as a temporary compatibility redirect. |
 
 ## Search-engine routes
 
-- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/membership`, `/membership/apply`, `/allyship`, `/donate`, `/shop`, `/training`, `/directory`, `/stories`, `/resources`, and `/events`.
+- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/membership`, `/membership/apply`, `/allyship`, `/training`, `/directory`, `/stories`, `/resources`, and `/events`. External fundraiser and merchandise destinations are not included.
 - `/robots.txt` — generated from `src/app/robots.ts`; points crawlers to the XML sitemap.
 
 ## Planned or deferred routes
 
 These are not standalone public pages in the current launch site:
 
-- Connected shop checkout and donation payment processing
+- On-site shop checkout and donation payment processing
 - Contact or booking form
 - Login and member portal
 - Member content submission
