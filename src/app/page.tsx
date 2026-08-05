@@ -131,6 +131,11 @@ export default async function Home() {
                 <p>Shared resources driving impact for change.</p>
               </div>
             </div>
+            <div className="actions" style={{ marginTop: 28 }}>
+              <Link href="/who-we-are" className="btn btn-ghost">
+                Explore Who We Are <Arrow />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

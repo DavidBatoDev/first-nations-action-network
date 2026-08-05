@@ -11,6 +11,8 @@ type NavProps = {
   links: NavLink[];
   exploreHref: string;
   joinHref: string;
+  /** Force the solid/light appearance (for pages that open on a light section). */
+  solid?: boolean;
 };
 
 export default function Nav({
@@ -18,6 +20,7 @@ export default function Nav({
   links,
   exploreHref,
   joinHref,
+  solid = false,
 }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -85,7 +88,7 @@ export default function Nav({
 
   return (
     <nav
-      className={`nav${scrolled ? " scrolled" : ""}${
+      className={`nav${solid || scrolled ? " scrolled" : ""}${
         menuOpen ? " menu-open" : ""
       }`}
     >

@@ -219,7 +219,6 @@ Sections may include:
 * Donate / Support the Network
 
 # **Learn**
-
 * Free: Foundational support for the groups. Some initial training on how to use the platform.  Do's and Don’ts.
 * Paid: Teach them group incorporation process, group administration (online based)
 * Paid: Brand development, website, and social media presence/ongoing management  
