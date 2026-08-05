@@ -8,3 +8,35 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 Before scoping or changing product content, read the [project documentation
 index](docs/INDEX.md) and then the documents relevant to the task.
+
+## Current implementation invariants
+
+### Action Network
+
+- Public events are loaded server-side through the read-only integration in
+  `src/lib/action-network.ts`. Its detailed contract and rollout checklist live
+  in `docs/action-network-api/fnan-integration.md`.
+- Store the group API key only as `ACTION_NETWORK_API_KEY` in `.env.local` and
+  the deployment environment. Never expose it through a `NEXT_PUBLIC_` variable,
+  client component, browser request, log, or documentation.
+- The public feed includes only confirmed, public, non-hidden events with the
+  required Action Network fields. Registration remains on each event's external
+  `browser_url`; the website does not create people or attendance records.
+- Keep this integration GET-only unless a separately approved feature explicitly
+  adds secure server-side writes. Stripe-to-Action-Network synchronisation is not
+  part of the current implementation.
+- The homepage shows the nearest upcoming events in chronological order. The
+  Events and Discover lists show newest first; Calendar retains chronological
+  date behaviour.
+- `/membership/apply` uses the separate
+  `ACTION_NETWORK_MEMBERSHIP_FORM_SLUG` widget configuration documented in
+  `docs/Action Network Membership Form Setup.md`. Do not substitute the API key
+  for the public widget slug.
+
+### Donations and merchandise
+
+- Donation and shop destinations are external and are centralised in
+  `src/lib/external-links.ts`. Support cards and footer links go directly to
+  those destinations, while `/donate` and `/shop` are compatibility redirects.
+- Do not restore local donation modals, transaction handling, product listings,
+  carts, or checkout flows unless the product scope changes explicitly.

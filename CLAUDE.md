@@ -1,4 +1,5 @@
 @AGENTS.md
 
-Read the [project documentation index](docs/INDEX.md) before scoping or
-changing product content.
+`AGENTS.md` is the canonical agent handoff for this repository. Follow its
+project-documentation requirement and current implementation invariants rather
+than duplicating or overriding them here.

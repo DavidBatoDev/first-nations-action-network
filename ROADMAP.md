@@ -55,6 +55,15 @@ This is the paste-ready source for the project roadmap in Proyekto. All tasks ar
 - [ ] Build and link the Explore Allyship page using Steve-approved content. **Blocked: final content and destination.** — Assignee: Joshua
 - [ ] Verify the homepage and navigation allyship CTAs direct to the completed page. — Assignee: Joshua
 
+## Feature: Support the movement
+
+### Tasks
+
+- [x] Centralise the approved Action Network fundraiser and external merchandise-store URLs. — Assignee: Joshua
+- [x] Link homepage, allyship, and footer support actions directly to the external destinations. — Assignee: Joshua
+- [x] Convert `/donate` and `/shop` into compatibility redirects for existing links. — Assignee: Joshua
+- [x] Keep donation transactions and merchandise checkout off-site; do not maintain local donation modals, carts, or checkout flows. — Assignee: Joshua
+
 ## Feature: Training & Development page
 
 ### Tasks
@@ -88,11 +97,14 @@ This is the paste-ready source for the project roadmap in Proyekto. All tasks ar
 
 ### Tasks
 
-- [ ] Define the Version 1 event-card fields and the manual event-entry process. — Assignee: Joshua
+- [x] Define the Version 1 Action Network event mapping, publishing rules, and optional `type:` and `format:` tag conventions. — Assignee: Joshua
 - [x] Build the standalone Upcoming Events page with Events, Calendar, and Discover views, plus a clear “Join the Network” CTA. — Assignee: Joshua
 - [x] Connect the homepage events CTA and “View Upcoming Events” action to the standalone events page. — Assignee: Joshua
-- [ ] Replace placeholder events with approved event content or an honest empty state before launch. — Assignee: Joshua
-- [ ] Confirm event source priorities and publishing ownership with Steve. **Blocked: Steve clarification meeting.** — Assignee: Joshua
+- [x] Replace placeholder events with the read-only Action Network event feed and honest unavailable or empty states. — Assignee: Joshua
+- [x] Keep the Action Network API key server-only and implement pagination, caching, rate-limit pacing, retries, and safe event-description mapping. — Assignee: Joshua
+- [x] Link registration actions to each event's external Action Network page without creating people or attendance records on the FNAN website. — Assignee: Joshua
+- [x] Show Events and Discover results newest-first while retaining chronological homepage and Calendar behaviour. — Assignee: Joshua
+- [ ] Confirm Action Network event publishing ownership, required tags, and the ongoing operational process with Steve. **Blocked: Steve clarification meeting.** — Assignee: Joshua
 
 ## Feature: Core launch readiness
 
@@ -132,6 +144,7 @@ This is the paste-ready source for the project roadmap in Proyekto. All tasks ar
 
 ### Tasks
 
+- [x] Use the FNAN Action Network group as the Version 1 source for public confirmed events. — Assignee: Joshua
 - [ ] Research suitable external event sources and their permitted collection methods. — Assignee: Joshua
 - [ ] Define event-ingestion fields, duplicate handling, and source attribution. — Assignee: Joshua
 - [ ] Design the moderation workflow so collected events require approval before publication. — Assignee: Joshua
