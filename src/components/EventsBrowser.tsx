@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
-  EVENTS,
   dateKey,
   dateParts,
   isPastEvent,
   longDate,
   sortEvents,
+  sortEventsNewestFirst,
   type CommunityEvent,
+  type EventFeedStatus,
 } from "@/lib/events";
 
 type Tab = "events" | "calendar" | "discover";
@@ -19,9 +20,11 @@ const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 function EventCard({
   event,
+  past = false,
   showDate = false,
 }: {
   event: CommunityEvent;
+  past?: boolean;
   showDate?: boolean;
 }) {
   return (
@@ -43,6 +46,16 @@ function EventCard({
         {event.location} <span className="event-card-divider">·</span>{" "}
         {event.time}
       </div>
+      <a
+        href={event.registrationUrl}
+        className="event-card-cta textlink"
+        target="_blank"
+        rel="noopener"
+        aria-label={`${past ? "View" : "Register for"} ${event.title} on Action Network (opens in a new tab)`}
+      >
+        {past ? "View on Action Network" : "Register on Action Network"}{" "}
+        <span aria-hidden="true">→</span>
+      </a>
     </article>
   );
 }
@@ -65,7 +78,13 @@ function EmptyEvents({ message }: { message: string }) {
   );
 }
 
-export default function EventsBrowser() {
+export default function EventsBrowser({
+  events,
+  status,
+}: {
+  events: CommunityEvent[];
+  status: EventFeedStatus;
+}) {
   const [activeTab, setActiveTab] = useState<Tab>("events");
   const [eventMode, setEventMode] = useState<EventMode>("upcoming");
   const [today] = useState(() => new Date());
@@ -77,16 +96,17 @@ export default function EventsBrowser() {
   const [typeFilter, setTypeFilter] = useState("All types");
   const [formatFilter, setFormatFilter] = useState("All formats");
 
-  const sortedEvents = useMemo(() => sortEvents(EVENTS), []);
-  const visibleEvents = sortedEvents.filter((event) =>
+  const chronologicalEvents = useMemo(() => sortEvents(events), [events]);
+  const newestEvents = useMemo(() => sortEventsNewestFirst(events), [events]);
+  const visibleEvents = newestEvents.filter((event) =>
     eventMode === "past" ? isPastEvent(event, today) : !isPastEvent(event, today),
   );
-  const types = [...new Set(sortedEvents.map((event) => event.type))];
-  const formats = [...new Set(sortedEvents.map((event) => event.format))];
+  const types = [...new Set(newestEvents.map((event) => event.type))];
+  const formats = [...new Set(newestEvents.map((event) => event.format))];
 
   const eventDates = useMemo(
-    () => new Map(sortedEvents.map((event) => [event.date, event])),
-    [sortedEvents],
+    () => new Map(chronologicalEvents.map((event) => [event.date, event])),
+    [chronologicalEvents],
   );
 
   const calendarDays = useMemo(() => {
@@ -101,10 +121,10 @@ export default function EventsBrowser() {
   }, [calendarMonth]);
 
   const selectedEvents = selectedDate
-    ? sortedEvents.filter((event) => event.date === selectedDate)
+    ? chronologicalEvents.filter((event) => event.date === selectedDate)
     : [];
 
-  const discoveredEvents = sortedEvents.filter((event) => {
+  const discoveredEvents = newestEvents.filter((event) => {
     const text = [
       event.title,
       event.type,
@@ -123,7 +143,7 @@ export default function EventsBrowser() {
   const selectTab = (tab: Tab) => {
     setActiveTab(tab);
     if (tab === "calendar" && !selectedDate) {
-      const firstEventThisMonth = sortedEvents.find((event) => {
+      const firstEventThisMonth = chronologicalEvents.find((event) => {
         const date = new Date(event.date + "T12:00:00");
         return (
           date.getFullYear() === calendarMonth.getFullYear() &&
@@ -140,7 +160,7 @@ export default function EventsBrowser() {
       calendarMonth.getMonth() + direction,
       1,
     );
-    const firstEventNextMonth = sortedEvents.find((event) => {
+    const firstEventNextMonth = chronologicalEvents.find((event) => {
       const date = new Date(event.date + "T12:00:00");
       return (
         date.getFullYear() === nextMonth.getFullYear() &&
@@ -160,6 +180,16 @@ export default function EventsBrowser() {
   return (
     <section id="events-browser" className="events-browser sec">
       <div className="wrap">
+        {status !== "ready" ? (
+          <div className="events-source-notice" role="status">
+            <strong>Live event listings are temporarily unavailable.</strong>
+            <span>
+              {status === "unconfigured"
+                ? "The Action Network connection has not been configured yet."
+                : "Please check back shortly while the event connection recovers."}
+            </span>
+          </div>
+        ) : null}
         <div className="events-tabs" role="tablist" aria-label="Browse events">
           {(
             [
@@ -226,7 +256,7 @@ export default function EventsBrowser() {
                         <small>{month}</small>
                       </time>
                       <span className="timeline-node" aria-hidden="true" />
-                      <EventCard event={event} />
+                      <EventCard event={event} past={eventMode === "past"} />
                     </div>
                   );
                 })}
@@ -302,7 +332,13 @@ export default function EventsBrowser() {
                   <>
                     <p className="calendar-selection-label">{longDate(selectedDate)}</p>
                     {selectedEvents.length ? (
-                      selectedEvents.map((event) => <EventCard event={event} key={event.id} />)
+                      selectedEvents.map((event) => (
+                        <EventCard
+                          event={event}
+                          past={isPastEvent(event, today)}
+                          key={event.id}
+                        />
+                      ))
                     ) : (
                       <p className="calendar-no-events">No events are scheduled for this day.</p>
                     )}
@@ -366,7 +402,14 @@ export default function EventsBrowser() {
             </p>
             {discoveredEvents.length ? (
               <div className="discover-results">
-                {discoveredEvents.map((event) => <EventCard event={event} showDate key={event.id} />)}
+                {discoveredEvents.map((event) => (
+                  <EventCard
+                    event={event}
+                    past={isPastEvent(event, today)}
+                    showDate
+                    key={event.id}
+                  />
+                ))}
               </div>
             ) : (
               <EmptyEvents message="No events match those filters." />

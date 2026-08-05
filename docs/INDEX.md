@@ -28,6 +28,7 @@ replace the source documents.
 
 - [Onboarding meeting notes](onboard-meeting-notes.md) — current priorities, launch constraints, decisions, and open questions.
 - [Onboarding meeting transcript](onboard-meeting-transcript.md) — full discussion record and supporting context for the onboarding decisions.
+- [Action Network API integration](action-network-api/fnan-integration.md) — selected read-only endpoints, event publishing rules, credentials, and operational checklist.
 
 ## Documents to validate before use
 

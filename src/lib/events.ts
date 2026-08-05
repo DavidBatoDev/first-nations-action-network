@@ -3,49 +3,23 @@ export type EventFormat = "In person" | "Online";
 export type CommunityEvent = {
   id: string;
   date: string;
+  endDate?: string;
   title: string;
   type: string;
   format: EventFormat;
   location: string;
   time: string;
   description: string;
+  imageUrl?: string;
+  registrationUrl: string;
 };
 
-export const EVENTS: CommunityEvent[] = [
-  {
-    id: "community-organising-foundations",
-    date: "2026-07-12",
-    title: "Community Organising Foundations",
-    type: "Workshop",
-    format: "In person",
-    location: "Naarm / Melbourne",
-    time: "9:30am–3:00pm",
-    description:
-      "A practical day for people building relationships, participation and momentum in their communities.",
-  },
-  {
-    id: "leadership-in-practice",
-    date: "2026-07-29",
-    title: "Leadership in Practice: A National Conversation",
-    type: "Forum",
-    format: "Online",
-    location: "Online",
-    time: "1:00pm–2:30pm AEST",
-    description:
-      "A national conversation on community leadership, shared learning and the work of sustaining collective action.",
-  },
-  {
-    id: "first-nations-allies-yarning-circle",
-    date: "2026-08-14",
-    title: "First Nations Allies Yarning Circle",
-    type: "Gathering",
-    format: "In person",
-    location: "Meanjin / Brisbane",
-    time: "10:00am–1:00pm",
-    description:
-      "A space for allies to listen, connect and strengthen practical support for First Nations-led change.",
-  },
-];
+export type EventFeedStatus = "ready" | "unconfigured" | "error";
+
+export type EventFeed = {
+  events: CommunityEvent[];
+  status: EventFeedStatus;
+};
 
 const MONTHS_SHORT = [
   "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -87,11 +61,15 @@ export function sortEvents(events: CommunityEvent[]) {
   return [...events].sort((a, b) => a.date.localeCompare(b.date));
 }
 
+export function sortEventsNewestFirst(events: CommunityEvent[]) {
+  return [...events].sort((a, b) => b.date.localeCompare(a.date));
+}
+
 export function isPastEvent(event: CommunityEvent, today: Date) {
   const startOfToday = new Date(
     today.getFullYear(),
     today.getMonth(),
     today.getDate(),
   );
-  return dateFromKey(event.date) < startOfToday;
+  return dateFromKey(event.endDate ?? event.date) < startOfToday;
 }

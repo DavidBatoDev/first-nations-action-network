@@ -5,7 +5,8 @@ import ImageSlot from "@/components/ImageSlot";
 import LogoCarousel from "@/components/LogoCarousel";
 import { Tick, Arrow } from "@/components/icons";
 import SupportCards from "@/components/SupportCards";
-import { EVENTS, dateParts } from "@/lib/events";
+import { getActionNetworkEvents } from "@/lib/action-network";
+import { dateParts, isPastEvent, sortEvents } from "@/lib/events";
 
 const navLinks: NavLink[] = [
   { label: "Who We Are", href: "#who" },
@@ -15,7 +16,12 @@ const navLinks: NavLink[] = [
   { label: "Directory", href: "#resources" },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const eventFeed = await getActionNetworkEvents();
+  const upcomingEvents = sortEvents(eventFeed.events)
+    .filter((event) => !isPastEvent(event, new Date()))
+    .slice(0, 3);
+
   return (
     <>
       <Nav
@@ -529,7 +535,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="events-list">
-            {EVENTS.map((event, index) => {
+            {upcomingEvents.map((event, index) => {
               const { day, month } = dateParts(event.date);
               return (
                 <div
@@ -551,12 +557,32 @@ export default function Home() {
                       {event.location} · {event.time}
                     </div>
                   </div>
-                  <Link href="/events" className="ev-cta">
-                    View event <span>→</span>
-                  </Link>
+                  <a
+                    href={event.registrationUrl}
+                    className="ev-cta"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label={`Register for ${event.title} on Action Network (opens in a new tab)`}
+                  >
+                    Register <span>→</span>
+                  </a>
                 </div>
               );
             })}
+            {!upcomingEvents.length ? (
+              <div className="home-events-empty" role="status">
+                <strong>
+                  {eventFeed.status === "ready"
+                    ? "No upcoming events are listed yet."
+                    : "Live event listings are temporarily unavailable."}
+                </strong>
+                <span>
+                  {eventFeed.status === "unconfigured"
+                    ? "The Action Network connection has not been configured yet."
+                    : "Visit the events page for updates."}
+                </span>
+              </div>
+            ) : null}
           </div>
         </div>
       </section>

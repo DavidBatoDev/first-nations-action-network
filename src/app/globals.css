@@ -2704,6 +2704,18 @@ a.logo-box {
 .ev-row:hover .ev-cta {
   color: var(--ochre-deep);
 }
+.home-events-empty {
+  display: grid;
+  gap: 7px;
+  padding: 30px 8px;
+  border-bottom: 1px solid var(--line);
+  color: #5d574e;
+}
+.home-events-empty strong {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 20px;
+}
 @media (max-width: 760px) {
   .ev-row {
     grid-template-columns: 80px 1fr;
@@ -3874,6 +3886,24 @@ a.logo-box {
 .event-card-divider {
   color: var(--grey);
 }
+.event-card-cta {
+  margin-top: 20px;
+}
+.events-source-notice {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 26px;
+  padding: 16px 18px;
+  border-left: 4px solid var(--yellow);
+  background: var(--cream);
+  color: #5d574e;
+  font-size: 14px;
+}
+.events-source-notice strong {
+  color: var(--ink);
+}
 .events-empty {
   display: flex;
   gap: 20px;
@@ -4129,6 +4159,11 @@ a.logo-box {
   }
   .discover-search {
     grid-column: 1 / -1;
+  }
+  .events-source-notice {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
   }
 }
 @media (max-width: 600px) {

@@ -33,7 +33,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 ├── /directory — Public Community Directory foundation
 ├── /stories — Public Community Stories Library foundation
 ├── /resources — Public member-learning library preview
-└── /events — Public events hub
+└── /events — Public events hub powered by Action Network
     ├── Events — Upcoming and past event views
     ├── Calendar — Calendar view
     └── Discover — Public event discovery
@@ -53,7 +53,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | Explore resources | `/resources` | Public member-learning preview with three provisional homepage resources and non-indexed detail views; content requires approval. |
 | Join the Network | `/membership` | Version 1 is an information and enquiry journey; Stripe Checkout is deferred. |
 | Apply for membership | `/membership/apply` | Organisation application; shows an honest unavailable state until the approved Action Network widget is configured. |
-| Browse upcoming events | `/events` | The homepage “View Upcoming Events” action goes here. |
+| Browse upcoming events | `/events` | Public confirmed events are loaded from Action Network; registration remains on each Action Network event page. |
 | Browse events from the navigation | `/#events` | Retains the homepage section behaviour; the Events navigation item also exposes a “View Upcoming Events” link to `/events`. |
 | Browse the community directory and resources | `/directory` | Public directory foundation; approved listings are being populated. |
 | Contact or book a conversation | `/#contact` | Footer contact area. |

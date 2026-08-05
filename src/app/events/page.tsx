@@ -3,6 +3,7 @@ import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
 import EventsBrowser from "@/components/EventsBrowser";
+import { getActionNetworkEvents } from "@/lib/action-network";
 
 const EVENTS_DESCRIPTION =
   "Discover public First Nations Action Network workshops, forums and gatherings across Australia.";
@@ -25,7 +26,9 @@ const navLinks: NavLink[] = [
   { label: "Directory", href: "/#resources" },
 ];
 
-export default function EventsPage() {
+export default async function EventsPage() {
+  const eventFeed = await getActionNetworkEvents();
+
   return (
     <>
       <Nav
@@ -59,7 +62,7 @@ export default function EventsPage() {
       </header>
 
       <main className="events-page">
-        <EventsBrowser />
+        <EventsBrowser events={eventFeed.events} status={eventFeed.status} />
       </main>
 
       <section className="events-join">
