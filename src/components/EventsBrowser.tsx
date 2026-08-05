@@ -10,7 +10,6 @@ import {
   sortEvents,
   sortEventsNewestFirst,
   type CommunityEvent,
-  type EventFeedStatus,
 } from "@/lib/events";
 
 type Tab = "events" | "calendar" | "discover";
@@ -63,7 +62,6 @@ function EventCard({
 function EmptyEvents({ message }: { message: string }) {
   return (
     <div className="events-empty">
-      <span className="events-empty-mark" aria-hidden="true">+</span>
       <div>
         <h3>{message}</h3>
         <p>
@@ -80,10 +78,8 @@ function EmptyEvents({ message }: { message: string }) {
 
 export default function EventsBrowser({
   events,
-  status,
 }: {
   events: CommunityEvent[];
-  status: EventFeedStatus;
 }) {
   const [activeTab, setActiveTab] = useState<Tab>("events");
   const [eventMode, setEventMode] = useState<EventMode>("upcoming");
@@ -180,16 +176,6 @@ export default function EventsBrowser({
   return (
     <section id="events-browser" className="events-browser sec">
       <div className="wrap">
-        {status !== "ready" ? (
-          <div className="events-source-notice" role="status">
-            <strong>Live event listings are temporarily unavailable.</strong>
-            <span>
-              {status === "unconfigured"
-                ? "The Action Network connection has not been configured yet."
-                : "Please check back shortly while the event connection recovers."}
-            </span>
-          </div>
-        ) : null}
         <div className="events-tabs" role="tablist" aria-label="Browse events">
           {(
             [
@@ -265,8 +251,8 @@ export default function EventsBrowser({
               <EmptyEvents
                 message={
                   eventMode === "upcoming"
-                    ? "No upcoming events are listed yet."
-                    : "No past events are listed yet."
+                    ? "No events yet. Stay tuned!"
+                    : "No past events yet."
                 }
               />
             )}

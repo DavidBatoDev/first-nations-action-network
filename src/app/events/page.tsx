@@ -62,7 +62,7 @@ export default async function EventsPage() {
       </header>
 
       <main className="events-page">
-        <EventsBrowser events={eventFeed.events} status={eventFeed.status} />
+        <EventsBrowser events={eventFeed.events} />
       </main>
 
       <section className="events-join">
