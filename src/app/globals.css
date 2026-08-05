@@ -5501,3 +5501,12 @@ button {
     padding-top: 100px;
   }
 }
+
+/* Footer newsletter subscribe button */
+.foot .foot-subscribe {
+  margin-top: 22px;
+  color: var(--black);
+}
+.foot .foot-subscribe:hover {
+  color: var(--black);
+}

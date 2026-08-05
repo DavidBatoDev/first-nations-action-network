@@ -21,6 +21,15 @@ export default function Footer() {
               through community organising, leadership development and
               collective action.
             </p>
+            <a
+              href={EXTERNAL_LINKS.subscribe}
+              target="_blank"
+              rel="noopener"
+              className="btn btn-primary btn-sm foot-subscribe"
+              aria-label="Subscribe to updates (opens in a new tab)"
+            >
+              Subscribe to updates
+            </a>
           </div>
           <div>
             <h5>Network</h5>
