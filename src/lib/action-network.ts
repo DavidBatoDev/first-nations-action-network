@@ -1,7 +1,14 @@
 import type { CommunityEvent, EventFeed, EventFormat } from "@/lib/events";
+import type {
+  ActionFeed,
+  ActionKind,
+  CommunityAction,
+} from "@/lib/community-actions";
 
 const API_BASE_URL = "https://actionnetwork.org/api/v2";
 const EVENTS_URL = `${API_BASE_URL}/events?per_page=25`;
+const PETITIONS_URL = `${API_BASE_URL}/petitions?per_page=25`;
+const SURVEYS_URL = `${API_BASE_URL}/surveys?per_page=25`;
 const REQUEST_TIMEOUT_MS = 10_000;
 const PAGE_DELAY_MS = 260;
 const MAX_PAGES = 200;
@@ -10,12 +17,21 @@ const MAX_RETRIES = 2;
 type HalLink = { href?: unknown };
 
 type ActionNetworkCollection = {
-  _embedded?: {
-    "osdi:events"?: unknown;
-  };
+  _embedded?: Record<string, unknown>;
   _links?: {
     next?: HalLink;
   };
+};
+
+type ActionNetworkAction = {
+  identifiers?: unknown;
+  title?: unknown;
+  name?: unknown;
+  description?: unknown;
+  browser_url?: unknown;
+  total_signatures?: unknown;
+  total_responses?: unknown;
+  "action_network:hidden"?: unknown;
 };
 
 type ActionNetworkEvent = {
@@ -261,5 +277,99 @@ export async function getActionNetworkEvents(): Promise<EventFeed> {
       error instanceof ActionNetworkRequestError ? error.status : "network";
     console.error(`Action Network events could not be loaded (${status}).`);
     return { events: [], status: "error" };
+  }
+}
+
+
+function isPublicAction(action: ActionNetworkAction) {
+  return (
+    action["action_network:hidden"] === false &&
+    Boolean(stringValue(action.browser_url))
+  );
+}
+
+function numberValue(value: unknown) {
+  return typeof value === "number" && Number.isFinite(value) ? value : undefined;
+}
+
+export function mapActionNetworkAction(
+  value: unknown,
+  kind: ActionKind,
+): CommunityAction | null {
+  if (!value || typeof value !== "object") return null;
+  const action = value as ActionNetworkAction;
+  if (!isPublicAction(action)) return null;
+
+  const id = nativeIdentifier(action.identifiers);
+  const title = stringValue(action.title) ?? stringValue(action.name);
+  const actionUrl = stringValue(action.browser_url);
+  if (!id || !title || !actionUrl) return null;
+
+  const description = stringValue(action.description);
+  const supporterCount =
+    kind === "Petition"
+      ? numberValue(action.total_signatures)
+      : numberValue(action.total_responses);
+
+  return {
+    id,
+    kind,
+    title,
+    description: description ? summary(plainText(description), 200) : undefined,
+    actionUrl,
+    supporterCount,
+  };
+}
+
+async function collectRecords(
+  startUrl: string,
+  embeddedKey: string,
+  apiKey: string,
+) {
+  const records: unknown[] = [];
+  const visited = new Set<string>();
+  let nextUrl: string | undefined = startUrl;
+
+  while (nextUrl && visited.size < MAX_PAGES) {
+    if (visited.has(nextUrl)) break;
+    visited.add(nextUrl);
+
+    const page = await fetchCollectionPage(nextUrl, apiKey);
+    const items = page._embedded?.[embeddedKey];
+    if (Array.isArray(items)) records.push(...items);
+
+    const nextHref = stringValue(page._links?.next?.href);
+    nextUrl = nextHref?.startsWith(API_BASE_URL) ? nextHref : undefined;
+    if (nextUrl) await wait(PAGE_DELAY_MS);
+  }
+
+  return records;
+}
+
+export async function getActionNetworkActions(): Promise<ActionFeed> {
+  if (typeof window !== "undefined") {
+    throw new Error("Action Network data can only be loaded on the server.");
+  }
+
+  const apiKey = process.env.ACTION_NETWORK_API_KEY?.trim();
+  if (!apiKey) return { actions: [], status: "unconfigured" };
+
+  try {
+    const [petitions, surveys] = await Promise.all([
+      collectRecords(PETITIONS_URL, "osdi:petitions", apiKey),
+      collectRecords(SURVEYS_URL, "osdi:surveys", apiKey),
+    ]);
+
+    const actions = [
+      ...petitions.map((record) => mapActionNetworkAction(record, "Petition")),
+      ...surveys.map((record) => mapActionNetworkAction(record, "Survey")),
+    ].filter((action): action is CommunityAction => action !== null);
+
+    return { actions, status: "ready" };
+  } catch (error) {
+    const status =
+      error instanceof ActionNetworkRequestError ? error.status : "network";
+    console.error(`Action Network actions could not be loaded (${status}).`);
+    return { actions: [], status: "error" };
   }
 }

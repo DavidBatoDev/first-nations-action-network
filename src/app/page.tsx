@@ -5,7 +5,10 @@ import ImageSlot from "@/components/ImageSlot";
 import LogoCarousel from "@/components/LogoCarousel";
 import { Tick, Arrow } from "@/components/icons";
 import SupportCards from "@/components/SupportCards";
-import { getActionNetworkEvents } from "@/lib/action-network";
+import {
+  getActionNetworkActions,
+  getActionNetworkEvents,
+} from "@/lib/action-network";
 import { dateParts, isPastEvent, sortEvents } from "@/lib/events";
 
 const navLinks: NavLink[] = [
@@ -18,6 +21,7 @@ const navLinks: NavLink[] = [
 
 export default async function Home() {
   const eventFeed = await getActionNetworkEvents();
+  const actionFeed = await getActionNetworkActions();
   const upcomingEvents = sortEvents(eventFeed.events)
     .filter((event) => !isPastEvent(event, new Date()))
     .slice(0, 3);
@@ -590,7 +594,71 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* ============ RESOURCES ============ */}
+        {/* ============ TAKE ACTION ============ */}
+      <section id="take-action" className="sec">
+        <div className="wrap">
+          <div className="sec-head" data-reveal>
+            <span className="kicker">Take action</span>
+            <h2>
+              Add Your <span className="em-action">Voice</span>
+            </h2>
+            <p className="lead">
+              Sign open petitions and share your views through community
+              surveys — every voice strengthens the movement.
+            </p>
+          </div>
+          {actionFeed.actions.length ? (
+            <div className="action-list">
+              {actionFeed.actions.map((action, index) => (
+                <a
+                  key={action.id}
+                  href={action.actionUrl}
+                  className="action-row"
+                  target="_blank"
+                  rel="noopener"
+                  data-reveal
+                  data-delay={index ? String(Math.min(index, 3)) : undefined}
+                  aria-label={`${
+                    action.kind === "Petition" ? "Sign" : "Respond to"
+                  } ${action.title} on Action Network (opens in a new tab)`}
+                >
+                  <span
+                    className={`action-tag action-tag-${action.kind.toLowerCase()}`}
+                  >
+                    {action.kind}
+                  </span>
+                  <span className="action-main">
+                    <h3>{action.title}</h3>
+                    {action.supporterCount ? (
+                      <span className="action-meta">
+                        {action.supporterCount.toLocaleString()}{" "}
+                        {action.kind === "Petition" ? "signatures" : "responses"}
+                      </span>
+                    ) : null}
+                  </span>
+                  <span className="action-cta">
+                    {action.kind === "Petition" ? "Sign" : "Respond"}{" "}
+                    <span aria-hidden="true">→</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div className="home-events-empty" role="status">
+              <strong>Nothing open right now — stay tuned.</strong>
+              <span>
+                Join the Network to hear about new petitions, surveys and ways
+                to take action.
+              </span>
+              <Link href="/membership" className="textlink">
+                Join the Network <Arrow />
+              </Link>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ============ RESOURCES ============ */}
         <section id="resources" className="sec">
           <div className="wrap">
             <div className="sec-head" data-reveal>

@@ -5510,3 +5510,76 @@ button {
 .foot .foot-subscribe:hover {
   color: var(--black);
 }
+
+/* Homepage · Take Action (petitions & surveys) */
+.action-list {
+  margin-top: 8px;
+}
+.action-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 22px;
+  align-items: center;
+  padding: 26px 8px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  transition: background 0.18s ease;
+}
+.action-row:first-child {
+  border-top: 1px solid var(--line);
+}
+.action-row:hover {
+  background: var(--cream);
+}
+.action-tag {
+  align-self: start;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.action-tag-petition {
+  background: var(--yellow);
+  color: var(--ink);
+}
+.action-tag-survey {
+  background: var(--ink);
+  color: #fff;
+}
+.action-main h3 {
+  font-size: clamp(19px, 2vw, 24px);
+  line-height: 1.2;
+}
+.action-meta {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--grey);
+}
+.action-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--ochre-deep);
+  white-space: nowrap;
+}
+.action-cta span {
+  transition: transform 0.18s ease;
+}
+.action-row:hover .action-cta span {
+  transform: translateX(4px);
+}
+@media (max-width: 640px) {
+  .action-row {
+    grid-template-columns: auto 1fr;
+    gap: 14px 18px;
+  }
+  .action-cta {
+    grid-column: 2;
+    justify-self: start;
+  }
+}

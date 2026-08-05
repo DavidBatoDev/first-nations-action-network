@@ -78,6 +78,9 @@ export default function Footer() {
                 <Link href="/#contact">Contact</Link>
               </li>
               <li>
+                <Link href="/#take-action">Take Action</Link>
+              </li>
+              <li>
                 <a
                   href={EXTERNAL_LINKS.donate}
                   target="_blank"
