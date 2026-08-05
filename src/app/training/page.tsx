@@ -125,7 +125,7 @@ export default function TrainingPage() {
               </h2>
               <div className="body" style={{ marginTop: 24 }}>
                 <p>
-                  FNAN supports organisations, businesses, government agencies
+                  The First Nations Action Network supports organisations, businesses, government agencies
                   and communities seeking practical learning and meaningful
                   engagement.
                 </p>
@@ -173,7 +173,7 @@ export default function TrainingPage() {
               <span className="kicker">Ways to learn</span>
               <h2>Start With A Conversation.</h2>
               <p className="lead">
-                Talk with FNAN about workshop, learning and capacity-building
+                Talk with the Network about workshop, learning and capacity-building
                 opportunities for your organisation, team or community.
               </p>
             </div>

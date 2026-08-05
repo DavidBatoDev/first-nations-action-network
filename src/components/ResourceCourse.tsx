@@ -51,7 +51,7 @@ export function formatResourceDuration(durationMinutes: number) {
 
 /**
  * Presentation structure for approved catalogue records. It is intentionally
- * not rendered until FNAN supplies courses and their public-preview rules.
+ * not rendered until the Network supplies courses and their public-preview rules.
  */
 export function ResourceCourseCard({ course }: ResourceCourseCardProps) {
   return (
@@ -139,9 +139,9 @@ export function ResourceLearningLayout({
         ) : (
           <div className="resource-member-gate">
             <span className="eyebrow">Member learning</span>
-            <h1>This lesson is available to FNAN members.</h1>
+            <h1>This lesson is available to Network members.</h1>
             <p>
-              Member access will be available once the FNAN learning library and
+              Member access will be available once the Network learning library and
               sign-in experience are ready.
             </p>
           </div>

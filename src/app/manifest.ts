@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "First Nations Action Network",
-    short_name: "FNAN",
+    short_name: "First Nations Action Network",
     description:
       "A First Nations–led national network strengthening communities through connection, collaboration and action.",
     start_url: "/",

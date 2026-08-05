@@ -1,7 +1,7 @@
 /**
  * Shared site constants used across metadata, robots and sitemap.
  *
- * Set NEXT_PUBLIC_SITE_URL in production (e.g. https://www.fnan.org.au) so that
+ * Set NEXT_PUBLIC_SITE_URL in production (e.g. https://www.firstnationsaction.org) so that
  * Open Graph / canonical / sitemap URLs resolve to absolute links. Falls back
  * to a placeholder domain for local development.
  */

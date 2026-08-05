@@ -19,7 +19,7 @@ type CommunityStoryProps = {
 
 /**
  * Presentation structures for approved public stories. They remain unused until
- * FNAN has confirmed publication approval and public-use permissions.
+ * the Network has confirmed publication approval and public-use permissions.
  */
 export function CommunityStoryCard({ story }: CommunityStoryProps) {
   return (

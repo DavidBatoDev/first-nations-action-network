@@ -38,13 +38,13 @@ const applicationSteps = [
   },
   {
     number: "02",
-    title: "FNAN reviews your application",
+    title: "The Network reviews your application",
     copy: "The Network considers how membership can support your goals.",
   },
   {
     number: "03",
     title: "Discuss the next steps",
-    copy: "FNAN contacts your nominated person about membership and onboarding.",
+    copy: "The Network contacts your nominated person about membership and onboarding.",
   },
 ] as const;
 
@@ -83,7 +83,7 @@ export default function MembershipApplicationPage() {
               <div className="application-trust" aria-label="Application assurances">
                 <span><Tick size={12} /> Organisation-first</span>
                 <span><Tick size={12} /> No payment today</span>
-                <span><Tick size={12} /> Reviewed by FNAN</span>
+                <span><Tick size={12} /> Reviewed by the Network</span>
               </div>
             </div>
           </div>
@@ -128,7 +128,7 @@ export default function MembershipApplicationPage() {
                 <h2>Tell Us About Your Organisation</h2>
                 <p>
                   The nominated contact should be someone who can discuss the
-                  organisation&rsquo;s membership and onboarding with FNAN.
+                  organisation&rsquo;s membership and onboarding with the Network.
                 </p>
               </div>
 

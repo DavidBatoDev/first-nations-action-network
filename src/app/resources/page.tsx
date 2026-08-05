@@ -66,7 +66,7 @@ export default function ResourcesPage() {
               <div>
                 <span className="eyebrow">A member benefit</span>
                 <p>
-                  Resources will help FNAN member organisations learn from
+                  Resources will help member organisations learn from
                   shared experience and apply it in their own communities.
                 </p>
               </div>

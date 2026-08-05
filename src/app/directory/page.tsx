@@ -81,7 +81,7 @@ export default function DirectoryPage() {
                 <span className="em-action">Connection.</span>
               </h2>
               <p className="lead">
-                Search and filters will be available once FNAN has gathered and
+                Search and filters will be available once the Network has gathered and
                 approved public listings.
               </p>
             </div>
@@ -146,7 +146,7 @@ export default function DirectoryPage() {
                 <span className="eyebrow">Coming soon</span>
                 <h3>The directory is being populated.</h3>
                 <p>
-                  FNAN is preparing verified public listings before they are
+                  The Network is preparing verified public listings before they are
                   published here. Check back soon to discover organisations,
                   networks and community initiatives from across Australia.
                 </p>

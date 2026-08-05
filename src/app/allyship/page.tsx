@@ -187,14 +187,14 @@ export default function AllyshipPage() {
               <div>
                 <h3>Shared participation</h3>
                 <p>
-                  FNAN&rsquo;s Code of Conduct will guide participation when the
+                  The Network&rsquo;s Code of Conduct will guide participation when the
                   approved guidance is published.
                 </p>
               </div>
               <div>
                 <h3>Separate from membership</h3>
                 <p>
-                  Adopting the Allies mark is separate from FNAN&rsquo;s paid
+                  Adopting the Allies mark is separate from the Network&rsquo;s paid
                   organisation membership, which provides tools, training,
                   resources and national connections.
                 </p>

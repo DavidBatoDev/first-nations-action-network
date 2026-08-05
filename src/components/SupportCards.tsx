@@ -105,7 +105,7 @@ export default function SupportCards() {
             <figure className="merch-item">
               <div className="m-thumb">
                 <Image
-                  src="/assets/merch-fnan-tee.jpg"
+                  src="/assets/merch-network-tee.jpg"
                   alt="First Nations Action Network black t-shirt"
                   fill
                   sizes="(max-width: 900px) 28vw, 14vw"

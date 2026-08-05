@@ -708,11 +708,14 @@ export default function Membership() {
                 <circle cx="120" cy="120" r="6" />
               </g>
               <circle cx="270" cy="235" r="56" fill="var(--yellow)" />
-              <text x="270" y="228" textAnchor="middle" className="net-center" fontSize="30">
-                FNAN
+              <text x="270" y="219" textAnchor="middle" className="net-center" fontSize="14">
+                First Nations
               </text>
-              <text x="270" y="252" textAnchor="middle" fontFamily="Inter,sans-serif" fontSize="11" fontWeight="600" fill="var(--ink)" letterSpacing="1.5">
-                NETWORK
+              <text x="270" y="238" textAnchor="middle" className="net-center" fontSize="14">
+                Action
+              </text>
+              <text x="270" y="257" textAnchor="middle" className="net-center" fontSize="14">
+                Network
               </text>
             </svg>
           </div>

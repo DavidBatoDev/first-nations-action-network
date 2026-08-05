@@ -148,7 +148,7 @@ export default function StoriesPage() {
                 <span className="eyebrow">Coming soon</span>
                 <h3>Stories are being prepared.</h3>
                 <p>
-                  FNAN is gathering approved stories that reflect the work,
+                  The Network is gathering approved stories that reflect the work,
                   leadership and positive change happening in communities across
                   Australia. Check back soon to read and share them.
                 </p>

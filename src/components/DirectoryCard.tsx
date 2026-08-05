@@ -15,7 +15,7 @@ type DirectoryCardProps = {
 
 /**
  * Presentation structure for approved public directory listings.
- * It is intentionally not rendered until FNAN has verified seed data and
+ * It is intentionally not rendered until the Network has verified seed data and
  * public-listing permission for each organisation.
  */
 export default function DirectoryCard({ listing }: DirectoryCardProps) {

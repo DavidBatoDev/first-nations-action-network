@@ -48,7 +48,7 @@ export default function ActionNetworkMembershipForm({
         </span>
         <h3>Online applications are not open yet</h3>
         <p>
-          The membership application is being connected to FNAN&rsquo;s review
+          The membership application is being connected to the Network&rsquo;s review
           process. No information can be submitted from this page yet.
         </p>
         <Link href="/membership" className="btn btn-ghost">

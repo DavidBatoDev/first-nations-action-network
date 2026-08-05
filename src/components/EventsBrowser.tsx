@@ -349,7 +349,7 @@ export default function EventsBrowser({
             <div className="events-panel-head">
               <div>
                 <span className="kicker">Discover</span>
-                <h2>Find a public FNAN <span className="em-action">event.</span></h2>
+                <h2>Find a public community <span className="em-action">event.</span></h2>
               </div>
               <p className="discover-note">
                 Browse workshops, forums and gatherings promoted by the First
