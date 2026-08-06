@@ -85,7 +85,7 @@ export default function TrainingPage() {
                 learning, cultural engagement and leadership development.
               </p>
               <div className="hero-cta" data-reveal data-delay="3">
-                <Link href="/#contact" className="btn btn-primary">
+                <Link href="/contact" className="btn btn-primary">
                   Book a Conversation <Arrow />
                 </Link>
               </div>
@@ -183,7 +183,7 @@ export default function TrainingPage() {
               ))}
             </div>
             <div className="actions" data-reveal data-delay="2">
-              <Link href="/#contact" className="btn btn-primary">
+              <Link href="/contact" className="btn btn-primary">
                 Book a Conversation <Arrow />
               </Link>
             </div>

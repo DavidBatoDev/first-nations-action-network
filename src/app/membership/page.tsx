@@ -933,7 +933,7 @@ export default function Membership() {
                 <Link href="/membership/apply" className="btn btn-primary">
                   Apply To Join <Arrow />
                 </Link>
-                <Link href="/#contact" className="textlink">
+                <Link href="/contact" className="textlink">
                   Have questions? Start a conversation <Arrow />
                 </Link>
               </div>
@@ -1098,7 +1098,7 @@ export default function Membership() {
             <Link href="/membership/apply" className="btn btn-primary">
               Apply To Join <Arrow />
             </Link>
-            <Link href="/#contact" className="btn btn-ghost on-dark">
+            <Link href="/contact" className="btn btn-ghost on-dark">
               Start the Conversation
             </Link>
           </div>

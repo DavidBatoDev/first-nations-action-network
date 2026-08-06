@@ -2,17 +2,31 @@
 
 import Link from "next/link";
 import Script from "next/script";
+import type { ReactNode } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 type FormStatus = "loading" | "ready" | "error";
 
-type ActionNetworkMembershipFormProps = {
+type ActionNetworkFormProps = {
+  /** Public Action Network widget slug (never the API key). */
   slug?: string;
+  loadingLabel?: string;
+  errorTitle?: string;
+  errorBody?: string;
+  unavailableTitle?: string;
+  unavailableBody?: ReactNode;
+  unavailableAction?: { href: string; label: string };
 };
 
-export default function ActionNetworkMembershipForm({
+export default function ActionNetworkForm({
   slug,
-}: ActionNetworkMembershipFormProps) {
+  loadingLabel = "Loading the secure form\u2026",
+  errorTitle = "The form could not load",
+  errorBody = "Refresh the page to try again. Your information has not been sent.",
+  unavailableTitle = "This form is not available yet",
+  unavailableBody = "This form is being connected. No information can be submitted from this page yet.",
+  unavailableAction,
+}: ActionNetworkFormProps) {
   const targetRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<FormStatus>("loading");
 
@@ -46,14 +60,13 @@ export default function ActionNetworkMembershipForm({
         <span className="application-state-mark" aria-hidden="true">
           ○
         </span>
-        <h3>Online applications are not open yet</h3>
-        <p>
-          The membership application is being connected to the Network&rsquo;s review
-          process. No information can be submitted from this page yet.
-        </p>
-        <Link href="/membership" className="btn btn-ghost">
-          Return to membership
-        </Link>
+        <h3>{unavailableTitle}</h3>
+        <p>{unavailableBody}</p>
+        {unavailableAction ? (
+          <Link href={unavailableAction.href} className="btn btn-ghost">
+            {unavailableAction.label}
+          </Link>
+        ) : null}
       </div>
     );
   }
@@ -65,7 +78,7 @@ export default function ActionNetworkMembershipForm({
       {status === "loading" ? (
         <div className="application-loading" role="status" aria-live="polite">
           <span className="application-loader" aria-hidden="true" />
-          Loading the secure application form&hellip;
+          {loadingLabel}
         </div>
       ) : null}
 
@@ -74,10 +87,8 @@ export default function ActionNetworkMembershipForm({
           <span className="application-state-mark" aria-hidden="true">
             !
           </span>
-          <h3>The application form could not load</h3>
-          <p>
-            Refresh the page to try again. Your information has not been sent.
-          </p>
+          <h3>{errorTitle}</h3>
+          <p>{errorBody}</p>
           <button
             type="button"
             className="btn btn-ghost"
@@ -95,7 +106,7 @@ export default function ActionNetworkMembershipForm({
         aria-hidden={status === "error" ? true : undefined}
       />
       <Script
-        id={`action-network-membership-${slug}`}
+        id={`action-network-form-${slug}`}
         src={`https://actionnetwork.org/widgets/v2/form/${slug}?format=js&source=widget`}
         strategy="afterInteractive"
         onLoad={detectForm}

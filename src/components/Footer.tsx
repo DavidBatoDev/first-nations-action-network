@@ -72,10 +72,10 @@ export default function Footer() {
                 <Link href="/membership">Join the Network</Link>
               </li>
               <li>
-                <Link href="/#contact">Book a Conversation</Link>
+                <Link href="/contact">Book a Conversation</Link>
               </li>
               <li>
-                <Link href="/#contact">Contact</Link>
+                <Link href="/contact">Contact</Link>
               </li>
               <li>
                 <Link href="/#take-action">Take Action</Link>

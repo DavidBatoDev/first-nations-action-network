@@ -311,7 +311,7 @@ export default async function Home() {
                   <Link href="/membership" className="btn btn-primary">
                     Become a Contributor <Arrow />
                   </Link>
-                  <Link href="#contact" className="textlink">
+                  <Link href="/contact" className="textlink">
                     Book a conversation <Arrow />
                   </Link>
                 </div>
@@ -749,7 +749,7 @@ export default async function Home() {
               <Link href="/membership" className="btn btn-primary">
                 Join the Network <Arrow />
               </Link>
-              <Link href="#contact" className="btn btn-ghost on-dark">
+              <Link href="/contact" className="btn btn-ghost on-dark">
                 Start the Conversation
               </Link>
             </div>

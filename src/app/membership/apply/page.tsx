@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ActionNetworkMembershipForm from "@/components/ActionNetworkMembershipForm";
+import ActionNetworkForm from "@/components/ActionNetworkForm";
 import Footer from "@/components/Footer";
 import Nav, { type NavLink } from "@/components/Nav";
 import { Arrow, Tick } from "@/components/icons";
@@ -141,7 +141,16 @@ export default function MembershipApplicationPage() {
                 </p>
               </div>
 
-              <ActionNetworkMembershipForm slug={formSlug} />
+              <ActionNetworkForm
+                slug={formSlug}
+                loadingLabel={"Loading the secure application form\u2026"}
+                errorTitle="The application form could not load"
+                unavailableTitle="Online applications are not open yet"
+                unavailableBody={
+                  "The membership application is being connected to the Network\u2019s review process. No information can be submitted from this page yet."
+                }
+                unavailableAction={{ href: "/membership", label: "Return to membership" }}
+              />
             </div>
           </div>
         </section>
