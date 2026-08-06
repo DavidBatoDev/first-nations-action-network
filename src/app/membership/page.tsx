@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
 import { Tick, Arrow } from "@/components/icons";
+import {
+  NetworkMap,
+  parseNetworks,
+  type StateNetwork,
+} from "@/components/NetworkMap";
 
 const MEMBERSHIP_DESCRIPTION =
   "Join a national network building stronger communities. Membership connects First Nations and ally organisations across Australia through shared resources, community organising tools and collective action.";
@@ -27,7 +34,14 @@ const navLinks: NavLink[] = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export default function Membership() {
+/** Same data the map fetches, read here so the network list is server-rendered. */
+async function readNetworks(): Promise<StateNetwork[]> {
+  const file = path.join(process.cwd(), "public", "fnan-networks.json");
+  return parseNetworks(JSON.parse(await readFile(file, "utf8")));
+}
+
+export default async function Membership() {
+  const stateNetworks = await readNetworks();
   return (
     <>
       <Nav
@@ -387,106 +401,63 @@ export default function Membership() {
 
       {/* ============ NATIONAL DIRECTORY ============ */}
       <section className="sec">
-        <div className="wrap map-grid">
-          <div className="map-stage" data-reveal>
-            <svg viewBox="0 0 520 470" role="img" aria-label="Map of Australia with connected member organisations">
-              <defs>
-                <radialGradient id="mapfill" cx="42%" cy="38%" r="75%">
-                  <stop offset="0%" stopColor="#F7EFDF" />
-                  <stop offset="100%" stopColor="#EFE3CC" />
-                </radialGradient>
-              </defs>
-              <path d="M78,150 C74,124 100,96 138,104 C166,94 186,86 209,96 C223,90 234,104 230,124 C246,124 256,138 270,141 C275,124 290,78 311,82 C320,103 328,131 340,148 C372,164 392,200 406,238 C426,288 434,338 423,376 C416,406 399,424 374,426 C332,433 304,424 276,428 C234,433 196,426 158,433 C126,439 94,425 82,397 C69,360 71,314 69,268 C67,226 70,184 78,150 Z" fill="url(#mapfill)" stroke="rgba(217,124,0,.35)" strokeWidth="1.5" />
-              <path d="M356,448 C366,442 380,447 382,460 C384,474 372,482 360,478 C348,474 346,455 356,448 Z" fill="url(#mapfill)" stroke="rgba(217,124,0,.35)" strokeWidth="1.5" />
-              <g stroke="rgba(217,124,0,.4)" strokeWidth="1.3" strokeDasharray="3 5" fill="none">
-                <path d="M250,250 L120,320" />
-                <path d="M250,250 L300,170" />
-                <path d="M250,250 L370,300" />
-                <path d="M250,250 L350,380" />
-                <path d="M250,250 L290,400" />
-                <path d="M250,250 L160,200" />
-              </g>
-              <circle cx="250" cy="250" r="9" fill="var(--ochre)" />
-              <circle cx="250" cy="250" r="16" fill="none" stroke="var(--ochre)" strokeWidth="1.5" opacity=".5" />
-              <g className="map-pin">
-                <path d="M120,320 c0,-9 -7,-15 -15,-15 c-8,0 -15,6 -15,15 c0,11 15,24 15,24 c0,0 15,-13 15,-24 z" transform="translate(105,305)" fill="var(--ink)" />
-                <circle cx="105" cy="313" r="4.5" fill="var(--yellow)" />
-              </g>
-              <g className="map-pin" style={{ animationDelay: ".4s" }}>
-                <path d="M0,0 c0,-9 -7,-15 -15,-15 c-8,0 -15,6 -15,15 c0,11 15,24 15,24 c0,0 15,-13 15,-24 z" transform="translate(300,170)" fill="var(--ink)" />
-                <circle cx="285" cy="163" r="4.5" fill="var(--yellow)" />
-              </g>
-              <g className="map-pin" style={{ animationDelay: ".8s" }}>
-                <path d="M0,0 c0,-9 -7,-15 -15,-15 c-8,0 -15,6 -15,15 c0,11 15,24 15,24 c0,0 15,-13 15,-24 z" transform="translate(370,300)" fill="var(--ink)" />
-                <circle cx="355" cy="293" r="4.5" fill="var(--yellow)" />
-              </g>
-              <g className="map-pin" style={{ animationDelay: "1.2s" }}>
-                <path d="M0,0 c0,-9 -7,-15 -15,-15 c-8,0 -15,6 -15,15 c0,11 15,24 15,24 c0,0 15,-13 15,-24 z" transform="translate(350,380)" fill="var(--ink)" />
-                <circle cx="335" cy="373" r="4.5" fill="var(--yellow)" />
-              </g>
-              <g className="map-pin" style={{ animationDelay: "1.6s" }}>
-                <path d="M0,0 c0,-9 -7,-15 -15,-15 c-8,0 -15,6 -15,15 c0,11 15,24 15,24 c0,0 15,-13 15,-24 z" transform="translate(290,400)" fill="var(--ink)" />
-                <circle cx="275" cy="393" r="4.5" fill="var(--yellow)" />
-              </g>
-              <g className="map-pin" style={{ animationDelay: "2s" }}>
-                <path d="M0,0 c0,-9 -7,-15 -15,-15 c-8,0 -15,6 -15,15 c0,11 15,24 15,24 c0,0 15,-13 15,-24 z" transform="translate(160,200)" fill="var(--ink)" />
-                <circle cx="145" cy="193" r="4.5" fill="var(--yellow)" />
-              </g>
-            </svg>
-            <div className="dir-card" style={{ top: "6%", right: -10 }}>
-              <span className="dc-logo">WC</span>
-              <div>
-                <div className="dc-name">Waterhole Collective</div>
-                <div className="dc-meta">Community group · Naarm</div>
-              </div>
-            </div>
-            <div className="dir-card" style={{ bottom: "8%", left: -14 }}>
-              <span className="dc-logo">RG</span>
-              <div>
-                <div className="dc-name">Reconciliation Group</div>
-                <div className="dc-meta">Ally organisation · Meanjin</div>
-              </div>
-            </div>
-          </div>
-          <div data-reveal data-delay="1">
+        <div className="wrap">
+          <div className="sec-head" data-reveal>
             <span className="kicker">National directory</span>
-            <h2 style={{ fontSize: "clamp(30px,3.4vw,44px)", marginTop: 18 }}>
-              Be Part Of A Growing National Directory
-            </h2>
-            <div
-              className="body"
-              style={{
-                fontSize: 17,
-                lineHeight: 1.75,
-                color: "#403a32",
-                maxWidth: "48ch",
-                marginTop: 22,
-              }}
-            >
-              <p>
-                The First Nations Action Network is building one of
-                Australia&rsquo;s most comprehensive directories of First Nations
-                and community-focused organisations.
-              </p>
-              <p style={{ marginTop: 16 }}>
-                Members gain visibility through enhanced directory profiles that
-                help communities, organisations and supporters discover their
-                work.
-              </p>
-            </div>
-            <ul className="dir-benefits">
-              {[
-                "Increased discoverability",
-                "Stronger online presence",
-                "Greater credibility",
-                "Collaboration opportunities",
-                "Referral opportunities",
-              ].map((b) => (
-                <li key={b}>
-                  <span className="tick">
-                    <Tick />
-                  </span>
-                  {b}
+            <h2>Be Part Of A Growing National Directory</h2>
+            <p className="lead">
+              The First Nations Action Network is building one of
+              Australia&rsquo;s most comprehensive directories of First Nations
+              and community-focused organisations. Members gain visibility
+              through enhanced directory profiles that help communities,
+              organisations and supporters discover their work.
+            </p>
+          </div>
+
+          <ul className="dir-benefits dir-benefits-row" data-reveal data-delay="1">
+            {[
+              "Increased discoverability",
+              "Stronger online presence",
+              "Greater credibility",
+              "Collaboration opportunities",
+              "Referral opportunities",
+            ].map((benefit) => (
+              <li key={benefit}>
+                <span className="tick">
+                  <Tick />
+                </span>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Live state-network map. Hover a pin for that network's
+            organisations; click to zoom into the state. */}
+        <NetworkMap />
+
+        <div className="wrap">
+          <div className="dir-networks" data-reveal>
+            <p className="dir-networks-label">State and territory networks</p>
+            <ul>
+              {stateNetworks.map((network) => (
+                <li key={network.abbr}>
+                  {network.groupUrl ? (
+                    <a
+                      href={network.groupUrl}
+                      target="_blank"
+                      rel="noopener"
+                      aria-label={`First Nations Action Network ${network.abbr} group page (opens in a new tab)`}
+                    >
+                      {network.abbr}
+                      <span>{network.organisations.length}</span>
+                    </a>
+                  ) : (
+                    <span className="is-static">
+                      {network.abbr}
+                      <span>{network.organisations.length}</span>
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>

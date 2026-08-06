@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Nav, { type NavLink } from "@/components/Nav";
+import DirectoryBrowser, {
+  type DirectoryEntry,
+} from "@/components/DirectoryBrowser";
+import { parseNetworks } from "@/components/NetworkMap";
 
 const DIRECTORY_DESCRIPTION =
   "A public directory of organisations, groups, networks and initiatives working to strengthen communities and create positive change across Australia.";
@@ -24,7 +30,27 @@ const navLinks: NavLink[] = [
   { label: "Directory", href: "/#resources" },
 ];
 
-export default function DirectoryPage() {
+/** Flatten the shared network data into directory listings. */
+async function readEntries(): Promise<DirectoryEntry[]> {
+  const file = path.join(process.cwd(), "public", "fnan-networks.json");
+  const networks = parseNetworks(JSON.parse(await readFile(file, "utf8")));
+
+  return networks
+    .flatMap((network) =>
+      network.organisations.map((organisation) => ({
+        name: organisation.name,
+        stateName: network.name,
+        stateAbbr: network.abbr,
+        actionNetworkUrl: organisation.actionNetworkUrl,
+        siteUrl: organisation.siteUrl,
+        logo: organisation.logo,
+      })),
+    )
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export default async function DirectoryPage() {
+  const entries = await readEntries();
   return (
     <>
       <Nav
@@ -63,7 +89,7 @@ export default function DirectoryPage() {
               <div>
                 <span className="eyebrow">A public resource</span>
                 <p>
-                  The directory will make community leadership and action more
+                  The directory makes community leadership and action more
                   visible, helping people discover organisations and build
                   stronger relationships.
                 </p>
@@ -81,77 +107,14 @@ export default function DirectoryPage() {
                 <span className="em-action">Connection.</span>
               </h2>
               <p className="lead">
-                Search and filters will be available once the Network has gathered and
-                approved public listings.
+                Search {entries.length} organisations across the state and
+                territory networks, and follow each one through to Action Network
+                or its own website.
               </p>
             </div>
 
-            <form className="directory-filters" aria-describedby="directory-status">
-              <div className="directory-search-field">
-                <label htmlFor="directory-search">Search the directory</label>
-                <div className="directory-search-control">
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                  >
-                    <circle cx="11" cy="11" r="6.5" />
-                    <path d="m16 16 4.2 4.2" />
-                  </svg>
-                  <input
-                    id="directory-search"
-                    type="search"
-                    placeholder="Search by organisation or keyword"
-                    disabled
-                  />
-                </div>
-              </div>
+            <DirectoryBrowser entries={entries} />
 
-              <div className="directory-filter-field">
-                <label htmlFor="directory-state">State or territory</label>
-                <select id="directory-state" defaultValue="" disabled>
-                  <option value="">All states and territories</option>
-                </select>
-              </div>
-
-              <div className="directory-filter-field">
-                <label htmlFor="directory-type">Organisation type</label>
-                <select id="directory-type" defaultValue="" disabled>
-                  <option value="">All organisation types</option>
-                </select>
-              </div>
-
-              <div className="directory-filter-field">
-                <label htmlFor="directory-focus">Focus area</label>
-                <select id="directory-focus" defaultValue="" disabled>
-                  <option value="">All focus areas</option>
-                </select>
-              </div>
-              <p id="directory-status" className="directory-filter-status">
-                Directory discovery is being prepared with verified public
-                information.
-              </p>
-            </form>
-
-            <div className="directory-empty" data-reveal>
-              <div className="directory-empty-symbol" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-                <span />
-              </div>
-              <div>
-                <span className="eyebrow">Coming soon</span>
-                <h3>The directory is being populated.</h3>
-                <p>
-                  The Network is preparing verified public listings before they are
-                  published here. Check back soon to discover organisations,
-                  networks and community initiatives from across Australia.
-                </p>
-              </div>
-            </div>
           </div>
         </section>
       </main>

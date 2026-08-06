@@ -1,0 +1,211 @@
+{
+  "_comment": "Editable data for the state-network map. Add or edit organisations here; the map fetches this file at runtime. Fields: name (must match the GeoJSON state name), abbr, capital {name, lngLat: [longitude, latitude]}, organisations [{ name, actionNetworkUrl?, siteUrl?, logo? }]. 'logo' is a path under /public.",
+  "networks": [
+    {
+      "name": "Australian Capital Territory",
+      "abbr": "ACT",
+      "capital": {
+        "name": "Canberra",
+        "lngLat": [
+          149.13,
+          -35.2809
+        ]
+      },
+      "groupUrl": "https://actionnetwork.org/groups/australian-capital-territory",
+      "organisations": []
+    },
+    {
+      "name": "New South Wales",
+      "abbr": "NSW",
+      "capital": {
+        "name": "Sydney",
+        "lngLat": [
+          151.2093,
+          -33.8688
+        ]
+      },
+      "groupUrl": "https://actionnetwork.org/groups/new-south-wales",
+      "organisations": [
+        {
+          "name": "Orange Together",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/orange-together",
+          "siteUrl": "https://orangetogether.org.au/",
+          "logo": "/assets/logos/orange-together.png"
+        },
+        {
+          "name": "Voice from the Heart Alliance",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/voice-from-the-heart-alliance",
+          "siteUrl": "https://voicefromtheheartalliance.com/",
+          "logo": "/assets/logos/voice-from-the-heart.png"
+        }
+      ]
+    },
+    {
+      "name": "Northern Territory",
+      "abbr": "NT",
+      "capital": {
+        "name": "Darwin",
+        "lngLat": [
+          130.8456,
+          -12.4634
+        ]
+      },
+      "groupUrl": "https://actionnetwork.org/groups/northern-territory",
+      "organisations": []
+    },
+    {
+      "name": "Queensland",
+      "abbr": "QLD",
+      "capital": {
+        "name": "Brisbane",
+        "lngLat": [
+          153.0251,
+          -27.4698
+        ]
+      },
+      "groupUrl": "https://actionnetwork.org/groups/queensland/",
+      "organisations": [
+        {
+          "name": "Balaangala Community Group (The Gap)",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/balaangala-community-group"
+        },
+        {
+          "name": "First Nations Allies (Brisbane City)",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/first-nations-allies",
+          "siteUrl": "https://www.facebook.com/FirstNationsAlliesBrisbane/",
+          "logo": "/assets/logos/first-nations-allies.png"
+        },
+        {
+          "name": "Foundation for Aboriginal and Torres Strait Islander Research Action (FAIRA)",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/faira",
+          "siteUrl": "https://www.faira.org.au/",
+          "logo": "/assets/logos/faira.png"
+        },
+        {
+          "name": "Gold Coast for Yes",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/gold-coast-for-yes"
+        },
+        {
+          "name": "Jungaji (Performing Artist)",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/jungaji"
+        },
+        {
+          "name": "Musgrave Park Family Fun Day (South Brisbane)",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/musgrave-park-family-fun-day"
+        },
+        {
+          "name": "Noosa First Nations Allies & Sunshine Coast Reconciliation Group",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/noosa-first-nations-allies",
+          "siteUrl": "https://noosaallies.org.au/",
+          "logo": "/assets/logos/noosa.png"
+        },
+        {
+          "name": "Wynnum Allies",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/wynnum-allies",
+          "logo": "/assets/logos/wynnum.png"
+        },
+        {
+          "name": "YACHATDAC (Barcaldine)",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/yachatdac",
+          "siteUrl": "https://yachatdac.com.au/",
+          "logo": "/assets/logos/yachatdac.png"
+        }
+      ]
+    },
+    {
+      "name": "South Australia",
+      "abbr": "SA",
+      "capital": {
+        "name": "Adelaide",
+        "lngLat": [
+          138.6007,
+          -34.9285
+        ]
+      },
+      "groupUrl": "https://actionnetwork.org/groups/south-australia-2",
+      "organisations": [
+        {
+          "name": "Aldinga Truth-Telling Book Club",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/aldinga-truth-telling-book-club"
+        },
+        {
+          "name": "Blackwood Reconciliation Group",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/blackwood-reconciliation-group"
+        },
+        {
+          "name": "First Nations Conversations (Highgate)",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/first-nations-conversations-highgate"
+        },
+        {
+          "name": "Pilgrim Uniting Church Walking Together Group (Adelaide)",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/pilgrim-uniting-church-walking-together-group"
+        },
+        {
+          "name": "Friends of Reconciliation Adelaide Hills",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/friends-of-reconciliation-adelaide-hills"
+        },
+        {
+          "name": "Sophia Antiracism Action Group",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/sophia-antiracism-action-group"
+        },
+        {
+          "name": "Trinity Action Group (Adelaide)",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/trinity-action-group-adelaide"
+        },
+        {
+          "name": "Unitarian Allies (Norwood)",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/unitarian-allies-norwood"
+        },
+        {
+          "name": "Unley Allies with First Nations Peoples",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/unley-allies-with-first-nations-peoples",
+          "siteUrl": "https://unleyallies.org/",
+          "logo": "/assets/logos/unley-allies.png"
+        },
+        {
+          "name": "Uraidla Reconciliation",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/uraidla-reconciliation"
+        }
+      ]
+    },
+    {
+      "name": "Tasmania",
+      "abbr": "TAS",
+      "capital": {
+        "name": "Hobart",
+        "lngLat": [
+          147.3272,
+          -42.8826
+        ]
+      },
+      "groupUrl": "https://actionnetwork.org/groups/tasmania",
+      "organisations": []
+    },
+    {
+      "name": "Victoria",
+      "abbr": "VIC",
+      "capital": {
+        "name": "Melbourne",
+        "lngLat": [
+          144.9631,
+          -37.8136
+        ]
+      },
+      "groupUrl": "https://actionnetwork.org/groups/victoria-2",
+      "organisations": []
+    },
+    {
+      "name": "Western Australia",
+      "abbr": "WA",
+      "capital": {
+        "name": "Perth",
+        "lngLat": [
+          115.8605,
+          -31.9505
+        ]
+      },
+      "groupUrl": "https://actionnetwork.org/groups/western-australia",
+      "organisations": []
+    }
+  ]
+}
