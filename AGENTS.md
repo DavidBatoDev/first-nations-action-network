@@ -32,6 +32,12 @@ index](docs/INDEX.md) and then the documents relevant to the task.
   `ACTION_NETWORK_MEMBERSHIP_FORM_SLUG` widget configuration documented in
   `docs/Action Network Membership Form Setup.md`. Do not substitute the API key
   for the public widget slug.
+- `/contact` embeds the "Book a conversation" contact form via
+  `ACTION_NETWORK_CONTACT_FORM_SLUG`, documented in
+  `docs/Action Network Contact Form Setup.md`. Same public-widget-slug rules as
+  membership; never use the API key. All "Book a conversation" /
+  "Start the conversation" CTAs link to `/contact`, and both forms share the
+  generic `ActionNetworkForm` component.
 
 ### Donations and merchandise
 
