@@ -26,6 +26,26 @@ const navLinks: NavLink[] = [
   { label: "Directory", href: "/#resources" },
 ];
 
+/** Matches the accordion marker used by the membership FAQ. */
+function QuestionIcon() {
+  return (
+    <span className="faq-ico">
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        aria-hidden="true"
+      >
+        <path d="M12 5v14M5 12h14" />
+      </svg>
+    </span>
+  );
+}
+
 export default function AllyshipPage() {
   return (
     <>
@@ -69,6 +89,115 @@ export default function AllyshipPage() {
                 rounded={16}
                 sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
               />
+            </div>
+          </div>
+        </section>
+
+        <section id="what-is-allyship" className="sec">
+          <div className="wrap">
+            <div className="sec-head" data-reveal>
+              <span className="kicker">What is allyship?</span>
+              <h2>
+                Where Allyship <span className="em-action">Begins.</span>
+              </h2>
+              <p className="lead">
+                Reconciliation and allyship get talked about often and explained
+                rarely. These are the questions people ask most.
+              </p>
+            </div>
+            <div className="faq-grid">
+              <details className="faq-item" data-reveal open>
+                <summary>
+                  What does reconciliation with First Nations peoples mean?{" "}
+                  <QuestionIcon />
+                </summary>
+                <div className="faq-a">
+                  <p>
+                    Reconciliation is the ongoing work of building honest,
+                    respectful relationships between First Nations peoples and
+                    the wider Australian community.
+                  </p>
+                  <p>
+                    It means telling the truth about this country&rsquo;s
+                    history, recognising the continuing strength of First Nations
+                    cultures and communities, and changing the conditions that
+                    still hold people back. Reconciliation is measured in
+                    relationships and outcomes, not in statements.
+                  </p>
+                </div>
+              </details>
+              <details className="faq-item" data-reveal data-delay="1">
+                <summary>
+                  How does it benefit non-Indigenous peoples? <QuestionIcon />
+                </summary>
+                <div className="faq-a">
+                  <p>
+                    Reconciliation is not something done for one group at
+                    another&rsquo;s expense. A community where everyone is heard,
+                    safe and able to influence the decisions that affect them is
+                    a stronger community for everyone in it.
+                  </p>
+                  <p>
+                    For non-Indigenous people it means a fuller understanding of
+                    the country they live in, relationships built on honesty
+                    rather than distance, and the chance to be part of repair
+                    rather than avoidance. Leaving this history unaddressed
+                    carries a cost that everyone shares.
+                  </p>
+                </div>
+              </details>
+              <details className="faq-item" data-reveal data-delay="2">
+                <summary>
+                  What does it mean to be an ally with First Nations peoples?{" "}
+                  <QuestionIcon />
+                </summary>
+                <div className="faq-a">
+                  <p>
+                    Being an ally means supporting First Nations peoples in the
+                    ways community asks to be supported. Allies walk alongside.
+                    They do not lead, and they do not speak on community&rsquo;s
+                    behalf.
+                  </p>
+                  <p>
+                    In practice that looks like learning before speaking, turning
+                    up consistently rather than only when an issue is in the
+                    news, and using whatever influence you have to make room for
+                    First Nations voices and decisions. It is a relationship, not
+                    a title.
+                  </p>
+                </div>
+              </details>
+              <details className="faq-item" data-reveal data-delay="3">
+                <summary>
+                  What are the core principles of being a good ally?{" "}
+                  <QuestionIcon />
+                </summary>
+                <div className="faq-a">
+                  <ul className="faq-list">
+                    <li>
+                      <strong>Listen first.</strong> Take direction from
+                      community instead of assuming what is needed.
+                    </li>
+                    <li>
+                      <strong>Respect self-determination.</strong> Support First
+                      Nations peoples to lead the decisions that shape their
+                      lives and communities.
+                    </li>
+                    <li>
+                      <strong>Keep learning.</strong> Do your own reading and
+                      reflection rather than expecting others to teach you.
+                    </li>
+                    <li>
+                      <strong>Show up consistently.</strong> Steady support over
+                      years matters more than attention in a moment.
+                    </li>
+                    <li>
+                      <strong>Stay accountable.</strong> Accept correction
+                      without defensiveness, and keep going.
+                    </li>
+                  </ul>
+                </div>
+              </details>
             </div>
           </div>
         </section>
