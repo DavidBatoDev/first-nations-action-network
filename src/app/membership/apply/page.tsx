@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ActionNetworkForm from "@/components/ActionNetworkForm";
 import Footer from "@/components/Footer";
+import NewsletterPopupSuppressor from "@/components/NewsletterPopupSuppressor";
 import Nav, { type NavLink } from "@/components/Nav";
 import { Arrow, Tick } from "@/components/icons";
 
@@ -157,6 +158,7 @@ export default function MembershipApplicationPage() {
       </main>
 
       <Footer />
+      <NewsletterPopupSuppressor />
     </>
   );
 }

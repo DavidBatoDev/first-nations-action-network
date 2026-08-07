@@ -38,6 +38,16 @@ index](docs/INDEX.md) and then the documents relevant to the task.
   membership; never use the API key. All "Book a conversation" /
   "Start the conversation" CTAs link to `/contact`, and both forms share the
   generic `ActionNetworkForm` component.
+- The homepage mailing-list pop-up (`NewsletterPopup`) only links out to
+  `EXTERNAL_LINKS.subscribe` in a new tab. Do not embed a form or collect
+  addresses in it. Its once-per-visitor state lives in `localStorage` under
+  `newsletter-popup-state`; the rules are in `src/lib/newsletter-popup.ts` and
+  `NewsletterPopupSuppressor` marks visitors who already reached a sign-up form.
+
+### Tests
+
+- `npm test` runs Vitest. Only pure modules are covered so far
+  (`src/lib/*.test.ts`); page and component behaviour is verified in the browser.
 
 ### Donations and merchandise
 

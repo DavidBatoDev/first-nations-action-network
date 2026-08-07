@@ -6300,3 +6300,122 @@ a.orgtree-node-main:focus-visible .orgtree-node-fallback {
   background: var(--ochre-deep);
   color: #fff;
 }
+
+/* --- Mailing-list pop-up (homepage) ---------------------------------------
+   Sits above the nav (z-index 100). Fade only, no scale, per design. */
+.nlpop-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(12, 11, 9, 0.58);
+  animation: nlpop-fade-in 0.24s ease both;
+}
+.nlpop {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  padding: 40px 40px 34px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--cream);
+  box-shadow: var(--shadow);
+  animation: nlpop-fade-in 0.28s ease 0.04s both;
+}
+.nlpop-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--grey);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+.nlpop-close:hover,
+.nlpop-close:focus-visible {
+  background: rgba(22, 19, 15, 0.06);
+  color: var(--ink);
+}
+.nlpop-kicker {
+  margin: 0 0 14px;
+}
+.nlpop-title {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: clamp(24px, 3.4vw, 30px);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+.nlpop-body {
+  margin: 0 0 26px;
+  font-size: 16px;
+  line-height: 1.62;
+  color: #4a443c;
+}
+.nlpop-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+}
+.nlpop-dismiss {
+  padding: 6px 2px;
+  border: 0;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--grey);
+  cursor: pointer;
+  border-bottom: 1.5px solid transparent;
+  transition: color 0.16s ease, border-color 0.16s ease;
+}
+.nlpop-dismiss:hover,
+.nlpop-dismiss:focus-visible {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+@keyframes nlpop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 460px) {
+  .nlpop-backdrop {
+    padding: 16px;
+  }
+  .nlpop {
+    padding: 34px 24px 26px;
+  }
+  .nlpop-actions {
+    gap: 6px 14px;
+  }
+  .nlpop-cta {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nlpop-backdrop,
+  .nlpop {
+    animation: none;
+  }
+}

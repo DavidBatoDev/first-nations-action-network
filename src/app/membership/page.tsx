@@ -4,6 +4,7 @@ import path from "node:path";
 import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
+import NewsletterPopupSuppressor from "@/components/NewsletterPopupSuppressor";
 import ImageSlot from "@/components/ImageSlot";
 import { Tick, Arrow } from "@/components/icons";
 import {
@@ -1077,6 +1078,7 @@ export default async function Membership() {
       </section>
 
       <Footer />
+      <NewsletterPopupSuppressor />
     </>
   );
 }

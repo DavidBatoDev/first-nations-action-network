@@ -3,6 +3,7 @@ import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
 import LogoCarousel from "@/components/LogoCarousel";
+import NewsletterPopup from "@/components/NewsletterPopup";
 import { Tick, Arrow } from "@/components/icons";
 import SupportCards from "@/components/SupportCards";
 import {
@@ -758,6 +759,7 @@ export default async function Home() {
       </main>
 
       <Footer />
+      <NewsletterPopup />
     </>
   );
 }
