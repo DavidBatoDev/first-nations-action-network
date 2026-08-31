@@ -82,16 +82,20 @@ export default function StatePin({
         <motion.circle
           cx="17"
           cy="17"
+          r="12.5"
           fill="var(--ochre)"
           stroke="var(--ochre-deep)"
           strokeWidth="1.5"
+          initial={{ r: 12.5 }}
           animate={{ r: hovered ? 16 : 12.5 }}
           transition={SPRING}
         />
         <motion.circle
           cx="17"
           cy="17"
+          r="4.6"
           fill="#fff6e2"
+          initial={{ r: 4.6 }}
           animate={{ r: hovered ? 6.4 : 4.6 }}
           transition={SPRING}
         />
