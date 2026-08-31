@@ -23,6 +23,12 @@ export type Organisation = {
   siteUrl?: string;
   /** Logo asset path under /public. Omitted when we have no logo. */
   logo?: string;
+  /**
+   * Ecosystem category, used by the membership ecosystem graph. One of the
+   * strings in `ECOSYSTEM_CATEGORIES` (src/lib/ecosystem.ts); anything else is
+   * ignored. Omitted while an organisation is still to be categorised.
+   */
+  category?: string;
 };
 
 export type StateNetwork = {

@@ -12,6 +12,8 @@ import {
   parseNetworks,
   type StateNetwork,
 } from "@/components/NetworkMap";
+import { EcosystemGraph } from "@/components/EcosystemGraph";
+import { ecosystemOrgs } from "@/lib/ecosystem";
 
 const MEMBERSHIP_DESCRIPTION =
   "Join a national network building stronger communities. Membership connects First Nations and ally organisations across Australia through shared resources, community organising tools and collective action.";
@@ -43,6 +45,8 @@ async function readNetworks(): Promise<StateNetwork[]> {
 
 export default async function Membership() {
   const stateNetworks = await readNetworks();
+  // Same data as the map above, reshaped category-first for the ecosystem graph.
+  const ecosystemOrganisations = ecosystemOrgs(stateNetworks);
   return (
     <>
       <Nav
@@ -608,7 +612,10 @@ export default async function Membership() {
       {/* ============ BE PART OF SOMETHING BIGGER ============ */}
       <section className="sec network">
         <div className="wrap net-grid">
-          <div data-reveal>
+          {/* The graph owns both columns so the pills and the nodes can share
+              one piece of hover state; the copy below is still server-rendered
+              and passed straight through. */}
+          <EcosystemGraph organisations={ecosystemOrganisations}>
             <span className="kicker on-dark">The ecosystem</span>
             <h2
               style={{
@@ -632,65 +639,7 @@ export default async function Membership() {
               Membership connects organisations to a growing ecosystem committed
               to strengthening communities and creating positive change.
             </p>
-            <div className="ally-tags" style={{ marginTop: 30 }}>
-              {[
-                "First Nations organisations",
-                "Ally organisations",
-                "Reconciliation groups",
-                "Community groups",
-                "Advocacy organisations",
-                "Cultural organisations",
-                "Workplace networks",
-                "Social enterprises",
-              ].map((t) => (
-                <span key={t}>{t}</span>
-              ))}
-            </div>
-          </div>
-          <div className="net-stage" data-reveal data-delay="1">
-            <svg viewBox="0 0 540 470" role="img" aria-label="Network of connected organisations around the First Nations Action Network">
-              <g stroke="rgba(255,218,0,.32)" strokeWidth="1.4" fill="none">
-                <path d="M270,235 L270,70" />
-                <path d="M270,235 L420,120" />
-                <path d="M270,235 L470,235" />
-                <path d="M270,235 L420,350" />
-                <path d="M270,235 L270,400" />
-                <path d="M270,235 L120,350" />
-                <path d="M270,235 L70,235" />
-                <path d="M270,235 L120,120" />
-              </g>
-              <g fill="#231f19" stroke="rgba(255,255,255,.18)" strokeWidth="1.4">
-                <circle className="map-pin" cx="270" cy="70" r="26" />
-                <circle className="map-pin" style={{ animationDelay: ".3s" }} cx="420" cy="120" r="22" />
-                <circle className="map-pin" style={{ animationDelay: ".6s" }} cx="470" cy="235" r="26" />
-                <circle className="map-pin" style={{ animationDelay: ".9s" }} cx="420" cy="350" r="22" />
-                <circle className="map-pin" style={{ animationDelay: "1.2s" }} cx="270" cy="400" r="26" />
-                <circle className="map-pin" style={{ animationDelay: "1.5s" }} cx="120" cy="350" r="22" />
-                <circle className="map-pin" style={{ animationDelay: "1.8s" }} cx="70" cy="235" r="26" />
-                <circle className="map-pin" style={{ animationDelay: "2.1s" }} cx="120" cy="120" r="22" />
-              </g>
-              <g fill="var(--yellow)">
-                <circle cx="270" cy="70" r="6" />
-                <circle cx="420" cy="120" r="6" />
-                <circle cx="470" cy="235" r="6" />
-                <circle cx="420" cy="350" r="6" />
-                <circle cx="270" cy="400" r="6" />
-                <circle cx="120" cy="350" r="6" />
-                <circle cx="70" cy="235" r="6" />
-                <circle cx="120" cy="120" r="6" />
-              </g>
-              <circle cx="270" cy="235" r="56" fill="var(--yellow)" />
-              <text x="270" y="219" textAnchor="middle" className="net-center" fontSize="14">
-                First Nations
-              </text>
-              <text x="270" y="238" textAnchor="middle" className="net-center" fontSize="14">
-                Action
-              </text>
-              <text x="270" y="257" textAnchor="middle" className="net-center" fontSize="14">
-                Network
-              </text>
-            </svg>
-          </div>
+          </EcosystemGraph>
         </div>
       </section>
 

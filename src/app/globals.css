@@ -3078,26 +3078,6 @@ a.logo-box {
   }
 }
 
-/* ---------- Membership · ecosystem diagram pins ---------- */
-.map-pin {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: pinpulse 3s ease-in-out infinite;
-}
-@keyframes pinpulse {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .map-pin {
-    animation: none;
-  }
-}
 .dir-benefits {
   list-style: none;
   margin: 30px 0 0;
@@ -3145,18 +3125,9 @@ a.logo-box {
 }
 .net-stage {
   position: relative;
-  min-height: 480px;
-}
-.net-stage svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  overflow: visible;
-}
-.net-center {
-  font-family: var(--serif);
-  font-weight: 900;
-  fill: var(--ink);
+  min-height: 560px;
+  display: grid;
+  place-items: center;
 }
 @media (max-width: 980px) {
   .net-grid {
@@ -3165,6 +3136,334 @@ a.logo-box {
   }
   .net-stage {
     min-height: 420px;
+  }
+}
+
+/* ---------- Membership · ecosystem graph ----------
+   The force-directed web that replaced the old fixed diagram. Every node is a
+   circle, sized by the simulation: the tick loop writes `scale()` into each
+   node's transform using the same radius the collision force uses, so growing a
+   node physically displaces its neighbours. Nothing here may set width, height
+   or a transform on .ecograph-pos — that element belongs to the simulation.
+
+   The concentric rings behind the hub and the stippled edges are the section's
+   one piece of First Nations visual language. */
+.ecograph {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 600 / 540;
+  margin-inline: auto;
+}
+
+/* Edges. One SVG under everything; the simulation writes the endpoints. */
+.ecograph-edges {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+/* Edges are quadratic paths, not lines: the simulation writes a control point
+   offset perpendicular to the chord, so an edge hangs slack and flexes as the
+   web moves, then pulls straight when its branch goes live. */
+.ecograph-edge {
+  stroke: var(--yellow);
+  stroke-opacity: 0.4;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 7 6;
+  transition: stroke-opacity 0.45s ease, stroke-width 0.45s ease;
+}
+.ecograph-edge[data-tier="org"] {
+  stroke-opacity: 0.26;
+  stroke-dasharray: 5 6;
+}
+.ecograph-edge[data-tier="decor"] {
+  stroke-opacity: 0.14;
+  stroke-dasharray: 4 8;
+}
+/* Captions hang off their category; the tether should not read as a connection. */
+.ecograph-edge[data-tier="label"] {
+  stroke: none;
+}
+.ecograph[data-active] .ecograph-edge {
+  stroke-opacity: 0.07;
+}
+/* The live branch: taut (the bow eases to zero) and solid, so the one path the
+   eye should follow is the only unbroken line on the stage. */
+.ecograph .ecograph-edge[data-state="lit"],
+.ecograph .ecograph-edge[data-state="focus"] {
+  stroke-opacity: 0.9;
+  stroke-width: 2;
+  stroke-dasharray: none;
+}
+
+/* Positioner. The simulation owns this element's transform — position and
+   size both — and nothing else may write to it. */
+.ecograph-pos {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  will-change: transform;
+}
+/* Stacking order. `will-change` above makes each positioner its own stacking
+   context, so this has to be set here rather than on the chrome inside. */
+.ecograph-pos[data-tier="decor"] {
+  z-index: 0;
+}
+.ecograph-pos[data-tier="org"] {
+  z-index: 2;
+}
+.ecograph-pos[data-tier="label"] {
+  z-index: 4;
+}
+/* Whatever is bloomed sits above everything, including the captions. */
+.ecograph-pos[data-state="focus"] {
+  z-index: 6;
+}
+
+/* Hub: the network's mark, ringed like a meeting place. */
+.ecograph-hub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 112px;
+  height: 112px;
+  margin: -56px 0 0 -56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: var(--yellow);
+  box-shadow:
+    0 0 0 10px rgba(255, 218, 0, 0.09),
+    0 0 0 22px rgba(255, 218, 0, 0.05),
+    0 0 0 36px rgba(255, 218, 0, 0.025),
+    0 0 60px -12px rgba(255, 218, 0, 0.5);
+}
+.ecograph-hub img {
+  width: 100%;
+  height: auto;
+}
+
+/* Shared node chrome. Every tier is a circle of a fixed base diameter; the
+   simulation scales it. Colours transition, sizes do not — the physics owns
+   size, and a CSS transition on top would fight it. */
+.ecograph-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  /* The simulation publishes the node's radius as --s on the positioner. */
+  transform: scale(var(--s, 1));
+  display: grid;
+  place-items: center;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+  transition: background 0.45s ease, border-color 0.45s ease,
+    box-shadow 0.45s ease, opacity 0.45s ease;
+}
+.ecograph[data-active] .ecograph-node[data-state="dim"] {
+  opacity: 0.2;
+}
+
+/* Ring 1: the eight categories. Faint yellow at rest, full brand yellow when
+   live — the same yellow as the hub, so a lit category reads as part of it. */
+.ecograph-node-cat {
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  cursor: pointer;
+  background: rgba(255, 218, 0, 0.14);
+  border: 1px solid rgba(255, 218, 0, 0.34);
+  box-shadow: 0 0 0 5px rgba(255, 218, 0, 0.03);
+}
+.ecograph-node-cat[data-state="lit"],
+.ecograph-node-cat[data-state="focus"] {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  box-shadow: 0 0 34px -4px rgba(255, 218, 0, 0.65);
+}
+.ecograph-node-cat:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 4px;
+}
+
+/* Ring 2: member organisations. A faint dot at rest that blooms to a white
+   disc carrying the logo. The logo is hidden until the node is big enough to
+   show it at a readable size. */
+.ecograph-node-org {
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  cursor: pointer;
+  background: rgba(255, 218, 0, 0.22);
+  border: 1px solid rgba(255, 218, 0, 0.3);
+  overflow: visible;
+}
+.ecograph-node-org[data-state="lit"],
+.ecograph-node-org[data-state="focus"] {
+  background: var(--paper);
+  border-color: rgba(255, 218, 0, 0.75);
+  box-shadow: 0 0 0 1px rgba(255, 218, 0, 0.3), 0 10px 24px -12px rgba(0, 0, 0, 0.7);
+}
+.ecograph-node-org[data-state="focus"] {
+  box-shadow: 0 0 0 2px var(--yellow), 0 0 40px -6px rgba(255, 218, 0, 0.5);
+}
+.ecograph-node-org:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+}
+/* The logo counter-scales: the node is scaled by the simulation, so the image
+   is sized as a fraction of the node and stays circular inside it. */
+.ecograph-node-org img {
+  width: 74%;
+  height: 74%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+/* Organisation name, shown while that one node is bloomed. Positioned below
+   the circle in the node's own scaled space, so it tracks the bloom. */
+/* Organisation name, shown while that one node is bloomed. A sibling of the
+   circle rather than a child, so the node's scale does not enlarge the text;
+   its offset is derived from --s so it follows the bloom out. */
+.ecograph-node-name {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* 7px is the node's base radius, so this sits just under the circle. */
+  transform: translate(-50%, calc(var(--s, 1) * 7px + 10px));
+  width: max-content;
+  max-width: 190px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: rgba(22, 19, 15, 0.88);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  text-wrap: balance;
+  color: #fff;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Decorative filler. Carries no meaning and never reacts to the pointer — it
+   is there so the graph reads as a web rather than eight spokes. */
+.ecograph-node-decor {
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  background: rgba(255, 218, 0, 0.16);
+  border: 1px solid rgba(255, 218, 0, 0.12);
+  pointer-events: none;
+}
+
+/* Category captions. Always on screen — and simulation nodes in their own
+   right, so the physics keeps the web clear of them rather than letting text
+   sit on top of it. */
+.ecograph-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* Fixed size: a caption is text, and text should not scale with physics. */
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(22, 19, 15, 0.8);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #b9b1a4;
+  pointer-events: none;
+  transition: color 0.4s ease, opacity 0.4s ease;
+}
+.ecograph-label[data-state="lit"],
+.ecograph-label[data-state="focus"] {
+  color: #fff;
+}
+.ecograph[data-active] .ecograph-label[data-state="dim"] {
+  opacity: 0.28;
+}
+
+/* The full hierarchy for screen readers. There is no shared visually-hidden
+   utility in this stylesheet, so the recipe lives here. */
+.ecograph-outline {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip-path: inset(50%);
+}
+
+/* Pills mirror the graph's active branch. Scoped to .network: .ally-tags is
+   shared with the homepage and the allyship page, which have no graph. */
+.network .ally-tags span {
+  cursor: default;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease,
+    opacity 0.2s ease;
+}
+.network .ally-tags span[data-state="active"] {
+  border-color: var(--yellow);
+  background: rgba(255, 218, 0, 0.1);
+  color: #fff;
+}
+.network .ally-tags span[data-state="dim"] {
+  opacity: 0.45;
+}
+
+/* Compact.
+
+   Captions are laid out in stage units but drawn at a fixed pixel size, so as
+   the stage scales down they take up proportionally more room than the physics
+   has reserved and start crowding each other. On a narrow screen the pills sit
+   directly above the graph and already name all eight, so here the graph shows
+   only the caption for the live branch. A bloomed logo is also small at this
+   scale, which is why the organisation's name pill matters more on touch. */
+.ecograph[data-compact] .ecograph-label {
+  font-size: 9.5px;
+  padding: 2px 7px;
+}
+/* Matches the specificity of the dimming rule above, and comes after it. */
+.ecograph[data-compact] .ecograph-label[data-state] {
+  opacity: 0;
+}
+.ecograph[data-compact] .ecograph-label[data-state="lit"],
+.ecograph[data-compact] .ecograph-label[data-state="focus"] {
+  opacity: 1;
+}
+.ecograph[data-compact] .ecograph-hub {
+  width: 88px;
+  height: 88px;
+  margin: -44px 0 0 -44px;
+  padding: 17px;
+}
+.ecograph[data-compact] .ecograph-node-name {
+  font-size: 12px;
+  max-width: 150px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecograph-node,
+  .ecograph-edge,
+  .ecograph-label,
+  .network .ally-tags span {
+    transition: none;
+  }
+  .ecograph-pos {
+    will-change: auto;
   }
 }
 

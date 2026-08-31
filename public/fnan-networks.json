@@ -1,5 +1,5 @@
 {
-  "_comment": "Editable data for the state-network map. Add or edit organisations here; the map fetches this file at runtime. Fields: name (must match the GeoJSON state name), abbr, capital {name, lngLat: [longitude, latitude]}, organisations [{ name, actionNetworkUrl?, siteUrl?, logo? }]. 'logo' is a path under /public.",
+  "_comment": "Editable data for the state-network map and the membership ecosystem graph. Add or edit organisations here; both read this file at runtime. Fields: name (must match the GeoJSON state name), abbr, capital {name, lngLat: [longitude, latitude]}, organisations [{ name, actionNetworkUrl?, siteUrl?, logo?, category? }]. 'logo' is a path under /public. 'category' places the organisation in the membership ecosystem graph and must be one of: First Nations organisations, Ally organisations, Reconciliation groups, Community groups, Advocacy organisations, Cultural organisations, Workplace networks, Social enterprises. An organisation with no category (or an unrecognised one) is left out of that graph. The eight 'FNA <STATE> Workplace Network' entries currently point at their state group page as a placeholder; swap in each network's own Action Network URL when it exists.",
   "networks": [
     {
       "name": "Australian Capital Territory",
@@ -12,7 +12,13 @@
         ]
       },
       "groupUrl": "https://actionnetwork.org/groups/australian-capital-territory",
-      "organisations": []
+      "organisations": [
+        {
+          "name": "FNA ACT Workplace Network",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/australian-capital-territory",
+          "category": "Workplace networks"
+        }
+      ]
     },
     {
       "name": "New South Wales",
@@ -30,13 +36,20 @@
           "name": "Orange Together",
           "actionNetworkUrl": "https://actionnetwork.org/groups/orange-together",
           "siteUrl": "https://orangetogether.org.au/",
-          "logo": "/assets/logos/orange-together.png"
+          "logo": "/assets/logos/orange-together.png",
+          "category": "Community groups"
         },
         {
           "name": "Voice from the Heart Alliance",
           "actionNetworkUrl": "https://actionnetwork.org/groups/voice-from-the-heart-alliance",
           "siteUrl": "https://voicefromtheheartalliance.com/",
-          "logo": "/assets/logos/voice-from-the-heart.png"
+          "logo": "/assets/logos/voice-from-the-heart.png",
+          "category": "Advocacy organisations"
+        },
+        {
+          "name": "FNA NSW Workplace Network",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/new-south-wales",
+          "category": "Workplace networks"
         }
       ]
     },
@@ -51,7 +64,13 @@
         ]
       },
       "groupUrl": "https://actionnetwork.org/groups/northern-territory",
-      "organisations": []
+      "organisations": [
+        {
+          "name": "FNA NT Workplace Network",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/northern-territory",
+          "category": "Workplace networks"
+        }
+      ]
     },
     {
       "name": "Queensland",
@@ -67,48 +86,62 @@
       "organisations": [
         {
           "name": "Balaangala Community Group (The Gap)",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/balaangala-community-group"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/balaangala-community-group",
+          "category": "Community groups"
         },
         {
           "name": "First Nations Allies (Brisbane City)",
           "actionNetworkUrl": "https://actionnetwork.org/groups/first-nations-allies",
           "siteUrl": "https://www.facebook.com/FirstNationsAlliesBrisbane/",
-          "logo": "/assets/logos/first-nations-allies.png"
+          "logo": "/assets/logos/first-nations-allies.png",
+          "category": "Ally organisations"
         },
         {
           "name": "Foundation for Aboriginal and Torres Strait Islander Research Action (FAIRA)",
           "actionNetworkUrl": "https://actionnetwork.org/groups/faira",
           "siteUrl": "https://www.faira.org.au/",
-          "logo": "/assets/logos/faira.png"
+          "logo": "/assets/logos/faira.png",
+          "category": "First Nations organisations"
         },
         {
           "name": "Gold Coast for Yes",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/gold-coast-for-yes"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/gold-coast-for-yes",
+          "category": "Advocacy organisations"
         },
         {
           "name": "Jungaji (Performing Artist)",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/jungaji"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/jungaji",
+          "category": "Cultural organisations"
         },
         {
           "name": "Musgrave Park Family Fun Day (South Brisbane)",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/musgrave-park-family-fun-day"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/musgrave-park-family-fun-day",
+          "category": "Cultural organisations"
         },
         {
           "name": "Noosa First Nations Allies & Sunshine Coast Reconciliation Group",
           "actionNetworkUrl": "https://actionnetwork.org/groups/noosa-first-nations-allies",
           "siteUrl": "https://noosaallies.org.au/",
-          "logo": "/assets/logos/noosa.png"
+          "logo": "/assets/logos/noosa.png",
+          "category": "Reconciliation groups"
         },
         {
           "name": "Wynnum Allies",
           "actionNetworkUrl": "https://actionnetwork.org/groups/wynnum-allies",
-          "logo": "/assets/logos/wynnum.png"
+          "logo": "/assets/logos/wynnum.png",
+          "category": "Ally organisations"
         },
         {
           "name": "YACHATDAC (Barcaldine)",
           "actionNetworkUrl": "https://actionnetwork.org/groups/yachatdac",
           "siteUrl": "https://yachatdac.com.au/",
-          "logo": "/assets/logos/yachatdac.png"
+          "logo": "/assets/logos/yachatdac.png",
+          "category": "First Nations organisations"
+        },
+        {
+          "name": "FNA QLD Workplace Network",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/queensland/",
+          "category": "Workplace networks"
         }
       ]
     },
@@ -126,45 +159,60 @@
       "organisations": [
         {
           "name": "Aldinga Truth-Telling Book Club",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/aldinga-truth-telling-book-club"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/aldinga-truth-telling-book-club",
+          "category": "Community groups"
         },
         {
           "name": "Blackwood Reconciliation Group",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/blackwood-reconciliation-group"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/blackwood-reconciliation-group",
+          "category": "Reconciliation groups"
         },
         {
           "name": "First Nations Conversations (Highgate)",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/first-nations-conversations-highgate"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/first-nations-conversations-highgate",
+          "category": "Community groups"
         },
         {
           "name": "Pilgrim Uniting Church Walking Together Group (Adelaide)",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/pilgrim-uniting-church-walking-together-group"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/pilgrim-uniting-church-walking-together-group",
+          "category": "Reconciliation groups"
         },
         {
           "name": "Friends of Reconciliation Adelaide Hills",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/friends-of-reconciliation-adelaide-hills"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/friends-of-reconciliation-adelaide-hills",
+          "category": "Reconciliation groups"
         },
         {
           "name": "Sophia Antiracism Action Group",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/sophia-antiracism-action-group"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/sophia-antiracism-action-group",
+          "category": "Advocacy organisations"
         },
         {
           "name": "Trinity Action Group (Adelaide)",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/trinity-action-group-adelaide"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/trinity-action-group-adelaide",
+          "category": "Advocacy organisations"
         },
         {
           "name": "Unitarian Allies (Norwood)",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/unitarian-allies-norwood"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/unitarian-allies-norwood",
+          "category": "Ally organisations"
         },
         {
           "name": "Unley Allies with First Nations Peoples",
           "actionNetworkUrl": "https://actionnetwork.org/groups/unley-allies-with-first-nations-peoples",
           "siteUrl": "https://unleyallies.org/",
-          "logo": "/assets/logos/unley-allies.png"
+          "logo": "/assets/logos/unley-allies.png",
+          "category": "Ally organisations"
         },
         {
           "name": "Uraidla Reconciliation",
-          "actionNetworkUrl": "https://actionnetwork.org/groups/uraidla-reconciliation"
+          "actionNetworkUrl": "https://actionnetwork.org/groups/uraidla-reconciliation",
+          "category": "Reconciliation groups"
+        },
+        {
+          "name": "FNA SA Workplace Network",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/south-australia-2",
+          "category": "Workplace networks"
         }
       ]
     },
@@ -179,7 +227,13 @@
         ]
       },
       "groupUrl": "https://actionnetwork.org/groups/tasmania",
-      "organisations": []
+      "organisations": [
+        {
+          "name": "FNA TAS Workplace Network",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/tasmania",
+          "category": "Workplace networks"
+        }
+      ]
     },
     {
       "name": "Victoria",
@@ -192,7 +246,13 @@
         ]
       },
       "groupUrl": "https://actionnetwork.org/groups/victoria-2",
-      "organisations": []
+      "organisations": [
+        {
+          "name": "FNA VIC Workplace Network",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/victoria-2",
+          "category": "Workplace networks"
+        }
+      ]
     },
     {
       "name": "Western Australia",
@@ -205,7 +265,13 @@
         ]
       },
       "groupUrl": "https://actionnetwork.org/groups/western-australia",
-      "organisations": []
+      "organisations": [
+        {
+          "name": "FNA WA Workplace Network",
+          "actionNetworkUrl": "https://actionnetwork.org/groups/western-australia",
+          "category": "Workplace networks"
+        }
+      ]
     }
   ]
 }
