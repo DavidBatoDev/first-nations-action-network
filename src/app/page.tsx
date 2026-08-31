@@ -53,7 +53,7 @@ export default async function Home() {
               <p className="lead" data-reveal data-delay="2">
                 The First Nations Action Network brings together First Nations and
                 ally organisations across Australia to strengthen communities,
-                develop leadership, share resources and create positive change
+                grow leadership, share resources and create positive change
                 through collective action.
               </p>
               <div className="hero-cta" data-reveal data-delay="2">
@@ -128,7 +128,7 @@ export default async function Home() {
                   <p>A growing community of organisations and allies.</p>
                 </div>
                 <div className="pill">
-                  <h4>Develop</h4>
+                  <h4>Grow</h4>
                   <p>Leadership and capacity that lasts.</p>
                 </div>
                 <div className="pill">
@@ -743,7 +743,7 @@ export default async function Home() {
             </h2>
             <p data-reveal data-delay="2">
               Join a growing network of First Nations and ally organisations
-              working together to build stronger communities, develop leadership
+              working together to build stronger communities, grow leadership
               and create positive change.
             </p>
             <div className="actions" data-reveal data-delay="2">

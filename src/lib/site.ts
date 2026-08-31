@@ -12,4 +12,4 @@ export const SITE_URL =
 export const SITE_NAME = "First Nations Action Network";
 
 export const SITE_DESCRIPTION =
-  "A First Nations–led national network bringing together First Nations and ally organisations across Australia to strengthen communities, develop leadership, share resources and create positive change through collective action.";
+  "A First Nations–led national network bringing together First Nations and ally organisations across Australia to strengthen communities, grow leadership, share resources and create positive change through collective action.";
