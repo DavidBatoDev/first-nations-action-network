@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 const navLinks: NavLink[] = [
   { label: "Membership", href: "/membership" },
-  { label: "Who We Are", href: "/#who" },
+  { label: "Who We Are", href: "/who-we-are" },
   { label: "Learn", href: "/#training" },
   { label: "Events", href: "/events" },
 ];

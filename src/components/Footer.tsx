@@ -35,7 +35,7 @@ export default function Footer() {
             <h5>Network</h5>
             <ul>
               <li>
-                <Link href="/#who">Who We Are</Link>
+                <Link href="/who-we-are">Who We Are</Link>
               </li>
               <li>
                 <Link href="/#how">How It Works</Link>

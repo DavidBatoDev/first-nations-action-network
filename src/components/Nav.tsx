@@ -4,7 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment, useEffect, useRef, useState } from "react";
 
-export type NavLink = { label: string; href: string };
+export type NavLink = {
+  label: string;
+  href: string;
+  /** Same-page section (e.g. "#who") the scroll-spy tracks for this link
+   *  when it differs from href. Hash hrefs are tracked automatically. */
+  spy?: string;
+};
 
 type NavProps = {
   brandHref: string;
@@ -23,6 +29,7 @@ export default function Nav({
   solid = false,
 }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [activeHash, setActiveHash] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -33,6 +40,43 @@ export default function Nav({
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Scroll-spy: highlight the nav link whose same-page section is in view.
+  useEffect(() => {
+    const sections = links
+      .map((l) => {
+        const hash = l.spy ?? (l.href.startsWith("#") ? l.href : null);
+        return hash
+          ? { href: l.href, el: document.getElementById(hash.slice(1)) }
+          : null;
+      })
+      .filter(
+        (s): s is { href: string; el: HTMLElement } => s !== null && s.el !== null,
+      );
+    if (sections.length === 0) return;
+
+    const onScroll = () => {
+      const line = window.innerHeight * 0.35;
+      let current: string | null = null;
+      for (const s of sections) {
+        const r = s.el.getBoundingClientRect();
+        if (r.top <= line && r.bottom > line) current = s.href;
+      }
+      setActiveHash(current);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [links]);
+
+  const linkProps = (href: string) =>
+    href === activeHash
+      ? { className: "is-active", "aria-current": "location" as const }
+      : {};
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -120,7 +164,9 @@ export default function Nav({
           {links.map((l) =>
             l.label === "Events" ? (
               <div className="nav-events" key={l.label}>
-                <Link href={l.href}>{l.label}</Link>
+                <Link href={l.href} {...linkProps(l.href)}>
+                  {l.label}
+                </Link>
                 <div className="nav-events-menu">
                   <Link href="/events">
                     View Upcoming Events <span aria-hidden="true">→</span>
@@ -128,7 +174,7 @@ export default function Nav({
                 </div>
               </div>
             ) : (
-              <Link key={l.label} href={l.href}>
+              <Link key={l.label} href={l.href} {...linkProps(l.href)}>
                 {l.label}
               </Link>
             ),
@@ -187,6 +233,7 @@ export default function Nav({
                 tabIndex={menuOpen ? 0 : -1}
                 onNavigate={closeMenu}
                 onClick={closeMenu}
+                {...linkProps(link.href)}
               >
                 {link.label}
               </Link>

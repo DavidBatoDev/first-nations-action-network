@@ -291,6 +291,40 @@ p {
 .nav-links a:hover {
   color: var(--yellow);
 }
+/* scroll-spy: link whose section is currently in view */
+.nav-links > a,
+.nav-events > a {
+  position: relative;
+}
+.nav-links > a::after,
+.nav-events > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -9px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+}
+.nav-links a.is-active {
+  color: var(--yellow);
+}
+.nav-links a.is-active::after {
+  transform: scaleX(1);
+}
+.nav.scrolled .nav-links a.is-active {
+  color: var(--ochre-deep);
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-links > a::after,
+  .nav-events > a::after {
+    transition: none;
+  }
+}
 .nav-events {
   position: relative;
 }
@@ -4764,8 +4798,15 @@ button {
     border-radius: 9px;
     color: var(--ink);
     font-weight: 600;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease,
+      color 0.18s ease;
   }
   .mobile-nav-links a:hover {
+    background: var(--cream);
+    color: var(--ochre-deep);
+  }
+  .mobile-nav-links a.is-active {
+    box-shadow: inset 4px 0 0 var(--yellow);
     background: var(--cream);
     color: var(--ochre-deep);
   }
