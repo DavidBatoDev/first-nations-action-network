@@ -24,6 +24,7 @@ const slug = (s: string) =>
 export default function LogoCarousel() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const stepRef = useRef<((dir: 1 | -1) => void) | null>(null);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -96,16 +97,37 @@ export default function LogoCarousel() {
       startCentre();
     };
 
+    // Jump to a position without animating (the duplicate run makes
+    // positions i and i+N visually identical).
+    const snapTo = (i: number) => {
+      idx = i;
+      track.style.transition = "none";
+      track.style.transform = "translateX(" + -idx * itemW() + "px)";
+      void track.offsetWidth; // force reflow so the next move animates
+    };
+
     const onTransitionEnd = (e: TransitionEvent) => {
       if (e.propertyName !== "transform") return;
-      if (idx >= N) {
-        track.style.transition = "none";
-        idx = 0;
-        track.style.transform = "translateX(0px)";
-        void track.offsetWidth; // force reflow so the next move animates
-      }
+      if (idx >= N) snapTo(idx - N);
       schedule();
     };
+
+    // Manual prev/next. Unlike advance(), this must not respect isPaused():
+    // reduced-motion and hovering users still expect the buttons to work.
+    const step = (dir: 1 | -1) => {
+      window.clearTimeout(timer);
+      if (idx >= N) snapTo(idx - N);
+      if (dir === -1 && idx === 0) snapTo(N);
+      idx += dir;
+      if (reducedMotion.matches) {
+        snapTo(idx >= N ? idx - N : idx);
+        schedule();
+        return;
+      }
+      track.style.transition = "transform .9s cubic-bezier(.45,.05,.25,1)";
+      track.style.transform = "translateX(" + -idx * itemW() + "px)";
+    };
+    stepRef.current = step;
 
     const onEnter = () => {
       hoverPaused = true;
@@ -139,6 +161,7 @@ export default function LogoCarousel() {
     updatePlayback();
 
     return () => {
+      stepRef.current = null;
       cancelAnimationFrame(rafId);
       window.clearTimeout(timer);
       visibilityObserver.disconnect();
@@ -188,8 +211,24 @@ export default function LogoCarousel() {
       className="logos"
       aria-label="Connected organisations across Australia"
     >
-      <div className="wrap">
+      <div className="wrap logos-head">
         <p className="eyebrow">Connected organisations across Australia</p>
+        <div className="logos-controls">
+          <button
+            type="button"
+            aria-label="Previous organisations"
+            onClick={() => stepRef.current?.(-1)}
+          >
+            ←
+          </button>
+          <button
+            type="button"
+            aria-label="Next organisations"
+            onClick={() => stepRef.current?.(1)}
+          >
+            →
+          </button>
+        </div>
       </div>
       <div className="logos-viewport">
         <div className="logos-track" ref={trackRef}>
