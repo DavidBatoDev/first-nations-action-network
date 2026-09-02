@@ -18,7 +18,7 @@ import { dateParts, isPastEvent, sortEvents } from "@/lib/events";
 const navLinks: NavLink[] = [
   { label: "Who We Are", href: "/who-we-are", spy: "#who" },
   { label: "Contribute", href: "#contributors" },
-  { label: "Learn", href: "#training" },
+  { label: "Learn", href: "/learn", spy: "#learn" },
   { label: "Events", href: "/events", spy: "#events" },
   { label: "Directory", href: "/directory", spy: "#directory" },
 ];
@@ -340,7 +340,7 @@ export default async function Home() {
         </section>
 
         {/* ============ TRAINING ============ */}
-        <section id="training" className="sec">
+        <section id="learn" className="sec">
           <div className="wrap split">
             <div data-reveal>
               <span className="kicker">Learning and development</span>
@@ -363,7 +363,7 @@ export default async function Home() {
                 <span className="chip">Leadership Development</span>
               </div>
               <div className="actions">
-                <Link href="/training" className="btn btn-ghost">
+                <Link href="/learn" className="btn btn-ghost">
                   Explore Learning <Arrow />
                 </Link>
               </div>

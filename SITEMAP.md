@@ -16,7 +16,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 │   ├── #why — Why the Network
 │   ├── #how — How It Works
 │   ├── #contributors — Contributors overview
-│   ├── #training — Learning and Development
+│   ├── #learn — Learning and Development
 │   ├── #allies — First Nations Allies / Explore Allyship
 │   ├── #support — Contribute and support
 │   ├── #stories — Community Stories
@@ -29,12 +29,13 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 ├── /allyship — First Nations Allies introduction
 ├── /donate — Compatibility redirect to the Action Network fundraiser
 ├── /shop — Compatibility redirect to the external merchandise store
+├── /training — Compatibility redirect to /learn (permanent, 308)
 ├── /membership — Compatibility redirect to /contributors (permanent, 308)
 │   └── /membership/apply — Compatibility redirect to /contributors/apply (permanent, 308)
-├── /training — Training and Development service overview
+├── /learn — Learning and Development service overview
 ├── /directory — Public Community Directory foundation
 ├── /stories — Public Community Stories Library foundation
-├── /resources — Public member-learning library preview
+├── /resources — Public contributor-learning library preview
 └── /events — Public events hub powered by Action Network
     ├── Events — Upcoming and past event views
     ├── Calendar — Calendar view
@@ -47,12 +48,12 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | --- | --- | --- |
 | Understand FNAN | `/#who` | Homepage overview. |
 | Learn how the network works | `/#how` | Homepage section. |
-| Explore learning and development | `/training` | Public Training and Development overview; detailed packages and pricing remain to be confirmed. |
-| Learn from the header | `/#training` | Retains the homepage-section behaviour. |
+| Explore learning and development | `/learn` | Public Learning and Development overview; detailed packages and pricing remain to be confirmed. |
+| Learn from the header | `/learn` | The Learn navigation item opens the Learning and Development page; the homepage keeps its `#learn` preview section. |
 | Learn about First Nations Allies | `/allyship` | Provisional introduction using current homepage content; final message and CTA remain to be confirmed with Steve. |
 | Explore allyship from the header | `/#allies` | Retains the homepage-section behaviour until the final allyship journey is approved. |
 | Browse Community Stories | `/stories` | Public library foundation; approved stories are being prepared. |
-| Explore resources | `/resources` | Public member-learning preview with three provisional homepage resources and non-indexed detail views; content requires approval. |
+| Explore resources | `/resources` | Public contributor-learning preview with three provisional homepage resources and non-indexed detail views; content requires approval. |
 | Join the Network | `/contributors` | Version 1 is an information and enquiry journey; Stripe Checkout is deferred. |
 | Apply to contribute | `/contributors/apply` | Organisation application; shows an honest unavailable state until the approved Action Network widget is configured. |
 | Browse upcoming events | `/events` | Public confirmed events are loaded from Action Network; registration remains on each Action Network event page. |
@@ -62,11 +63,12 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | Support the movement | `/#support` | Homepage section linking directly to the external fundraiser and merchandise store. |
 | Make a donation | External Action Network fundraiser | `/donate` remains available as a temporary compatibility redirect. |
 | Shop merchandise | External Print Bar store | `/shop` remains available as a temporary compatibility redirect. |
+| Reach the old training URL | `/learn` | `/training` permanently redirects after the rename and is not listed in `sitemap.xml`. |
 | Reach the old membership URLs | `/contributors` | `/membership` and `/membership/apply` permanently redirect after the rename; neither is listed in `sitemap.xml`. |
 
 ## Search-engine routes
 
-- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/contributors`, `/contributors/apply`, `/allyship`, `/training`, `/directory`, `/stories`, `/resources`, and `/events`. External fundraiser and merchandise destinations are not included.
+- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/contributors`, `/contributors/apply`, `/allyship`, `/learn`, `/directory`, `/stories`, `/resources`, and `/events`. External fundraiser and merchandise destinations are not included.
 - `/robots.txt` — generated from `src/app/robots.ts`; points crawlers to the XML sitemap.
 
 ## Planned or deferred routes

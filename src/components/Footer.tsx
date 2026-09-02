@@ -52,7 +52,7 @@ export default function Footer() {
             <h5>Learn</h5>
             <ul>
               <li>
-                <Link href="/#training">Learning and Development</Link>
+                <Link href="/learn">Learning and Development</Link>
               </li>
               <li>
                 <Link href="/stories">Community Stories</Link>

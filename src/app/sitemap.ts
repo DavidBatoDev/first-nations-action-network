@@ -47,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${SITE_URL}/training`,
+      url: `${SITE_URL}/learn`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
