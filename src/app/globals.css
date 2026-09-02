@@ -292,12 +292,10 @@ p {
   color: var(--yellow);
 }
 /* scroll-spy: link whose section is currently in view */
-.nav-links > a,
-.nav-events > a {
+.nav-links > a {
   position: relative;
 }
-.nav-links > a::after,
-.nav-events > a::after {
+.nav-links > a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -320,59 +318,15 @@ p {
   color: var(--ochre-deep);
 }
 @media (prefers-reduced-motion: reduce) {
-  .nav-links > a::after,
-  .nav-events > a::after {
+  .nav-links > a::after {
     transition: none;
   }
-}
-.nav-events {
-  position: relative;
-}
-.nav-events-menu {
-  position: absolute;
-  top: 100%;
-  left: -16px;
-  z-index: 2;
-  min-width: 212px;
-  padding-top: 12px;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(-5px);
-  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
-}
-.nav-events-menu a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 13px 15px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--paper);
-  color: var(--ink);
-  box-shadow: 0 16px 30px -20px rgba(22, 19, 15, 0.55);
-  white-space: nowrap;
-}
-.nav-events-menu a:hover {
-  background: var(--cream);
-  color: var(--ochre-deep);
-}
-.nav-events:hover .nav-events-menu,
-.nav-events:focus-within .nav-events-menu {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
 }
 .nav.scrolled .nav-links a {
   color: #2b2620;
 }
 .nav.scrolled .nav-links a:hover {
   color: var(--ochre-deep);
-}
-.nav.scrolled .nav-events-menu a {
-  color: var(--ink);
 }
 .nav-cta {
   display: flex;
@@ -400,9 +354,6 @@ p {
 }
 @media (max-width: 1080px) {
   .nav-links {
-    display: none;
-  }
-  .nav-events-menu {
     display: none;
   }
 }
@@ -2892,6 +2843,49 @@ a.logo-box {
   }
 }
 
+/* ---------- Home · community directory highlight ----------
+   The homepage section that replaced the old resource cards. The map is
+   full-bleed, so the counts and CTA sit back inside the wrap beneath it. */
+.dir-highlight-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+.dir-highlight-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 46px;
+  margin: 0;
+}
+.dir-highlight-stats dt {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ochre-deep);
+}
+.dir-highlight-stats dd {
+  margin: 6px 0 0;
+  font-family: var(--serif);
+  font-size: 40px;
+  line-height: 1;
+  color: var(--ink);
+}
+@media (max-width: 720px) {
+  .dir-highlight-foot {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .dir-highlight-stats {
+    gap: 30px;
+  }
+  .dir-highlight-stats dd {
+    font-size: 32px;
+  }
+}
+
 /* ---------- Membership · benefit cards ---------- */
 .benefit-grid {
   display: grid;
@@ -5114,12 +5108,6 @@ button {
     border-top: 1px solid var(--line);
     border-radius: 0 0 9px 9px;
     color: var(--ochre-deep);
-  }
-  .mobile-nav-links .mobile-upcoming-events {
-    min-height: 42px;
-    padding-left: 30px;
-    color: var(--ochre-deep);
-    font-size: 14px;
   }
 }
 

@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -6,6 +8,7 @@ import LogoCarousel from "@/components/LogoCarousel";
 import NewsletterPopup from "@/components/NewsletterPopup";
 import { Tick, Arrow } from "@/components/icons";
 import SupportCards from "@/components/SupportCards";
+import { NetworkMap, parseNetworks } from "@/components/NetworkMap";
 import {
   getActionNetworkActions,
   getActionNetworkEvents,
@@ -16,11 +19,22 @@ const navLinks: NavLink[] = [
   { label: "Who We Are", href: "/who-we-are", spy: "#who" },
   { label: "Contribute", href: "#membership" },
   { label: "Learn", href: "#training" },
-  { label: "Events", href: "#events" },
-  { label: "Directory", href: "#resources" },
+  { label: "Events", href: "/events", spy: "#events" },
+  { label: "Directory", href: "/directory", spy: "#directory" },
 ];
 
+/** Same data the map fetches, read here so the counts are server-rendered. */
+async function readNetworks() {
+  const file = path.join(process.cwd(), "public", "fnan-networks.json");
+  return parseNetworks(JSON.parse(await readFile(file, "utf8")));
+}
+
 export default async function Home() {
+  const networks = await readNetworks();
+  const organisationCount = networks.reduce(
+    (total, network) => total + network.organisations.length,
+    0,
+  );
   const eventFeed = await getActionNetworkEvents();
   const actionFeed = await getActionNetworkActions();
   const upcomingEvents = sortEvents(eventFeed.events)
@@ -207,13 +221,14 @@ export default async function Home() {
         <section id="how" className="sec">
           <div className="wrap">
             <div className="sec-head" data-reveal>
-              <span className="kicker">How the network works</span>
+              <span className="kicker">How we work</span>
               <h2>
                 Connect. Organise. <span className="em-action">Take Action.</span>
               </h2>
               <p className="lead">
-                Three simple ways the Network turns shared purpose into community
-                power.
+                Community organising turns shared purpose into community power —
+                and we provide the connection, tools and support to make it
+                happen.
               </p>
             </div>
             <div className="cards3">
@@ -230,8 +245,9 @@ export default async function Home() {
                 </div>
                 <h3>Connect</h3>
                 <p>
-                  Become part of a growing network of First Nations and ally
-                  organisations committed to creating positive change.
+                  We bring First Nations communities, organisations and allies
+                  together, building relationships and a shared sense of purpose
+                  across Australia.
                 </p>
               </article>
               <article className="card-step" data-reveal data-delay="1">
@@ -245,8 +261,9 @@ export default async function Home() {
                 </div>
                 <h3>Organise</h3>
                 <p>
-                  Access training, resources and community organising support that
-                  helps strengthen engagement and participation.
+                  Community organising is about people coming together to build
+                  power and act on the issues that matter to them. We share the
+                  tools, training and support to make that possible.
                 </p>
               </article>
               <article className="card-step" data-reveal data-delay="2">
@@ -259,8 +276,9 @@ export default async function Home() {
                 </div>
                 <h3>Take Action</h3>
                 <p>
-                  Build campaigns, host events, develop leaders and create
-                  meaningful impact in your community.
+                  Through Action Network and hands-on support, communities run
+                  campaigns, host events and turn shared purpose into lasting,
+                  local impact.
                 </p>
               </article>
             </div>
@@ -659,73 +677,40 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ============ RESOURCES ============ */}
-        <section id="resources" className="sec">
+        {/* ============ COMMUNITY DIRECTORY ============ */}
+        <section id="directory" className="sec">
           <div className="wrap">
             <div className="sec-head" data-reveal>
-              <span className="kicker">Resources</span>
-              <h2>Shared Learning and Resources</h2>
+              <span className="kicker">Community directory</span>
+              <h2>
+                Find the Network <span className="em-action">Near You</span>
+              </h2>
               <p className="lead">
-                Access articles, guides, tools and educational resources developed
-                to support community leaders, organisations and changemakers.
+                State and territory networks connect organisations, groups and
+                initiatives working to strengthen communities across Australia.
+                Click a state on the map to see who is organising there.
               </p>
             </div>
-            <div className="res-grid">
-              <article className="res-card" data-reveal>
-                <div className="res-ico">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 5h13v15H6a2 2 0 0 1-2-2z" />
-                    <path d="M17 5h3v13a2 2 0 0 1-2 2" />
-                    <path d="M8 9h6M8 13h6" />
-                  </svg>
+          </div>
+
+          {/* Live state-network map. Hover a pin for that network's
+              organisations; click to zoom into the state. */}
+          <NetworkMap height="min(62vh, 540px)" showLegend={false} />
+
+          <div className="wrap">
+            <div className="dir-highlight-foot" data-reveal>
+              <dl className="dir-highlight-stats">
+                <div>
+                  <dt>State and territory networks</dt>
+                  <dd>{networks.length}</dd>
                 </div>
-                <span className="r-cat">Guide</span>
-                <h3>Starting a Community Campaign</h3>
-                <p>
-                  A practical, step-by-step guide to planning and launching a
-                  campaign that builds momentum.
-                </p>
-                <span className="more">
-                  Open guide <span>→</span>
-                </span>
-              </article>
-              <article className="res-card" data-reveal data-delay="1">
-                <div className="res-ico">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 19V6a2 2 0 0 1 2-2h8l6 6v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
-                    <path d="M14 4v6h6" />
-                  </svg>
+                <div>
+                  <dt>Organisations listed</dt>
+                  <dd>{organisationCount}</dd>
                 </div>
-                <span className="r-cat">Article</span>
-                <h3>Why Connection Sustains Change</h3>
-                <p>
-                  Reflections on how relationships and belonging keep communities
-                  engaged for the long term.
-                </p>
-                <span className="more">
-                  Read article <span>→</span>
-                </span>
-              </article>
-              <article className="res-card" data-reveal data-delay="2">
-                <div className="res-ico">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-5 5a1.5 1.5 0 0 0 2.1 2.1l5-5a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2z" />
-                  </svg>
-                </div>
-                <span className="r-cat">Tool</span>
-                <h3>Engagement Planning Template</h3>
-                <p>
-                  A ready-to-use template to map supporters, plan outreach and
-                  track community participation.
-                </p>
-                <span className="more">
-                  Download tool <span>→</span>
-                </span>
-              </article>
-            </div>
-            <div style={{ marginTop: 40 }} data-reveal>
-              <Link href="/resources" className="btn btn-ghost">
-                Explore Resources <Arrow />
+              </dl>
+              <Link href="/directory" className="btn btn-ghost">
+                Explore the Directory <Arrow />
               </Link>
             </div>
           </div>

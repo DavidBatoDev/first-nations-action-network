@@ -32,8 +32,8 @@ export const metadata: Metadata = {
 const navLinks: NavLink[] = [
   { label: "Who We Are", href: "/who-we-are" },
   { label: "Learn", href: "/#training" },
-  { label: "Events", href: "/#events" },
-  { label: "Directory", href: "/#resources" },
+  { label: "Events", href: "/events" },
+  { label: "Directory", href: "/directory" },
   { label: "FAQ", href: "#faq" },
 ];
 
