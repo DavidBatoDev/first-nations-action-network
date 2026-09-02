@@ -663,7 +663,7 @@ export default async function Contributors() {
               {(
                 [
                   ["1", "Join The Network", "Sign-up is simple \u2014 register your organisation and become a contributor.", ""],
-                  ["2", "Complete Onboarding", "Complete your set-up with guidance and platform training.", "1"],
+                  ["2", "Complete Onboarding", "Complete your setup with guidance and platform training.", "1"],
                   ["3", "Access Resources & Tools", "Unlock resources and community organising tools.", "2"],
                   ["4", "Share Stories & Participate", "Publish your work and join the conversation.", "3"],
                   ["5", "Grow Your Impact", "Build momentum and strengthen your community.", "4"],
