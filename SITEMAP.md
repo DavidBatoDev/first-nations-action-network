@@ -21,7 +21,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 │   ├── #support — Contribute and support
 │   ├── #stories — Community Stories
 │   ├── #events — Events preview
-│   ├── #resources — Directory and resources preview
+│   ├── #directory — Community directory highlight (state-network map)
 │   ├── #join — Join the Network call to action
 │   └── #contact — Contact and conversation links in the footer
 ├── /membership — Membership information and joining journey
@@ -54,8 +54,8 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | Join the Network | `/membership` | Version 1 is an information and enquiry journey; Stripe Checkout is deferred. |
 | Apply for membership | `/membership/apply` | Organisation application; shows an honest unavailable state until the approved Action Network widget is configured. |
 | Browse upcoming events | `/events` | Public confirmed events are loaded from Action Network; registration remains on each Action Network event page. |
-| Browse events from the navigation | `/#events` | Retains the homepage section behaviour; the Events navigation item also exposes a “View Upcoming Events” link to `/events`. |
-| Browse the community directory and resources | `/directory` | Public directory foundation; approved listings are being populated. |
+| Browse events from the navigation | `/events` | The Events navigation item opens the Events page directly; the homepage keeps its `#events` preview section. |
+| Browse the community directory and resources | `/directory` | Public directory foundation; approved listings are being populated. The Directory navigation item opens this page, and the homepage `#directory` section highlights it. |
 | Contact or book a conversation | `/#contact` | Footer contact area. |
 | Support the movement | `/#support` | Homepage section linking directly to the external fundraiser and merchandise store. |
 | Make a donation | External Action Network fundraiser | `/donate` remains available as a temporary compatibility redirect. |
