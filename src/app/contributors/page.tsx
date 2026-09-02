@@ -661,8 +661,8 @@ export default async function Contributors() {
             <div className="journey-track">
               {(
                 [
-                  ["1", "Join The Network", "Sign up your organisation and become a contributor.", ""],
-                  ["2", "Complete Onboarding", "Get set up with guidance and platform training.", "1"],
+                  ["1", "Join The Network", "Sign-up is simple \u2014 register your organisation and become a contributor.", ""],
+                  ["2", "Complete Onboarding", "Complete your set-up with guidance and platform training.", "1"],
                   ["3", "Access Resources & Tools", "Unlock resources and community organising tools.", "2"],
                   ["4", "Share Stories & Participate", "Publish your work and join the conversation.", "3"],
                   ["5", "Grow Your Impact", "Build momentum and strengthen your community.", "4"],
@@ -689,7 +689,7 @@ export default async function Contributors() {
         <div className="wrap">
           <div className="sec-head centered" data-reveal>
             <span className="kicker centered">Who can join</span>
-            <h2>Contributors Are Organisations Creating Positive Change</h2>
+            <h2>Organisations Creating Positive Change</h2>
             <p className="lead">
               The Network welcomes a wide range of organisations working to
               strengthen communities.

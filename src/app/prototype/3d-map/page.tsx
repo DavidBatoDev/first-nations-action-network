@@ -13,7 +13,7 @@ import { parseNetworks, type StateNetwork } from "@/components/NetworkMap";
 export const metadata: Metadata = {
   title: "Prototype · 3D Map of Australia",
   description:
-    "Temporary prototype of a stylised, interactive 3D map of Australia showing state networks, member organisations and the Torres Strait Islands.",
+    "Temporary prototype of a stylised, interactive 3D map of Australia showing state networks, contributor organisations and the Torres Strait Islands.",
   robots: { index: false, follow: false },
 };
 
@@ -51,7 +51,7 @@ export default async function Prototype3DMapPage() {
 
       <section className="map3d-legend" aria-label="State networks and organisations">
         <div className="map3d-links">
-          <h2>State networks and member organisations</h2>
+          <h2>State networks and contributor organisations</h2>
           <p>
             The same destinations as the map, listed for keyboard and
             screen-reader access — {totalOrganisations} organisations across{" "}
@@ -105,7 +105,7 @@ export default async function Prototype3DMapPage() {
                   </ul>
                 ) : (
                   <p className="map3d-statelist-empty">
-                    No member organisations listed yet.
+                    No contributor organisations listed yet.
                   </p>
                 )}
               </section>
@@ -115,7 +115,7 @@ export default async function Prototype3DMapPage() {
           <p className="map3d-note">
             Data note to confirm: the Noosa entry names two groups (a separate
             Sunshine Coast logo and site also exist). NT, TAS, VIC and WA have no
-            member organisations listed yet.
+            contributor organisations listed yet.
           </p>
         </div>
       </section>

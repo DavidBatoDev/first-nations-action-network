@@ -198,9 +198,9 @@ export default function NewsletterPopup() {
           Get updates from the Network
         </h2>
         <p id={bodyId} className="nlpop-body">
-          Sign up to receive emails from First Nations Action Network about
-          campaign and other updates — a monthly newsletter, plus the odd extra
-          message through the month. Unsubscribe any time.
+          Sign-up is quick. Receive emails from First Nations Action Network
+          about campaign and other updates — a monthly newsletter, plus the odd
+          extra message through the month. Unsubscribe any time.
         </p>
 
         <div className="nlpop-actions">
