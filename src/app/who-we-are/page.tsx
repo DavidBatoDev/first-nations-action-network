@@ -6,7 +6,7 @@ import Nav, { type NavLink } from "@/components/Nav";
 import { Arrow } from "@/components/icons";
 
 const WHO_DESCRIPTION =
-  "The First Nations Action Network is a First Nations-led national network connecting communities, organisations and allies through shared learning, collective action and practical support.";
+  "The First Nations Action Network is a First Nations-led federal network connecting communities, organisations and allies through shared learning, collective action and practical support.";
 
 export const metadata: Metadata = {
   title: "Who We Are",
@@ -46,7 +46,7 @@ const storyStages = [
   },
   {
     title: "National Collaboration",
-    copy: "Local efforts connected into something larger: a national network organising for change while acting locally.",
+    copy: "Local efforts connected into something larger: a federal network organising for change while acting locally.",
   },
   {
     title: "The Network Today",
@@ -57,28 +57,18 @@ const storyStages = [
 const beliefCards = [
   {
     no: "01",
-    title: "Core Values",
-    items: ["Listening", "Connection", "Story", "Community"],
+    statement:
+      "Demonstrate how all Australians are enriched when we value the First Peoples and our continent's history",
   },
   {
     no: "02",
-    title: "Strategic Approach",
-    items: [
-      "First Nations Self-Determination",
-      "First Nations Self-Autonomy",
-      "Economic Independence",
-      "Community organising",
-      "Community Wellbeing",
-    ],
+    statement:
+      "Increase the number of shared experiences with First Nations peoples (events, talks, rallies, other actions)",
   },
   {
     no: "03",
-    title: "Mottos",
-    items: [
-      "\u201CThis is a people\u2019s movement.\u201D",
-      "\u201CEverything we do empowers each other and community.\u201D",
-      "\u201CThink federally, act locally.\u201D",
-    ],
+    statement:
+      "Organise political action with greater communication and solidarity",
   },
 ];
 
@@ -87,55 +77,63 @@ const workCards = [
     no: "01 — Connect",
     title: "Connect",
     copy: "We bring First Nations communities, organisations and allies together, building relationships and a shared sense of purpose across Australia.",
+    icon: (
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="9" cy="7" r="3" />
+        <circle cx="17" cy="10" r="2.4" />
+        <path d="M3 19c0-3 2.7-5 6-5s6 2 6 5" />
+        <path d="M15.5 19c0-2 1.3-3.4 3.2-3.4S22 17 22 19" />
+      </svg>
+    ),
   },
   {
     no: "02 — Organise",
     title: "Organise",
     copy: "Community organising is about people coming together to build power and act on the issues that matter to them. We share the tools, training and support to make that possible.",
+    icon: (
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 6h16M4 12h16M4 18h10" />
+        <circle cx="19" cy="18" r="2.4" />
+      </svg>
+    ),
   },
   {
     no: "03 — Take Action",
     title: "Take Action",
     copy: "Through Action Network and hands-on support, communities run campaigns, host events and turn shared purpose into lasting, local impact.",
+    icon: (
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M13 2 4 14h7l-1 8 9-12h-7z" />
+      </svg>
+    ),
   },
 ];
 
 const people = [
   {
     image: "/images/story1.webp",
-    name: "Community Leader",
-    role: "Network Convenor",
-    nation: "Nation / Community",
+    name: "Stephen Mam",
+    role: "Founder / Executive Director",
   },
   {
     image: "/images/membership.webp",
-    name: "Community Leader",
-    role: "Community Organiser",
-    nation: "Nation / Community",
+    name: "Pablo Teleg",
+    role: "Creative Designer",
   },
   {
     image: "/images/training.webp",
-    name: "Community Leader",
-    role: "Learning & Development",
-    nation: "Nation / Community",
+    name: "Suzanne Thompson",
+    role: "Ambassador (QLD)",
   },
   {
     image: "/images/story2.webp",
-    name: "Community Leader",
-    role: "Ally & Partnerships",
-    nation: "Nation / Community",
+    name: "Sharon Wright",
+    role: "Ambassador (QLD)",
   },
   {
     image: "/images/allies.webp",
-    name: "Community Leader",
-    role: "Events & Gatherings",
-    nation: "Nation / Community",
-  },
-  {
-    image: "/images/story3.webp",
-    name: "Community Leader",
-    role: "Community Voice",
-    nation: "Nation / Community",
+    name: "Peter Murchland",
+    role: "Ambassador (SA)",
   },
 ];
 
@@ -161,7 +159,7 @@ export default function WhoWeArePage() {
                 <span className="em-action">Guided by Purpose.</span>
               </h1>
               <p className="lead" data-reveal data-delay="2">
-                The First Nations Action Network is a First Nations–led national
+                The First Nations Action Network is a First Nations–led federal
                 network that enables local communities to organise and create
                 impact for change — connecting communities, organisations and
                 allies through shared learning, collective action and practical
@@ -191,25 +189,41 @@ export default function WhoWeArePage() {
           </div>
         </section>
 
-        {/* ============ SECTION 2 · VISION & PURPOSE ============ */}
+        {/* ============ SECTION 2 · WHAT IS THE NETWORK ============ */}
+        <section className="sec bg-cream who-what">
+          <div className="wrap">
+            <div className="sec-head" data-reveal>
+              <span className="kicker">What is the Network</span>
+              <h2>Welcome to the First Nations Action Network</h2>
+              <p className="lead">
+                A communication platform for groups and national subscribers, as
+                well as a source of intelligence on their activity. An exciting
+                and engaging way to connect.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ============ SECTION 3 · VISION & PURPOSE ============ */}
         <section className="sec who-vision">
           <div className="wrap who-vision-grid">
             <div className="who-vision-copy" data-reveal>
               <div className="who-statement">
                 <span className="who-vision-head">Our Vision</span>
                 <p>
-                  Strong communities creating lasting change — a future where
-                  First Nations communities across Australia are connected,
-                  supported and leading change on their own terms.
+                  A community built on a foundation of compassion, where the
+                  inherent rights of First Nations peoples to self-determination,
+                  self-autonomy, and economic independence are fully embraced.
+                  Through every action, we are dedicated to mutually empowering
+                  each other and strengthening our collective community.
                 </p>
               </div>
               <div className="who-statement">
                 <span className="who-vision-head">Our Purpose</span>
                 <p>
-                  To help organisations, community leaders and allies connect,
-                  organise and take action together — sharing knowledge,
-                  resources and support so no community has to do this work
-                  alone.
+                  To nurture authentic relationships and organise communities
+                  through progressive collaboration, driving leadership for
+                  change and advocating for community wellbeing.
                 </p>
               </div>
             </div>
@@ -225,12 +239,12 @@ export default function WhoWeArePage() {
           </div>
         </section>
 
-        {/* ============ SECTION 3 · OUR STORY ============ */}
+        {/* ============ SECTION 4 · OUR STORY ============ */}
         <section className="sec bg-cream who-story">
           <div className="wrap">
             <div className="sec-head" data-reveal>
               <span className="kicker">Our story</span>
-              <h2>From Conversations to a National Network</h2>
+              <h2>From Conversations to a Federal Network</h2>
               <p className="lead">
                 The First Nations Action Network grew from community
                 conversations into a national movement — one relationship, one
@@ -258,7 +272,7 @@ export default function WhoWeArePage() {
           </div>
         </section>
 
-        {/* ============ SECTION 4 · WHAT WE BELIEVE ============ */}
+        {/* ============ SECTION 5 · WHAT WE BELIEVE ============ */}
         <section className="sec who-believe">
           <div className="wrap">
             <div className="sec-head" data-reveal>
@@ -278,12 +292,7 @@ export default function WhoWeArePage() {
                   <span className="who-belief-no" aria-hidden="true">
                     {card.no}
                   </span>
-                  <h3>{card.title}</h3>
-                  <ul>
-                    {card.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                  <p>{card.statement}</p>
                 </article>
               ))}
             </div>
@@ -294,7 +303,7 @@ export default function WhoWeArePage() {
           </div>
         </section>
 
-        {/* ============ SECTION 5 · HOW WE WORK ============ */}
+        {/* ============ SECTION 6 · HOW WE WORK ============ */}
         <section className="sec bg-cream who-work">
           <div className="wrap">
             <div className="sec-head" data-reveal>
@@ -319,6 +328,7 @@ export default function WhoWeArePage() {
                 >
                   <span className="edge" />
                   <span className="step-no">{card.no}</span>
+                  <div className="step-ico">{card.icon}</div>
                   <h3>{card.title}</h3>
                   <p>{card.copy}</p>
                 </article>
@@ -327,22 +337,22 @@ export default function WhoWeArePage() {
           </div>
         </section>
 
-        {/* ============ SECTION 6 · MEET THE PEOPLE ============ */}
+        {/* ============ SECTION 7 · OUR TEAM ============ */}
         <section className="sec who-people">
           <div className="wrap">
             <div className="sec-head" data-reveal>
-              <span className="kicker">Meet the people</span>
+              <span className="kicker">Our Team</span>
               <h2>The People Behind the Network</h2>
               <p className="lead">
-                A First Nations–led community of leaders, organisers and allies.
-                Profiles are being gathered — real stories and photos will be
-                shared here with permission.
+                A First Nations–led team of founders, creatives and ambassadors
+                working across the country to connect communities and grow the
+                Network.
               </p>
             </div>
             <div className="who-people-grid">
               {people.map((person, index) => (
                 <article
-                  key={`${person.role}-${index}`}
+                  key={person.name}
                   className="who-person"
                   data-reveal
                   data-delay={index % 3 ? String(index % 3) : undefined}
@@ -353,17 +363,12 @@ export default function WhoWeArePage() {
                       alt="Placeholder portrait of a network member"
                       note="Profile coming soon"
                       rounded={16}
-                      sizes="(max-width: 720px) calc(100vw - 48px), (max-width: 1040px) 44vw, 30vw"
+                      sizes="(max-width: 900px) calc(100vw - 48px), 30vw"
                     />
                   </div>
                   <div className="who-person-body">
                     <h3>{person.name}</h3>
                     <span className="who-person-role">{person.role}</span>
-                    <span className="who-person-nation">{person.nation}</span>
-                    <p>
-                      A short bio will introduce this member — their community,
-                      their work and what the Network means to them.
-                    </p>
                   </div>
                 </article>
               ))}
@@ -375,11 +380,11 @@ export default function WhoWeArePage() {
         <section className="sec final who-final">
           <div className="wrap">
             <span className="kicker on-dark centered" data-reveal>
-              This is a people&rsquo;s movement
+              This is a peoples movement
             </span>
             <h2 data-reveal data-delay="1" style={{ marginTop: 20 }}>
-              It Needs People Like{" "}
-              <span className="em-action">You.</span>
+              Real Change Happens When We Show Up{" "}
+              <span className="em-action">Together.</span>
             </h2>
             <p data-reveal data-delay="2">
               Every connection made through the Network has the potential to

@@ -5582,7 +5582,7 @@ button {
    .card-step, .final) and adds page-specific blocks below.
    ============================================================ */
 
-/* Section 2 · Vision & Purpose (dark) */
+/* Section 3 · Vision & Purpose (dark) */
 .who-vision {
   background: var(--black);
   color: #e9e3d8;
@@ -5623,7 +5623,7 @@ button {
   background: #231f19;
 }
 
-/* Section 3 · Our Story timeline */
+/* Section 4 · Our Story timeline */
 .who-timeline {
   list-style: none;
   margin: 56px 0 0;
@@ -5678,7 +5678,7 @@ button {
   max-width: 64ch;
 }
 
-/* Section 4 · What We Believe (3-card block) */
+/* Section 5 · What We Believe (3-card block) */
 .who-believe-title {
   text-transform: uppercase;
 }
@@ -5706,35 +5706,11 @@ button {
   -webkit-text-stroke: 2px var(--ochre);
   margin-bottom: 14px;
 }
-.who-belief-card h3 {
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
-.who-belief-card ul {
-  list-style: none;
-  margin: 18px 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.who-belief-card li {
-  position: relative;
-  padding-left: 20px;
-  font-size: 16px;
-  line-height: 1.55;
+.who-belief-card p {
+  margin: 4px 0 0;
+  font-size: 16.5px;
+  line-height: 1.6;
   color: #4c463d;
-}
-.who-belief-card li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 10px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--yellow);
 }
 .who-crumbs {
   display: flex;
@@ -5750,14 +5726,17 @@ button {
   color: var(--grey);
 }
 
-/* Section 6 · Meet the People */
+/* Section 7 · Our Team */
+/* Flex rather than grid so a trailing part-row of cards centres. */
 .who-people-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 30px;
   margin-top: 46px;
 }
 .who-person {
+  flex: 0 1 calc((100% - 60px) / 3);
   border: 1px solid var(--line);
   border-radius: 18px;
   overflow: hidden;
@@ -5787,18 +5766,6 @@ button {
   text-transform: uppercase;
   color: var(--ochre-deep);
 }
-.who-person-nation {
-  display: block;
-  margin-top: 4px;
-  font-size: 14px;
-  color: var(--grey);
-}
-.who-person-body p {
-  margin: 16px 0 0;
-  font-size: 15.5px;
-  line-height: 1.65;
-  color: #5a5349;
-}
 
 /* Responsive */
 @media (max-width: 980px) {
@@ -5811,9 +5778,11 @@ button {
   }
 }
 @media (max-width: 900px) {
-  .who-belief-cards,
-  .who-people-grid {
+  .who-belief-cards {
     grid-template-columns: 1fr;
+  }
+  .who-person {
+    flex-basis: 100%;
   }
 }
 @media (max-width: 620px) {
