@@ -795,7 +795,7 @@ export default async function Contributors() {
             <h2>Network Contributors</h2>
             <p className="lead">
               Access belongs to the organisation and includes participation
-              opportunities for designated team members under a nominated
+              opportunities for your designated team, under a nominated
               Captain.
             </p>
           </div>
@@ -822,7 +822,7 @@ export default async function Contributors() {
               </div>
               <p className="price-note">
                 Access belongs to the organisation and includes
-                participation opportunities for designated team members under a
+                participation opportunities for your designated team, under a
                 nominated Captain.
               </p>
             </div>
@@ -906,7 +906,7 @@ export default async function Contributors() {
             </details>
             <details className="faq-item" data-reveal>
               <summary>
-                How many team members can participate?{" "}
+                How many people from our team can participate?{" "}
                 <span className="faq-ico">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
                     <path d="M12 5v14M5 12h14" />
@@ -915,7 +915,7 @@ export default async function Contributors() {
               </summary>
               <div className="faq-a">
                 Access belongs to the organisation and includes participation
-                opportunities for designated team members under a nominated
+                opportunities for your designated team, under a nominated
                 Captain who coordinates your organisation&rsquo;s involvement.
               </div>
             </details>
