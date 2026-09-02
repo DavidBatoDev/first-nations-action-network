@@ -23,13 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: `${SITE_URL}/membership`,
+      url: `${SITE_URL}/contributors`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/membership/apply`,
+      url: `${SITE_URL}/contributors/apply`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,

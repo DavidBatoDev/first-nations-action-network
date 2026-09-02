@@ -76,7 +76,7 @@ ACTION_NETWORK_CONTACT_FORM_SLUG=book-a-conversation
 
 The value may contain lowercase letters, numbers and hyphens only. The website
 does not accept or expose an Action Network API key. Both `/contact` and
-`/membership/apply` share the generic `ActionNetworkForm` component and load the
+`/contributors/apply` share the generic `ActionNetworkForm` component and load the
 Action Network v2 form widget with their respective public slugs.
 
 ## Acceptance check

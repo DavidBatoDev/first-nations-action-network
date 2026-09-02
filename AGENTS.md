@@ -28,7 +28,7 @@ index](docs/INDEX.md) and then the documents relevant to the task.
 - The homepage shows the nearest upcoming events in chronological order. The
   Events and Discover lists show newest first; Calendar retains chronological
   date behaviour.
-- `/membership/apply` uses the separate
+- `/contributors/apply` uses the separate
   `ACTION_NETWORK_MEMBERSHIP_FORM_SLUG` widget configuration documented in
   `docs/Action Network Membership Form Setup.md`. Do not substitute the API key
   for the public widget slug.

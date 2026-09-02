@@ -6,7 +6,7 @@ import ResourceCatalogue from "@/components/ResourceCatalogue";
 import { RESOURCE_COURSES } from "@/lib/resources";
 
 const RESOURCES_DESCRIPTION =
-  "A member learning library of practical guides, articles and tools for community organising, leadership and shared learning.";
+  "A contributor learning library of practical guides, articles and tools for community organising, leadership and shared learning.";
 
 export const metadata: Metadata = {
   title: "Resources",
@@ -33,7 +33,7 @@ export default function ResourcesPage() {
         brandHref="/"
         links={navLinks}
         exploreHref="/#allies"
-        joinHref="/membership"
+        joinHref="/contributors"
       />
 
       <main className="home-page resources-page">
@@ -45,14 +45,14 @@ export default function ResourcesPage() {
                 Resources
               </span>
               <span className="kicker on-dark" data-reveal>
-                Member learning library
+                Contributor learning library
               </span>
               <h1 data-reveal data-delay="1">
                 Shared Learning. Stronger{" "}
                 <span className="em-action">Communities.</span>
               </h1>
               <p className="lead" data-reveal data-delay="2">
-                A member learning library of practical guides, articles and
+                A contributor learning library of practical guides, articles and
                 tools for community organising, leadership and shared action.
               </p>
             </div>
@@ -64,9 +64,9 @@ export default function ResourcesPage() {
                 <span />
               </span>
               <div>
-                <span className="eyebrow">A member benefit</span>
+                <span className="eyebrow">A contributor benefit</span>
                 <p>
-                  Resources will help member organisations learn from
+                  Resources will help contributor organisations learn from
                   shared experience and apply it in their own communities.
                 </p>
               </div>
@@ -84,7 +84,7 @@ export default function ResourcesPage() {
               </h2>
               <p className="lead">
                 Browse practical learning for organising, engagement and
-                leadership as the member library grows.
+                leadership as the contributor library grows.
               </p>
             </div>
 

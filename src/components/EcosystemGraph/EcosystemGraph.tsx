@@ -672,7 +672,7 @@ export default function EcosystemGraph({
                     {...(count ? { "aria-expanded": activeCategory === node.id } : null)}
                     aria-label={
                       count
-                        ? `${node.name} — ${count} member ${count === 1 ? "organisation" : "organisations"}`
+                        ? `${node.name} — ${count} contributor ${count === 1 ? "organisation" : "organisations"}`
                         : node.name
                     }
                     onPointerEnter={() => {

@@ -53,7 +53,7 @@ export default function AllyshipPage() {
         brandHref="/"
         links={navLinks}
         exploreHref="/#allies"
-        joinHref="/membership"
+        joinHref="/contributors"
       />
 
       <main className="home-page allyship-page">
@@ -321,10 +321,10 @@ export default function AllyshipPage() {
                 </p>
               </div>
               <div>
-                <h3>Separate from membership</h3>
+                <h3>Separate from contributing</h3>
                 <p>
                   Adopting the Allies mark is separate from the Network&rsquo;s paid
-                  organisation membership, which provides tools, training,
+                  organisation contributor access, which provides tools, training,
                   resources and national connections.
                 </p>
               </div>

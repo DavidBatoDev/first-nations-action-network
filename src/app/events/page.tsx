@@ -35,7 +35,7 @@ export default async function EventsPage() {
         brandHref="/"
         links={navLinks}
         exploreHref="/#allies"
-        joinHref="/membership"
+        joinHref="/contributors"
       />
 
       <header className="events-hero">
@@ -78,7 +78,7 @@ export default async function EventsPage() {
                 learning, opportunities and collective action.
               </p>
             </div>
-            <Link href="/membership" className="btn btn-primary">
+            <Link href="/contributors" className="btn btn-primary">
               Join the Network <span className="arrow">→</span>
             </Link>
           </div>

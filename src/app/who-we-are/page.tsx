@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const navLinks: NavLink[] = [
   { label: "Who We Are", href: "/who-we-are" },
-  { label: "Contribute", href: "/#membership" },
+  { label: "Contribute", href: "/#contributors" },
   { label: "Learn", href: "/#training" },
   { label: "Events", href: "/events" },
   { label: "Directory", href: "/directory" },
@@ -144,7 +144,7 @@ export default function WhoWeArePage() {
         brandHref="/"
         links={navLinks}
         exploreHref="/allyship"
-        joinHref="/membership"
+        joinHref="/contributors"
         solid
       />
 
@@ -166,7 +166,7 @@ export default function WhoWeArePage() {
                 support.
               </p>
               <div className="actions" data-reveal data-delay="2">
-                <Link href="/membership" className="btn btn-primary">
+                <Link href="/contributors" className="btn btn-primary">
                   Join the Network <Arrow />
                 </Link>
                 <Link href="/allyship" className="btn btn-ghost">
@@ -360,7 +360,7 @@ export default function WhoWeArePage() {
                   <div className="who-person-photo">
                     <ImageSlot
                       src={person.image}
-                      alt="Placeholder portrait of a network member"
+                      alt="Placeholder portrait of a network contributor"
                       note="Profile coming soon"
                       rounded={16}
                       sizes="(max-width: 900px) calc(100vw - 48px), 30vw"
@@ -392,7 +392,7 @@ export default function WhoWeArePage() {
               change.
             </p>
             <div className="actions" data-reveal data-delay="2">
-              <Link href="/membership" className="btn btn-primary">
+              <Link href="/contributors" className="btn btn-primary">
                 Join the Network <Arrow />
               </Link>
               <Link href="/allyship" className="btn btn-ghost on-dark">

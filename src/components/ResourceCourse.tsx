@@ -138,10 +138,10 @@ export function ResourceLearningLayout({
           </>
         ) : (
           <div className="resource-member-gate">
-            <span className="eyebrow">Member learning</span>
-            <h1>This lesson is available to Network members.</h1>
+            <span className="eyebrow">Contributor learning</span>
+            <h1>This lesson is available to Network contributors.</h1>
             <p>
-              Member access will be available once the Network learning library and
+              Contributor access will be available once the Network learning library and
               sign-in experience are ready.
             </p>
           </div>

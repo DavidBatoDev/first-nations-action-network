@@ -7,7 +7,7 @@ import Nav, { type NavLink } from "@/components/Nav";
 import { Tick } from "@/components/icons";
 
 const CONTACT_DESCRIPTION =
-  "Book a conversation with the First Nations Action Network. Send a message about membership, training, partnerships or general enquiries.";
+  "Book a conversation with the First Nations Action Network. Send a message about contributing, training, partnerships or general enquiries.";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -58,7 +58,7 @@ export default function ContactPage() {
         brandHref="/"
         links={navLinks}
         exploreHref="/allyship"
-        joinHref="/membership"
+        joinHref="/contributors"
       />
 
       <main className="home-page application-page">
@@ -77,7 +77,7 @@ export default function ContactPage() {
             </div>
             <div className="application-hero-copy" data-reveal data-delay="2">
               <p className="lead">
-                Whether you are exploring membership, training, a partnership or
+                Whether you are exploring contributing, training, a partnership or
                 just want to talk, send us a message and the team will be in
                 touch.
               </p>

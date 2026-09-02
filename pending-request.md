@@ -176,7 +176,6 @@ Note: other actionable items (Volunteer, Become a Partner, Learn free/paid
 catalogue, Directory taxonomy/register form) remain listed under "Spec coverage
 gaps" above and need a scope/content decision before build.
 
-
 ---
 
 ## Answered by Stephen (see `request-response.md`, 2026-09-02) — SHIPPED

@@ -41,7 +41,7 @@ export default function Footer() {
                 <Link href="/#how">How It Works</Link>
               </li>
               <li>
-                <Link href="/membership">Become a Contributor</Link>
+                <Link href="/contributors">Become a Contributor</Link>
               </li>
               <li>
                 <Link href="/#allies">First Nations Allies</Link>
@@ -69,7 +69,7 @@ export default function Footer() {
             <h5>Connect</h5>
             <ul>
               <li>
-                <Link href="/membership">Join the Network</Link>
+                <Link href="/contributors">Join the Network</Link>
               </li>
               <li>
                 <Link href="/contact">Book a Conversation</Link>

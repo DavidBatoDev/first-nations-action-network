@@ -68,7 +68,7 @@ function EmptyEvents({ message }: { message: string }) {
           Join the Network to hear about future workshops, forums and community
           gatherings.
         </p>
-        <Link href="/membership" className="textlink">
+        <Link href="/contributors" className="textlink">
           Join the Network <span className="arrow">→</span>
         </Link>
       </div>

@@ -1,7 +1,7 @@
 # Action Network Membership Form Setup
 
 This document defines the external Action Network form required by
-`/membership/apply`. The website intentionally shows an unavailable state until
+`/contributors/apply`. The website intentionally shows an unavailable state until
 this form is created and its widget slug is configured.
 
 ## Action configuration

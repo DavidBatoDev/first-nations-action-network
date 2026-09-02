@@ -31,7 +31,7 @@ export default function StoriesPage() {
         brandHref="/"
         links={navLinks}
         exploreHref="/#allies"
-        joinHref="/membership"
+        joinHref="/contributors"
       />
 
       <main className="home-page stories-page">

@@ -62,7 +62,7 @@ export default function TrainingPage() {
         brandHref="/"
         links={navLinks}
         exploreHref="/#allies"
-        joinHref="/membership"
+        joinHref="/contributors"
       />
 
       <main className="home-page training-page">

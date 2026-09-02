@@ -17,7 +17,7 @@ import { dateParts, isPastEvent, sortEvents } from "@/lib/events";
 
 const navLinks: NavLink[] = [
   { label: "Who We Are", href: "/who-we-are", spy: "#who" },
-  { label: "Contribute", href: "#membership" },
+  { label: "Contribute", href: "#contributors" },
   { label: "Learn", href: "#training" },
   { label: "Events", href: "/events", spy: "#events" },
   { label: "Directory", href: "/directory", spy: "#directory" },
@@ -47,7 +47,7 @@ export default async function Home() {
         brandHref="#top"
         links={navLinks}
         exploreHref="#allies"
-        joinHref="/membership"
+        joinHref="/contributors"
       />
 
       <span id="top" />
@@ -71,7 +71,7 @@ export default async function Home() {
                 through collective action.
               </p>
               <div className="hero-cta" data-reveal data-delay="2">
-                <Link href="/membership" className="btn btn-primary">
+                <Link href="/contributors" className="btn btn-primary">
                   Join the Network <Arrow />
                 </Link>
                 <Link href="#allies" className="btn btn-ghost on-dark">
@@ -285,8 +285,8 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* ============ MEMBERSHIP ============ */}
-        <section id="membership" className="sec bg-cream">
+        {/* ============ CONTRIBUTORS ============ */}
+        <section id="contributors" className="sec bg-cream">
           <div className="wrap">
             <div className="sec-head" data-reveal style={{ marginBottom: 46 }}>
               <span className="kicker">Contributors</span>
@@ -301,8 +301,8 @@ export default async function Home() {
               <div className="m-img">
                 <ImageSlot
                   src="/images/membership.webp"
-                  alt="Members at a network gathering"
-                  note="Members at a network gathering"
+                  alt="Contributors at a network gathering"
+                  note="Contributors at a network gathering"
                   sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
                 />
               </div>
@@ -327,7 +327,7 @@ export default async function Home() {
                   ))}
                 </ul>
                 <div className="actions">
-                  <Link href="/membership" className="btn btn-primary">
+                  <Link href="/contributors" className="btn btn-primary">
                     Become a Contributor <Arrow />
                   </Link>
                   <Link href="/contact" className="textlink">
@@ -533,7 +533,7 @@ export default async function Home() {
                 <p className="qby">
                   A community leader in the Network
                   <span>
-                    Shared with permission · representative of member voices
+                    Shared with permission · representative of contributor voices
                   </span>
                 </p>
               </div>
@@ -604,7 +604,7 @@ export default async function Home() {
                     Join the Network to hear about future workshops, forums and
                     community gatherings.
                   </span>
-                  <Link href="/membership" className="textlink">
+                  <Link href="/contributors" className="textlink">
                     Join the Network <Arrow />
                   </Link>
                 </div>
@@ -669,7 +669,7 @@ export default async function Home() {
                 Join the Network to hear about new petitions, surveys and ways
                 to take action.
               </span>
-              <Link href="/membership" className="textlink">
+              <Link href="/contributors" className="textlink">
                 Join the Network <Arrow />
               </Link>
             </div>
@@ -732,7 +732,7 @@ export default async function Home() {
               and create positive change.
             </p>
             <div className="actions" data-reveal data-delay="2">
-              <Link href="/membership" className="btn btn-primary">
+              <Link href="/contributors" className="btn btn-primary">
                 Join the Network <Arrow />
               </Link>
               <Link href="/contact" className="btn btn-ghost on-dark">

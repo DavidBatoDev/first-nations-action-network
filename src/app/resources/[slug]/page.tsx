@@ -59,7 +59,7 @@ export default async function ResourceDetailPage({
         brandHref="/"
         links={navLinks}
         exploreHref="/#allies"
-        joinHref="/membership"
+        joinHref="/contributors"
       />
       <main className="resource-course-page">
         <div className="wrap">
