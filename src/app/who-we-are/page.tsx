@@ -296,10 +296,6 @@ export default function WhoWeArePage() {
                 </article>
               ))}
             </div>
-            <div className="who-crumbs" data-reveal>
-              <span>First Nations Action Network / 2026</span>
-              <span>firstnationsaction.org</span>
-            </div>
           </div>
         </section>
 

@@ -5700,19 +5700,6 @@ button {
   line-height: 1.6;
   color: #4c463d;
 }
-.who-crumbs {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid var(--line);
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--grey);
-}
 
 /* Section 7 · Our Team */
 /* Flex rather than grid so a trailing part-row of cards centres. */
