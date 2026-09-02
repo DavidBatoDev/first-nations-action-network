@@ -17,7 +17,7 @@ import { dateParts, isPastEvent, sortEvents } from "@/lib/events";
 
 const navLinks: NavLink[] = [
   { label: "Who We Are", href: "/who-we-are", spy: "#who" },
-  { label: "Contribute", href: "#contributors" },
+  { label: "Contribute", href: "/contributors", spy: "#contributors" },
   { label: "Learn", href: "/learn", spy: "#learn" },
   { label: "Events", href: "/events", spy: "#events" },
   { label: "Directory", href: "/directory", spy: "#directory" },

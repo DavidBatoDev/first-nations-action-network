@@ -21,10 +21,11 @@ export const metadata: Metadata = {
 };
 
 const navLinks: NavLink[] = [
-  { label: "Contributors", href: "/contributors" },
   { label: "Who We Are", href: "/who-we-are" },
+  { label: "Contribute", href: "/contributors" },
   { label: "Learn", href: "/learn" },
   { label: "Events", href: "/events" },
+  { label: "Directory", href: "/directory" },
 ];
 
 const rawFormSlug = process.env.ACTION_NETWORK_MEMBERSHIP_FORM_SLUG?.trim();
