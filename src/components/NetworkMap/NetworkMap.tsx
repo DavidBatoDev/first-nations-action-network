@@ -32,6 +32,10 @@ const FIT = 14.6;
 const MIN_RING_AREA = 0.0006;
 /** How far a state lifts when hovered, in local units. */
 const LIFT = 0.42;
+/** Plane height shared by every imprinted state abbreviation. */
+const LABEL_HEIGHT = 0.46;
+/** Smallest fraction of that height still worth imprinting. */
+const LABEL_MIN_SCALE = 0.6;
 const EXCLUDED = new Set(["Macquarie Island", "Lord Howe Island"]);
 
 /** Light palette, matching the existing membership-page map. */
@@ -341,17 +345,29 @@ function StateLabels({ states }: { states: StatePart[] }) {
       .filter((part) => part.network)
       .map((part) => {
         const spanX = part.bounds.max.x - part.bounds.min.x;
-        // Long names only where the state is wide enough to carry them.
-        const label = spanX > 3.6 ? part.name.toUpperCase() : part.network!.abbr;
-        const made = makeLabelTexture(label, family);
+        // Always the abbreviation. Full names are still what screen readers
+        // and the hover panels announce; the imprint just has to be legible.
+        const made = makeLabelTexture(part.network!.abbr, family);
         if (!made) return null;
-        // Fit the label to roughly 62% of the state's width.
-        const width = Math.min(spanX * 0.62, 3.4);
+        // Every abbreviation shares one cap height, so WA does not tower over
+        // TAS. Sizing by plane height rather than state width is what keeps
+        // them even, because the glyphs occupy a fixed fraction of the texture.
+        let height = LABEL_HEIGHT;
+        let width = height * made.aspect;
+        // Only shrink, and only where the state is too narrow to carry it.
+        const maxWidth = spanX * 0.72;
+        if (width > maxWidth) {
+          width = maxWidth;
+          height = width / made.aspect;
+        }
+        // Below the floor the imprint is unreadable smudge rather than a label
+        // — the ACT is the case in point. Its pin already names it, so drop it.
+        if (height < LABEL_HEIGHT * LABEL_MIN_SCALE) return null;
         return {
           name: part.name,
           texture: made.texture,
           width,
-          height: width / made.aspect,
+          height,
           centre: part.centroid,
         };
       })
