@@ -792,9 +792,9 @@ export default async function Contributors() {
         <div className="wrap">
           <div className="sec-head centered" data-reveal>
             <span className="kicker centered">Contributors</span>
-            <h2>Contributor Access</h2>
+            <h2>Network Contributors</h2>
             <p className="lead">
-              Contributor access belongs to the organisation and includes participation
+              Access belongs to the organisation and includes participation
               opportunities for designated team members under a nominated
               Captain.
             </p>
@@ -802,9 +802,9 @@ export default async function Contributors() {
           <div className="pricing" data-reveal data-delay="1">
             <div className="price-left">
               <span className="kicker on-dark">
-                One contributor · whole organisation
+                One access · whole organisation
               </span>
-              <h3>Contributor Access</h3>
+              <h3>Network Contributors</h3>
               <div className="price-amounts">
                 <div className="price-main">
                   <span className="num">$1,200</span>
@@ -821,7 +821,7 @@ export default async function Contributors() {
                 </span>
               </div>
               <p className="price-note">
-                Contributor access belongs to the organisation and includes
+                Access belongs to the organisation and includes
                 participation opportunities for designated team members under a
                 nominated Captain.
               </p>
@@ -914,7 +914,7 @@ export default async function Contributors() {
                 </span>
               </summary>
               <div className="faq-a">
-                Contributor access belongs to the organisation and includes participation
+                Access belongs to the organisation and includes participation
                 opportunities for designated team members under a nominated
                 Captain who coordinates your organisation&rsquo;s involvement.
               </div>
