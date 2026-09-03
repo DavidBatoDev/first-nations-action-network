@@ -100,7 +100,7 @@ const workCards = [
   {
     no: "03 — Take Action",
     title: "Take Action",
-    copy: "Through Action Network and hands-on support, communities run campaigns, host events and turn shared purpose into lasting, local impact.",
+    copy: "Build campaigns, host events, develop leaders and create meaningful impact in your community.",
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <path d="M13 2 4 14h7l-1 8 9-12h-7z" />

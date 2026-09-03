@@ -75,8 +75,9 @@ export default async function EventsPage() {
             <div>
               <h2>Bring your community into the conversation.</h2>
               <p>
-                Join a growing national network of organisations sharing
-                learning, opportunities and collective action.
+                Join a growing national network of organisations reaching
+                larger audiences through public events, shared learning and
+                collective action.
               </p>
             </div>
             <Link href="/contributors" className="btn btn-primary">

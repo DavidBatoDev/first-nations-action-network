@@ -276,9 +276,8 @@ export default async function Home() {
                 </div>
                 <h3>Take Action</h3>
                 <p>
-                  Through Action Network and hands-on support, communities run
-                  campaigns, host events and turn shared purpose into lasting,
-                  local impact.
+                  Build campaigns, host events, develop leaders and create
+                  meaningful impact in your community.
                 </p>
               </article>
             </div>

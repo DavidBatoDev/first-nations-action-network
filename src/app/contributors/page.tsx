@@ -75,10 +75,8 @@ export default async function Contributors() {
               <span className="em-action">Communities</span>
             </h1>
             <p className="lead" data-reveal data-delay="2">
-              The First Nations Action Network brings together organisations
-              across Australia to strengthen communities, increase participation
-              and create positive change through collaboration, shared learning
-              and collective action.
+              When communities work together, the possibilities for positive
+              change are endless.
             </p>
             <div className="hero-cta" data-reveal data-delay="2">
               <Link href="/contributors/apply" className="btn btn-primary">
