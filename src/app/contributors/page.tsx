@@ -57,8 +57,6 @@ export default async function Contributors() {
         joinHref="/contributors/apply"
       />
 
-      <span id="top" />
-
       {/* ============ HERO ============ */}
       <header className="hero">
         <div className="wrap hero-grid">
