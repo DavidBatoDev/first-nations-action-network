@@ -53,7 +53,7 @@ export default function AllyshipPage() {
       <Nav
         brandHref="/"
         links={navLinks}
-        exploreHref="/#allies"
+        exploreHref="/allyship"
         joinHref="/contributors"
       />
 

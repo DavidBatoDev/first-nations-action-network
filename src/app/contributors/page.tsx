@@ -4,6 +4,7 @@ import path from "node:path";
 import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
+import NetworkWelcome from "@/components/NetworkWelcome";
 import NewsletterPopupSuppressor from "@/components/NewsletterPopupSuppressor";
 import ImageSlot from "@/components/ImageSlot";
 import { Tick, Arrow } from "@/components/icons";
@@ -53,7 +54,7 @@ export default async function Contributors() {
       <Nav
         brandHref="/"
         links={navLinks}
-        exploreHref="/#allies"
+        exploreHref="/allyship"
         joinHref="/contributors/apply"
       />
 
@@ -163,6 +164,9 @@ export default async function Contributors() {
           </div>
         </div>
       </section>
+
+      {/* ============ WHAT IS THE NETWORK ============ */}
+      <NetworkWelcome />
 
       {/* ============ BENEFIT CARDS ============ */}
       <section id="benefits" className="sec">

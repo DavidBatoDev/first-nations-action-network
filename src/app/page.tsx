@@ -46,7 +46,7 @@ export default async function Home() {
       <Nav
         brandHref="#top"
         links={navLinks}
-        exploreHref="#allies"
+        exploreHref="/allyship"
         joinHref="/contributors"
       />
 
@@ -74,7 +74,7 @@ export default async function Home() {
                 <Link href="/contributors" className="btn btn-primary">
                   Join the Network <Arrow />
                 </Link>
-                <Link href="#allies" className="btn btn-ghost on-dark">
+                <Link href="/allyship" className="btn btn-ghost on-dark">
                   Explore Allyship
                 </Link>
               </div>

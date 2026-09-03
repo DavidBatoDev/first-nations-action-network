@@ -3,6 +3,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
 import Nav, { type NavLink } from "@/components/Nav";
+import NetworkWelcome from "@/components/NetworkWelcome";
 import { Arrow } from "@/components/icons";
 
 const WHO_DESCRIPTION =
@@ -190,19 +191,7 @@ export default function WhoWeArePage() {
         </section>
 
         {/* ============ SECTION 2 · WHAT IS THE NETWORK ============ */}
-        <section className="sec bg-cream who-what">
-          <div className="wrap">
-            <div className="sec-head" data-reveal>
-              <span className="kicker">What is the Network</span>
-              <h2>Welcome to the First Nations Action Network</h2>
-              <p className="lead">
-                A communication platform for groups and national subscribers, as
-                well as a source of intelligence on their activity. An exciting
-                and engaging way to connect.
-              </p>
-            </div>
-          </div>
-        </section>
+        <NetworkWelcome className="sec bg-cream who-what" />
 
         {/* ============ SECTION 3 · VISION & PURPOSE ============ */}
         <section className="sec who-vision">

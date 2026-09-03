@@ -62,7 +62,7 @@ export default function LearnPage() {
       <Nav
         brandHref="/"
         links={navLinks}
-        exploreHref="/#allies"
+        exploreHref="/allyship"
         joinHref="/contributors"
       />
 

@@ -6,5 +6,5 @@ export const EXTERNAL_LINKS = {
   facebook: "https://www.facebook.com/firstnationsaction",
   instagram: "https://www.instagram.com/firstnationsaction/",
   linkedin: "https://www.linkedin.com/company/firstnationsaction/",
-  youtube: "https://www.youtube.com/@FirstNationsActionNetwork",
+  youtube: "https://www.youtube.com/@FirstNationsAction",
 } as const;

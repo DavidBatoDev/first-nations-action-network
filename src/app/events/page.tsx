@@ -35,7 +35,7 @@ export default async function EventsPage() {
       <Nav
         brandHref="/"
         links={navLinks}
-        exploreHref="/#allies"
+        exploreHref="/allyship"
         joinHref="/contributors"
       />
 

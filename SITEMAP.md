@@ -17,7 +17,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 │   ├── #how — How It Works
 │   ├── #contributors — Contributors overview
 │   ├── #learn — Learning and Development
-│   ├── #allies — First Nations Allies / Explore Allyship
+│   ├── #allies — First Nations Allies preview (Explore Allyship links to /allyship)
 │   ├── #support — Contribute and support
 │   ├── #stories — Community Stories
 │   ├── #events — Events preview
@@ -51,7 +51,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | Explore learning and development | `/learn` | Public Learning and Development overview; detailed packages and pricing remain to be confirmed. |
 | Learn from the header | `/learn` | The Learn navigation item opens the Learning and Development page; the homepage keeps its `#learn` preview section. |
 | Learn about First Nations Allies | `/allyship` | Provisional introduction using current homepage content; final message and CTA remain to be confirmed with Steve. |
-| Explore allyship from the header | `/#allies` | Retains the homepage-section behaviour until the final allyship journey is approved. |
+| Explore allyship from the header | `/allyship` | Steven approved the allyship journey; every Explore Allyship button now opens the page. The homepage keeps its `#allies` preview section. |
 | Browse Community Stories | `/stories` | Public library foundation; approved stories are being prepared. |
 | Explore resources | `/resources` | Public contributor-learning preview with three provisional homepage resources and non-indexed detail views; content requires approval. |
 | Join the Network | `/contributors` | Version 1 is an information and enquiry journey; Stripe Checkout is deferred. |

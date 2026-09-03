@@ -57,7 +57,7 @@ export default async function DirectoryPage() {
       <Nav
         brandHref="/"
         links={navLinks}
-        exploreHref="/#allies"
+        exploreHref="/allyship"
         joinHref="/contributors"
       />
 
