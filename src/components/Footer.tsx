@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { EXTERNAL_LINKS } from "@/lib/external-links";
+import { UTILITY_PAGES, DECEASED_PERSONS_NOTICE } from "@/lib/site-pages";
 
 export default function Footer() {
   return (
@@ -103,6 +104,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+        <p className="foot-notice">{DECEASED_PERSONS_NOTICE}</p>
         <p className="foot-ack">
           <span className="mark">●</span> First Nations Action Network
           acknowledges Country — the lands, the waters, the skies and the winds
@@ -112,6 +114,13 @@ export default function Footer() {
         </p>
         <div className="foot-bottom">
           <span>© 2026 First Nations Action Network. All rights reserved.</span>
+          <ul className="foot-legal">
+            {UTILITY_PAGES.map((page) => (
+              <li key={page.href}>
+                <Link href={page.href}>{page.label}</Link>
+              </li>
+            ))}
+          </ul>
           <div className="socials">
             <a
               href={EXTERNAL_LINKS.facebook}

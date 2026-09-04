@@ -1,9 +1,12 @@
 import type { MetadataRoute } from "next";
+import { SITE_NAME } from "@/lib/site";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "First Nations Action Network",
-    short_name: "First Nations Action Network",
+    name: SITE_NAME,
+    short_name: SITE_NAME,
+    // Deliberately shorter than SITE_DESCRIPTION: install prompts truncate
+    // long descriptions, so this keeps its own condensed wording.
     description:
       "A First Nations–led national network strengthening communities through connection, collaboration and action.",
     start_url: "/",

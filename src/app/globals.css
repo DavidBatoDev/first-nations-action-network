@@ -4930,6 +4930,232 @@ a.logo-box {
   }
 }
 
+/* ---------- Footer · legal row and cultural notice ---------- */
+.foot-notice {
+  max-width: 900px;
+  margin: 44px 0 0;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 218, 0, 0.5);
+  font-size: 14px;
+  line-height: 1.65;
+  color: #b8b0a4;
+}
+.foot-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.foot-legal a {
+  font-size: 13px;
+  color: #a39c90;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.foot-legal a:hover {
+  color: var(--yellow);
+  border-bottom-color: var(--yellow);
+}
+
+/* ---------- Policy and utility documents ----------
+   Shared long-form treatment for /privacy, /terms, /accessibility,
+   /code-of-conduct and /acknowledgement-of-country. These pages open on a
+   light section, so they pass `solid` to <Nav> and use a compact hero rather
+   than the tall .hero used by content pages.
+   ------------------------------------------------ */
+.doc-hero {
+  padding: 150px 0 56px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--line-soft);
+}
+.doc-hero h1 {
+  font-size: clamp(34px, 4.4vw, 54px);
+  margin-top: 18px;
+  max-width: 820px;
+}
+.doc-hero .lead {
+  margin-top: 20px;
+  max-width: 720px;
+}
+.doc-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--grey);
+}
+.doc-meta strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Draft notice shown until a document has been approved. */
+.doc-draft {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  max-width: 760px;
+  margin: 0 0 44px;
+  padding: 18px 22px;
+  background: rgba(255, 218, 0, 0.14);
+  border: 1px solid rgba(217, 124, 0, 0.35);
+  border-radius: 14px;
+}
+.doc-draft .mark {
+  color: var(--ochre);
+  line-height: 1.5;
+}
+.doc-draft p {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* Long-form body copy. The site had no prose style before these pages. */
+.doc-body {
+  max-width: 760px;
+}
+.doc-body > * + * {
+  margin-top: 20px;
+}
+.doc-body h2 {
+  font-size: clamp(24px, 2.4vw, 32px);
+  margin-top: 56px;
+  scroll-margin-top: 100px;
+}
+.doc-body h2:first-child {
+  margin-top: 0;
+}
+.doc-body h3 {
+  font-size: clamp(18px, 1.6vw, 22px);
+  margin-top: 36px;
+}
+.doc-body p,
+.doc-body li {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.75;
+  color: #3d372f;
+}
+.doc-body ul,
+.doc-body ol {
+  padding-left: 22px;
+}
+.doc-body li + li {
+  margin-top: 10px;
+}
+.doc-body li::marker {
+  color: var(--ochre);
+}
+.doc-body a {
+  color: var(--ochre-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.doc-body a:hover {
+  color: var(--ink);
+}
+.doc-body strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.doc-body dt {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 18px;
+}
+.doc-body dd {
+  margin: 6px 0 0;
+  padding-left: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.75;
+  color: #3d372f;
+}
+.doc-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 15px;
+}
+.doc-body th,
+.doc-body td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.doc-body th {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom-color: var(--ink);
+}
+.doc-body td {
+  color: #3d372f;
+}
+
+/* Table of contents used by the longer policy documents. */
+.doc-toc {
+  margin: 0 0 52px;
+  padding: 24px 26px;
+  background: var(--cream);
+  border-radius: 16px;
+  max-width: 760px;
+}
+.doc-toc h2 {
+  font-size: 15px;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 14px;
+  color: var(--grey);
+}
+.doc-toc ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.doc-toc li + li {
+  margin-top: 8px;
+}
+.doc-toc a {
+  font-family: var(--sans);
+  font-size: 16px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.doc-toc a:hover {
+  border-bottom-color: var(--ochre);
+  color: var(--ochre-deep);
+}
+
+@media (max-width: 640px) {
+  .doc-hero {
+    padding: 124px 0 42px;
+  }
+  .doc-body p,
+  .doc-body li,
+  .doc-body dd {
+    font-size: 16px;
+  }
+  .doc-toc {
+    padding: 20px;
+  }
+  .doc-body table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
 /* ---------- Interaction accessibility ---------- */
 a:focus-visible,
 button:focus-visible,
