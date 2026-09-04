@@ -4879,14 +4879,24 @@ a.logo-box {
 .foot a:hover {
   color: var(--yellow);
 }
-.foot-ack {
-  margin-top: 54px;
-  padding-top: 30px;
+/* The acknowledgement and the notice about people who have died share one
+   bordered closing block: the notice sits beside the acknowledgement on wide
+   screens and drops beneath it on narrow ones. Keeping them in a single
+   block avoids reading as two separate closing statements. */
+.foot-close {
+  margin-top: 48px;
+  padding-top: 28px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+  gap: 24px 48px;
+  align-items: start;
+}
+.foot-ack {
+  margin: 0;
   font-size: 14px;
   line-height: 1.7;
   color: #b7b0a4;
-  max-width: 80ch;
 }
 .foot-ack .mark {
   color: var(--yellow);
@@ -4932,13 +4942,18 @@ a.logo-box {
 
 /* ---------- Footer · legal row and cultural notice ---------- */
 .foot-notice {
-  max-width: 900px;
-  margin: 44px 0 0;
+  margin: 0;
   padding-left: 16px;
   border-left: 2px solid rgba(255, 218, 0, 0.5);
-  font-size: 14px;
-  line-height: 1.65;
-  color: #b8b0a4;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #9d968b;
+}
+@media (max-width: 860px) {
+  .foot-close {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 .foot-legal {
   display: flex;
@@ -5719,8 +5734,9 @@ button {
   .foot-top {
     gap: 28px;
   }
-  .foot-ack {
-    margin-top: 42px;
+  .foot-close {
+    margin-top: 38px;
+    padding-top: 24px;
   }
   .foot-bottom {
     align-items: flex-start;
