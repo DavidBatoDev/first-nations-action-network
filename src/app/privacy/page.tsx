@@ -74,14 +74,15 @@ export default function PrivacyPage() {
               <p>
                 This policy explains how the First Nations Action Network (the
                 Network, we, us) handles personal information collected through
-                this website, fnan.org.au and its subpages. It is written to
+                this website and its subpages. It is written to
                 meet the Australian Privacy Act 1988 and the Australian Privacy
                 Principles (APPs). It does not cover information handled by
                 other organisations, including the third-party services
                 described below.
               </p>
               <p>
-                TODO: confirm registered legal entity name and ABN before
+                TODO: confirm registered legal entity name, ABN and the canonical
+                website domain before
                 publication.
               </p>
 
