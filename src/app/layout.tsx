@@ -3,6 +3,7 @@ import { Merriweather, Inter } from "next/font/google";
 import "./globals.css";
 import ScrollReveal from "@/components/ScrollReveal";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
+import { EXTERNAL_LINKS } from "@/lib/external-links";
 
 const merriweather = Merriweather({
   subsets: ["latin"],
@@ -83,6 +84,22 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: SITE_URL,
+  description: SITE_DESCRIPTION,
+  logo: `${SITE_URL}/assets/logo-on-dark.png`,
+  sameAs: [
+    EXTERNAL_LINKS.facebook,
+    EXTERNAL_LINKS.instagram,
+    EXTERNAL_LINKS.linkedin,
+    EXTERNAL_LINKS.youtube,
+  ],
+  areaServed: "AU",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -93,6 +110,10 @@ export default function RootLayout({
       <body>
         {children}
         <ScrollReveal />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
       </body>
     </html>
   );
