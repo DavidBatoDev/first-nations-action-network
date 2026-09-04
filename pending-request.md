@@ -54,6 +54,8 @@ Cross-check of the UX-Specifications Contribute/Learn/Directory sections against
 - [ ] Paid: group incorporation process + group administration (online).
 - [ ] Paid: brand development, website and social media presence / ongoing management.
 - [ ] Paid: communication methods + campaign skills (face to face). (Cultural responsiveness & First Nations engagement are already covered.)
+- [ ] Marketing & Branding Support — the section is **live on /learn as draft copy**. Need the partner's real name (it arrived truncated as "@~August Teleg"), the final list of services, and how the partnership should be credited on the page. Overlaps the brand-development item above; merge the two once confirmed.
+- [ ] Learn page content — Stephen is conferring with a colleague and will send further changes once the 4 September 2026 round is live.
 
 ### Directory
 

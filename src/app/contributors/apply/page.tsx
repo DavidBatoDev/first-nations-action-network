@@ -64,11 +64,6 @@ export default function ContributorApplicationPage() {
         <header className="application-hero">
           <div className="wrap application-hero-grid">
             <div>
-              <span className="crumb" data-reveal>
-                <Link href="/">Home</Link> <span className="sep">/</span>{" "}
-                <Link href="/contributors">Contributors</Link>{" "}
-                <span className="sep">/</span> Apply
-              </span>
               <span className="kicker on-dark" data-reveal>
                 Become a contributor
               </span>

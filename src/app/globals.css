@@ -595,32 +595,6 @@ section[id] {
   }
 }
 
-/* breadcrumb under hero copy */
-.crumb {
-  /* Block-level. As inline-flex it shared a line with the kicker whenever the
-     two happened to fit, so whether the yellow bar sat beside the crumb or
-     under it depended on how long the crumb text was. */
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 13.5px;
-  font-weight: 500;
-  color: #a39c90;
-  margin-bottom: 8px;
-}
-.crumb a {
-  color: #a39c90;
-  border-bottom: 1px solid transparent;
-  transition: color 0.18s, border-color 0.18s;
-}
-.crumb a:hover {
-  color: var(--yellow);
-  border-color: var(--yellow);
-}
-.crumb .sep {
-  opacity: 0.5;
-}
-
 /* partner logo carousel */
 .logos {
   background: #efe6d3;
@@ -1331,6 +1305,9 @@ a.logo-box {
   line-height: 1.2;
   color: var(--ink);
 }
+.training-offerings.is-four {
+  grid-template-columns: repeat(4, 1fr);
+}
 .training-offerings span + span {
   padding-left: 26px;
   border-left: 1px solid var(--line);
@@ -1594,7 +1571,8 @@ a.logo-box {
     grid-template-columns: 1fr;
     margin-top: 42px;
   }
-  .training-offerings {
+  .training-offerings,
+  .training-offerings.is-four {
     grid-template-columns: 1fr;
     margin-top: 42px;
   }
@@ -5288,12 +5266,6 @@ button {
   .foot-bottom .socials a {
     width: 44px;
     height: 44px;
-  }
-  .crumb a {
-    display: inline-flex;
-    align-items: center;
-    min-width: 44px;
-    min-height: 44px;
   }
 }
 

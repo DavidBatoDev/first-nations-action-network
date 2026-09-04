@@ -62,10 +62,6 @@ export default async function Contributors() {
       <header className="hero">
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <span className="crumb" data-reveal>
-              <Link href="/">Home</Link> <span className="sep">/</span>{" "}
-              Contributors
-            </span>
             <span className="kicker on-dark" data-reveal>
               Contributors
             </span>

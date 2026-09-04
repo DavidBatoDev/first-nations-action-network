@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Footer from "@/components/Footer";
 import Nav, { type NavLink } from "@/components/Nav";
 import ResourceCatalogue from "@/components/ResourceCatalogue";
@@ -41,10 +40,6 @@ export default function ResourcesPage() {
         <header className="hero resources-hero">
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <span className="crumb" data-reveal>
-                <Link href="/">Home</Link> <span className="sep">/</span>{" "}
-                Resources
-              </span>
               <span className="kicker on-dark" data-reveal>
                 Contributor learning library
               </span>

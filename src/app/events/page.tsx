@@ -41,9 +41,6 @@ export default async function EventsPage() {
 
       <header className="events-hero">
         <div className="wrap">
-          <span className="crumb" data-reveal>
-            <Link href="/">Home</Link> <span className="sep">/</span> Events
-          </span>
           <span className="kicker on-dark" data-reveal>
             Community calendar
           </span>

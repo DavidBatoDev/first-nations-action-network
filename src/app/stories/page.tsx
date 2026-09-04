@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Footer from "@/components/Footer";
 import Nav, { type NavLink } from "@/components/Nav";
 
@@ -39,10 +38,6 @@ export default function StoriesPage() {
         <header className="hero stories-hero">
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <span className="crumb" data-reveal>
-                <Link href="/">Home</Link> <span className="sep">/</span>{" "}
-                Community Stories
-              </span>
               <span className="kicker on-dark" data-reveal>
                 Community stories
               </span>

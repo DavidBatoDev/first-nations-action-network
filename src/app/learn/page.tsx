@@ -31,12 +31,12 @@ const focusAreas = [
   {
     title: "First Nations engagement",
     description:
-      "Build stronger relationships through practical learning and meaningful engagement.",
+      "Build stronger relationships through practical learning and effective engagement strategies.",
   },
   {
     title: "Cultural responsiveness",
     description:
-      "Develop understanding that supports respectful engagement with First Nations communities.",
+      "Develop understanding that supports respectful and sustainable engagement with First Nations communities.",
   },
   {
     title: "Community organising",
@@ -52,9 +52,16 @@ const focusAreas = [
 
 const waysToLearn = [
   "Workshops",
-  "Learning opportunities",
-  "Organisational capacity building",
+  "Key note presentations",
+  "Structured courses",
+  "On-Country Experiences",
 ];
+
+/**
+ * Draft. The partner is not named because their name arrived truncated, and the
+ * service list is unconfirmed — both are logged in pending-request.md.
+ */
+const brandingServices = ["Branding", "Website", "Communications"];
 
 export default function LearnPage() {
   return (
@@ -70,10 +77,6 @@ export default function LearnPage() {
         <header className="hero">
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <span className="crumb" data-reveal>
-                <Link href="/">Home</Link> <span className="sep">/</span>{" "}
-                Learning &amp; Development
-              </span>
               <span className="kicker on-dark" data-reveal>
                 Learning and development
               </span>
@@ -132,7 +135,8 @@ export default function LearnPage() {
                 </p>
                 <p>
                   The focus is on connection, cultural engagement, leadership and
-                  the capacity to work together for positive community outcomes.
+                  the capacity to achieve more outcomes with greater inclusion
+                  and participation.
                 </p>
               </div>
             </div>
@@ -148,8 +152,13 @@ export default function LearnPage() {
                 <span className="em-action">Action.</span>
               </h2>
               <p className="lead">
-                Learning opportunities are grounded in the work of engaging,
-                organising and strengthening communities.
+                Learning is most powerful when it comes directly from
+                people&rsquo;s lived experiences — their stories, wisdom, and
+                direct knowledge of their own communities. By taking a
+                trauma-informed approach that prioritises safety, trust, and
+                collaboration, we create meaningful learning opportunities
+                through the shared work of listening to, organising, and
+                strengthening our communities together.
               </p>
             </div>
             <div className="training-focus-grid">
@@ -178,7 +187,7 @@ export default function LearnPage() {
                 opportunities for your organisation, team or community.
               </p>
             </div>
-            <div className="training-offerings" data-reveal data-delay="1">
+            <div className="training-offerings is-four" data-reveal data-delay="1">
               {waysToLearn.map((offering) => (
                 <span key={offering}>{offering}</span>
               ))}
@@ -187,6 +196,29 @@ export default function LearnPage() {
               <Link href="/contact" className="btn btn-primary">
                 Book a Conversation <Arrow />
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ============ MARKETING & BRANDING SUPPORT (draft) ============ */}
+        <section className="sec">
+          <div className="wrap">
+            <div className="sec-head" data-reveal>
+              <span className="kicker">Marketing and branding</span>
+              <h2>
+                Marketing &amp; Branding{" "}
+                <span className="em-action">Support.</span>
+              </h2>
+              <p className="lead">
+                Practical support to help your organisation present itself
+                clearly and reach the people it serves, offered in partnership
+                with specialist providers.
+              </p>
+            </div>
+            <div className="training-offerings" data-reveal data-delay="1">
+              {brandingServices.map((service) => (
+                <span key={service}>{service}</span>
+              ))}
             </div>
           </div>
         </section>

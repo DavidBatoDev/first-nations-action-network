@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import ActionNetworkForm from "@/components/ActionNetworkForm";
 import Footer from "@/components/Footer";
 import NewsletterPopupSuppressor from "@/components/NewsletterPopupSuppressor";
@@ -66,9 +65,6 @@ export default function ContactPage() {
         <header className="application-hero">
           <div className="wrap application-hero-grid">
             <div>
-              <span className="crumb" data-reveal>
-                <Link href="/">Home</Link> <span className="sep">/</span> Contact
-              </span>
               <span className="kicker on-dark" data-reveal>
                 Start the conversation
               </span>

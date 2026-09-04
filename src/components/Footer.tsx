@@ -44,7 +44,7 @@ export default function Footer() {
                 <Link href="/contributors">Become a Contributor</Link>
               </li>
               <li>
-                <Link href="/#allies">First Nations Allies</Link>
+                <Link href="/allyship">First Nations Allies</Link>
               </li>
             </ul>
           </div>
