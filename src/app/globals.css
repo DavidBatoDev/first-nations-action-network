@@ -4892,14 +4892,17 @@ a.logo-box {
   gap: 24px 48px;
   align-items: start;
 }
-.foot-ack {
+/* Both closing paragraphs carry the same yellow rule down their left edge. */
+.foot-ack,
+.foot-notice {
   margin: 0;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 218, 0, 0.5);
+}
+.foot-ack {
   font-size: 14px;
   line-height: 1.7;
   color: #b7b0a4;
-}
-.foot-ack .mark {
-  color: var(--yellow);
 }
 .foot-bottom {
   margin-top: 30px;
@@ -4942,9 +4945,6 @@ a.logo-box {
 
 /* ---------- Footer · legal row and cultural notice ---------- */
 .foot-notice {
-  margin: 0;
-  padding-left: 16px;
-  border-left: 2px solid rgba(255, 218, 0, 0.5);
   font-size: 13px;
   line-height: 1.6;
   color: #9d968b;

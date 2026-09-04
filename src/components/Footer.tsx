@@ -106,7 +106,7 @@ export default function Footer() {
         </div>
         <div className="foot-close">
           <p className="foot-ack">
-            <span className="mark">●</span> First Nations Action Network
+            First Nations Action Network
             acknowledges Country — the lands, the waters, the skies and the
             winds — connected to the Traditional Custodians and all that live,
             work and play on the sacred places of the ancestors that have walked
