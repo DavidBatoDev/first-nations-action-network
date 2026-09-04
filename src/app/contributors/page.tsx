@@ -166,7 +166,7 @@ export default async function Contributors() {
       </section>
 
       {/* ============ WHAT IS THE NETWORK ============ */}
-      <NetworkWelcome />
+      <NetworkWelcome className="sec bg-cream" />
 
       {/* ============ BENEFIT CARDS ============ */}
       <section id="benefits" className="sec">
