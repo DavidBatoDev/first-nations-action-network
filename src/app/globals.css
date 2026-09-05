@@ -6758,3 +6758,99 @@ a.orgtree-node-main:focus-visible .orgtree-node-fallback {
     animation: none;
   }
 }
+
+/* --- Not found and error states -------------------------------------------
+   Both /not-found and the runtime error boundary reuse .hero, .kicker.on-dark,
+   .em-action, .lead, .hero-cta and .btn. The rules below only cover the single
+   hero column (the shared .hero-grid is a two-column layout) and the grid of
+   suggested destinations, which mirrors the .res-card treatment. */
+.notfound-copy {
+  max-width: 62ch;
+}
+.notfound-page .hero h1 {
+  max-width: 16ch;
+}
+.notfound-page .hero-cta .btn {
+  font-family: var(--sans);
+  cursor: pointer;
+}
+.notfound-digest {
+  margin-top: 34px;
+  color: #a39c90;
+  font-size: 13.5px;
+}
+.notfound-digest code {
+  font-size: 13px;
+  word-break: break-all;
+}
+
+.notfound-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 54px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.notfound-links a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 28px 26px 26px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.2s ease;
+}
+.notfound-links a:hover {
+  transform: translateY(-5px);
+  border-color: transparent;
+  box-shadow: var(--shadow);
+}
+.notfound-links h3 {
+  font-size: 21px;
+  line-height: 1.25;
+}
+.notfound-links p {
+  flex: 1;
+  margin-top: 10px;
+  color: #4a443c;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.notfound-links .more {
+  display: inline-flex;
+  gap: 7px;
+  margin-top: 16px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+.notfound-links a:hover .arrow {
+  transform: translateX(3px);
+}
+
+.notfound-more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+  margin-top: 34px;
+  font-size: 15px;
+}
+.notfound-more > span {
+  color: var(--grey);
+}
+
+@media (max-width: 880px) {
+  .notfound-links {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 620px) {
+  .notfound-page .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
