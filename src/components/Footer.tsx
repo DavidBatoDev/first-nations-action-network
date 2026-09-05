@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { EXTERNAL_LINKS } from "@/lib/external-links";
+import { UTILITY_PAGES, DECEASED_PERSONS_NOTICE } from "@/lib/site-pages";
 
 export default function Footer() {
   return (
@@ -103,15 +104,26 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <p className="foot-ack">
-          <span className="mark">●</span> First Nations Action Network
-          acknowledges Country — the lands, the waters, the skies and the winds
-          — connected to the Traditional Custodians and all that live, work and
-          play on the sacred places of the ancestors that have walked before,
-          that walk today and those that will emerge to walk into the future.
-        </p>
+        <div className="foot-close">
+          <p className="foot-ack">
+            First Nations Action Network
+            acknowledges Country — the lands, the waters, the skies and the
+            winds — connected to the Traditional Custodians and all that live,
+            work and play on the sacred places of the ancestors that have walked
+            before, that walk today and those that will emerge to walk into the
+            future.
+          </p>
+          <p className="foot-notice">{DECEASED_PERSONS_NOTICE}</p>
+        </div>
         <div className="foot-bottom">
           <span>© 2026 First Nations Action Network. All rights reserved.</span>
+          <ul className="foot-legal">
+            {UTILITY_PAGES.map((page) => (
+              <li key={page.href}>
+                <Link href={page.href}>{page.label}</Link>
+              </li>
+            ))}
+          </ul>
           <div className="socials">
             <a
               href={EXTERNAL_LINKS.facebook}
