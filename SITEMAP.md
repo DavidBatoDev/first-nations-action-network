@@ -24,6 +24,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 │   ├── #directory — Community directory highlight (state-network map)
 │   ├── #join — Join the Network call to action
 │   └── #contact — Contact and conversation links in the footer
+├── /contact — "Book a conversation" contact form (Action Network widget)
 ├── /contributors — Contributor information and joining journey
 │   └── /contributors/apply — Version 1 organisation application and Action Network handoff
 ├── /allyship — First Nations Allies introduction
@@ -59,7 +60,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | Browse upcoming events | `/events` | Public confirmed events are loaded from Action Network; registration remains on each Action Network event page. |
 | Browse events from the navigation | `/events` | The Events navigation item opens the Events page directly; the homepage keeps its `#events` preview section. |
 | Browse the community directory and resources | `/directory` | Public directory foundation; approved listings are being populated. The Directory navigation item opens this page, and the homepage `#directory` section highlights it. |
-| Contact or book a conversation | `/#contact` | Footer contact area. |
+| Contact or book a conversation | `/contact` | Embedded Action Network contact form; shows an honest unavailable state until `ACTION_NETWORK_CONTACT_FORM_SLUG` is configured. Every "Book a conversation" and "Start the conversation" CTA links here. The footer `#contact` area remains. |
 | Support the movement | `/#support` | Homepage section linking directly to the external fundraiser and merchandise store. |
 | Make a donation | External Action Network fundraiser | `/donate` remains available as a temporary compatibility redirect. |
 | Shop merchandise | External Print Bar store | `/shop` remains available as a temporary compatibility redirect. |
@@ -68,7 +69,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 
 ## Search-engine routes
 
-- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/contributors`, `/contributors/apply`, `/allyship`, `/learn`, `/directory`, `/stories`, `/resources`, and `/events`. External fundraiser and merchandise destinations are not included.
+- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/who-we-are`, `/contact`, `/contributors`, `/contributors/apply`, `/events`, `/allyship`, `/learn`, `/directory`, `/stories`, and `/resources`, plus the utility and policy pages registered in `src/lib/site-pages.ts`. External fundraiser and merchandise destinations are not included.
 - `/robots.txt` — generated from `src/app/robots.ts`; points crawlers to the XML sitemap.
 
 ## Not-found and error states
@@ -92,7 +93,6 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 These are not standalone public pages in the current launch site:
 
 - On-site shop checkout and donation payment processing
-- Contact or booking form
 - Login and member portal
 - Member content submission
 
