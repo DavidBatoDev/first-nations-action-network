@@ -71,6 +71,22 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 - `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/contributors`, `/contributors/apply`, `/allyship`, `/learn`, `/directory`, `/stories`, `/resources`, and `/events`. External fundraiser and merchandise destinations are not included.
 - `/robots.txt` — generated from `src/app/robots.ts`; points crawlers to the XML sitemap.
 
+## Not-found and error states
+
+- Any URL that matches no route renders `src/app/not-found.tsx` with a 404
+  status. The page keeps the site's navigation and footer, leads with a
+  **Return home** button, and lists the main destinations; it does not redirect
+  automatically, so a mistyped or out-of-date link stays visible in the address
+  bar. It is marked `noindex, nofollow` and is not listed in `sitemap.xml`.
+  The same page is shown wherever a route calls `notFound()`, including an
+  unknown `/resources/[slug]`.
+- A runtime error inside a route renders `src/app/error.tsx`, which offers
+  **Try again** and **Return home**. It shows only the error digest, never the
+  error message.
+- `src/app/global-error.tsx` covers the rarer case of the root layout itself
+  failing. It replaces the layout, so it renders its own document and is styled
+  inline rather than through `globals.css`.
+
 ## Planned or deferred routes
 
 These are not standalone public pages in the current launch site:
