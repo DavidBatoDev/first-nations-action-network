@@ -1,0 +1,22 @@
+/* Scroll-driven cream wave divider (AnimatedWave component). */
+.animated-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.animated-wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+@media (prefers-reduced-motion: reduce) {
+  /* JS never starts the loop; this guarantee keeps any missed frames off. */
+  .animated-wave {
+    transform: none;
+  }
+}

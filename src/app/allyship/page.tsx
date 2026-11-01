@@ -207,7 +207,7 @@ export default function AllyshipPage() {
           <div className="wrap split media-left">
             <div className="allyship-mark-panel" data-reveal>
               <Image
-                src="/assets/logos/first-nations-allies.png"
+                src="/assets/logos/first-nations-allies.webp"
                 alt="First Nations Allies mark"
                 className="allyship-mark"
                 width={501}

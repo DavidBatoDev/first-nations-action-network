@@ -451,6 +451,39 @@ section[id] {
   object-fit: cover;
   object-position: center;
 }
+.img-slot video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  /* Kill the hairline some browsers paint at the video's edge. */
+  outline: none;
+  border: 0;
+  background: transparent;
+}
+/*
+ * A slot holding video is full-bleed. The shared border would draw a pale
+ * hairline across the footage (the "weird outline"), so drop it. Doubled
+ * class keeps this ahead of contextual `.hero-media .img-slot` rules.
+ */
+.img-slot.has-video.has-video {
+  border: 0;
+  outline: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+.img-slot.has-video.rounded {
+  /* Clip the video to the radius without letting a subpixel sliver show. */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+}
+/* Reduced motion: hold the poster still instead of looping footage. */
+@media (prefers-reduced-motion: reduce) {
+  .img-slot video {
+    display: none;
+  }
+}
 .img-slot.rounded {
   border-radius: var(--is-radius, 16px);
 }
@@ -597,8 +630,10 @@ section[id] {
 
 /* partner logo carousel */
 .logos {
+  --wave-h: 280px;
+  position: relative;
   background: #efe6d3;
-  padding: 52px 0 58px;
+  padding: 52px 0 calc(var(--wave-h) + 40px);
   overflow: hidden;
 }
 .logos .eyebrow {
@@ -2865,6 +2900,31 @@ a.logo-box {
   }
 }
 
+/* One-line description of what the map above shows. */
+.map-caption {
+  max-width: 62ch;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--grey);
+  text-align: center;
+}
+/* Wave that spills the white page down into the dark Join panel. The band
+   overlaps the section above by 1px so no seam shows at the join. */
+.join-wave-band {
+  position: relative;
+  height: 280px;
+  margin-top: -56px;
+  margin-bottom: -1px;
+  background: #16130f;
+  overflow: hidden;
+}
+/* The band sits at the top of the panel, so pull the section's own top
+   padding off and let the crest do the spacing. */
+.final.has-wave {
+  padding-top: 0;
+}
+
 /* ---------- Membership · benefit cards ---------- */
 .benefit-grid {
   display: grid;
@@ -4795,17 +4855,9 @@ a.logo-box {
   overflow: hidden;
   position: relative;
 }
+/* Flat dark panel — no glow behind the kicker. */
 .final::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -30%;
-  transform: translateX(-50%);
-  width: 680px;
-  height: 680px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 218, 0, 0.14), transparent 62%);
-  pointer-events: none;
+  content: none;
 }
 .final .wrap {
   position: relative;
@@ -5396,7 +5448,7 @@ button {
     max-width: min(262px, calc(100% - 28px));
   }
   .home-page .logos {
-    padding: 40px 0 44px;
+    padding: 40px 0 calc(var(--wave-h) + 28px);
   }
   .home-page .logos-viewport {
     margin-top: 20px;
