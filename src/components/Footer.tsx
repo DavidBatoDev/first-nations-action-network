@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="foot-top">
           <div>
             <Image
-              src="/assets/logo-on-dark.png"
+              src="/assets/logo-on-dark.webp"
               alt="First Nations Action Network"
               className="foot-logo-img"
               width={1201}

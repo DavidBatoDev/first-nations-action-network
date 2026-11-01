@@ -8,7 +8,7 @@ export default function SupportCards() {
       <article className="support-card" data-reveal>
         <div className="sc-media">
           <Image
-            src="/assets/support-group.png"
+            src="/assets/support-group.webp"
             alt="Community members and an ally wearing First Nations Action Network merchandise, smiling together"
             fill
             sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
@@ -68,7 +68,7 @@ export default function SupportCards() {
       <article className="support-card" data-reveal data-delay="1">
         <div className="sc-media">
           <Image
-            src="/assets/support-merch.png"
+            src="/assets/support-merch.webp"
             alt="Two people seen from behind wearing First Nations Action Network and First Nations Allies merchandise at a community gathering"
             fill
             sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
@@ -105,7 +105,7 @@ export default function SupportCards() {
             <figure className="merch-item">
               <div className="m-thumb">
                 <Image
-                  src="/assets/merch-network-tee.jpg"
+                  src="/assets/merch-network-tee.webp"
                   alt="First Nations Action Network black t-shirt"
                   fill
                   sizes="(max-width: 900px) 28vw, 14vw"
@@ -115,7 +115,7 @@ export default function SupportCards() {
             <figure className="merch-item">
               <div className="m-thumb">
                 <Image
-                  src="/assets/merch-hoodie.jpg"
+                  src="/assets/merch-hoodie.webp"
                   alt="First Nations Action Network black zip hoodie"
                   fill
                   sizes="(max-width: 900px) 28vw, 14vw"
@@ -125,7 +125,7 @@ export default function SupportCards() {
             <figure className="merch-item">
               <div className="m-thumb">
                 <Image
-                  src="/assets/merch-allies-tee.jpg"
+                  src="/assets/merch-allies-tee.webp"
                   alt="First Nations Allies white t-shirt"
                   fill
                   sizes="(max-width: 900px) 28vw, 14vw"

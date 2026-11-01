@@ -144,7 +144,7 @@ export default function Nav({
           onNavigate={closeMenu}
         >
           <Image
-            src="/assets/logo-on-dark.png"
+            src="/assets/logo-on-dark.webp"
             alt="First Nations Action Network"
             className="brand-img brand-dark"
             width={1201}
@@ -152,7 +152,7 @@ export default function Nav({
             sizes="96px"
           />
           <Image
-            src="/assets/logo-on-light.png"
+            src="/assets/logo-on-light.webp"
             alt="First Nations Action Network"
             className="brand-img brand-light"
             width={1202}

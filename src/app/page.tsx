@@ -4,6 +4,8 @@ import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
+import VideoSlot from "@/components/VideoSlot";
+import { AnimatedWave, makeBubbles } from "@/components/AnimatedWave";
 import LogoCarousel from "@/components/LogoCarousel";
 import NewsletterPopup from "@/components/NewsletterPopup";
 import { Tick, Arrow } from "@/components/icons";
@@ -81,13 +83,12 @@ export default async function Home() {
             </div>
             <div className="hero-media" data-reveal data-delay="2">
               <div className="img-frame">
-                <ImageSlot
-                  src="/images/hero.webp"
-                  alt="Community gathering with Elders and young leaders"
+                <VideoSlot
+                  src="/videos/hero.webm"
+                  poster="/images/hero.webp"
+                  label="Community gathering with Elders and young leaders"
                   note="Community gathering · Elders and young leaders"
                   rounded={20}
-                  sizes="(max-width: 980px) calc(100vw - 48px), 42vw"
-                  preload
                 />
               </div>
               <div className="hero-badge">
@@ -108,9 +109,9 @@ export default async function Home() {
           <div className="wrap split media-left">
             <div className="img-frame" data-reveal>
               <ImageSlot
-                src="/images/who.webp"
-                alt="Workshop circle with leaders in conversation"
-                note="Workshop circle · leaders in conversation"
+                src="/images/who-we-are.webp"
+                alt="Network members gathered in front of a Yes quilt"
+                note="Network members · Yes quilt"
                 rounded={18}
                 sizes="(max-width: 900px) calc(100vw - 48px), 50vw"
               />
@@ -697,6 +698,14 @@ export default async function Home() {
           <NetworkMap height="min(62vh, 540px)" showLegend={false} />
 
           <div className="wrap">
+            <p className="map-caption" data-reveal>
+              A map of Australia showing where the Network is active. Each
+              marker is a state or territory network — hover one to see the
+              organisations organising there, or select it to zoom in.
+            </p>
+          </div>
+
+          <div className="wrap">
             <div className="dir-highlight-foot" data-reveal>
               <dl className="dir-highlight-stats">
                 <div>
@@ -716,7 +725,28 @@ export default async function Home() {
         </section>
 
         {/* ============ FINAL CTA ============ */}
-        <section id="join" className="sec final">
+        <section id="join" className="sec final has-wave">
+          {/* Wave that spills the white page down into the dark panel.
+              Matches the reference divider: the upper section's colour runs
+              down to the crest, the lower section's colour shows beneath,
+              and droplets of the upper colour sit in the lower section.
+              `secondaryColor` draws the thin companion line above the crest;
+              `background` matches the panel below so the fill runs on
+              seamlessly into it. */}
+          <div className="join-wave-band">
+            <AnimatedWave
+              height={280}
+              background="#16130f"
+              primaryColor="#ffffff"
+              secondaryColor="#16130f"
+              bubbleColor="#ffffff"
+              bubbles={makeBubbles(22)}
+              baselineFraction={0.4}
+              fillUp
+              harmonic={0.5}
+              bubbleCenterGap={0.045}
+            />
+          </div>
           <div className="wrap">
             <span className="kicker on-dark centered" data-reveal>
               Join the movement

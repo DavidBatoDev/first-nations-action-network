@@ -2,19 +2,20 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { AnimatedWave, makeBubbles } from "./AnimatedWave";
 
 type Partner = { name: string; file: string; url: string | null };
 
 const partners: Partner[] = [
-  { name: "Faira Aboriginal Corporation", file: "/assets/logos/faira.png", url: "https://www.faira.org.au/" },
-  { name: "First Nations Allies", file: "/assets/logos/first-nations-allies.png", url: "https://www.facebook.com/FirstNationsAlliesBrisbane/" },
-  { name: "Orange Together", file: "/assets/logos/orange-together.png", url: "https://orangetogether.org.au/" },
-  { name: "Sunshine Coast Reconciliation Group", file: "/assets/logos/sunshine-coast.png", url: "https://www.scrgi.org.au/" },
-  { name: "Unley Allies", file: "/assets/logos/unley-allies.png", url: "https://unleyallies.org/" },
-  { name: "Voice from the Heart Alliance", file: "/assets/logos/voice-from-the-heart.png", url: "https://voicefromtheheartalliance.com/" },
-  { name: "YACHATDAC", file: "/assets/logos/yachatdac.png", url: "https://yachatdac.com.au/" },
-  { name: "Noosa First Nations Allies", file: "/assets/logos/noosa.png", url: "https://noosaallies.org.au/" },
-  { name: "Wynnum First Nations Allies", file: "/assets/logos/wynnum.png", url: null },
+  { name: "Faira Aboriginal Corporation", file: "/assets/logos/faira.webp", url: "https://www.faira.org.au/" },
+  { name: "First Nations Allies", file: "/assets/logos/first-nations-allies.webp", url: "https://www.facebook.com/FirstNationsAlliesBrisbane/" },
+  { name: "Orange Together", file: "/assets/logos/orange-together.webp", url: "https://orangetogether.org.au/" },
+  { name: "Sunshine Coast Reconciliation Group", file: "/assets/logos/sunshine-coast.webp", url: "https://www.scrgi.org.au/" },
+  { name: "Unley Allies", file: "/assets/logos/unley-allies.webp", url: "https://unleyallies.org/" },
+  { name: "Voice from the Heart Alliance", file: "/assets/logos/voice-from-the-heart.webp", url: "https://voicefromtheheartalliance.com/" },
+  { name: "YACHATDAC", file: "/assets/logos/yachatdac.webp", url: "https://yachatdac.com.au/" },
+  { name: "Noosa First Nations Allies", file: "/assets/logos/noosa.webp", url: "https://noosaallies.org.au/" },
+  { name: "Wynnum First Nations Allies", file: "/assets/logos/wynnum.webp", url: null },
 ];
 
 const slug = (s: string) =>
@@ -236,6 +237,13 @@ export default function LogoCarousel() {
           {partners.map((p, i) => renderItem(p, `b-${i}`))}
         </div>
       </div>
+      {/* Scroll-driven cream handoff into the paper page below.
+          Decorative only. Circulating droplets use the same density and
+          centre gap as the Join divider so both waves read as one system. */}
+      <AnimatedWave
+        bubbles={makeBubbles(22)}
+        bubbleCenterGap={0.045}
+      />
     </section>
   );
 }
