@@ -620,7 +620,7 @@ export default function EcosystemGraph({
                 <span key={node.id} {...shared}>
                   <span className="ecograph-hub" aria-hidden="true">
                     <Image
-                      src="/assets/logo-on-light.png"
+                      src="/assets/logo-on-light.webp"
                       alt=""
                       width={1202}
                       height={794}

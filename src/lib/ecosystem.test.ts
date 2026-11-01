@@ -84,12 +84,12 @@ describe("ecosystemOrgs", () => {
         {
           name: "FAIRA",
           category: "First Nations organisations",
-          logo: "/assets/logos/faira.png",
+          logo: "/assets/logos/faira.webp",
         },
       ]),
     ]);
 
-    expect(org.logo).toBe("/assets/logos/faira.png");
+    expect(org.logo).toBe("/assets/logos/faira.webp");
     expect(org.state).toBe("QLD");
   });
 

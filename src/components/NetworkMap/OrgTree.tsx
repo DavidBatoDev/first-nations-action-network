@@ -15,7 +15,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { Organisation, StateNetwork } from "./networks";
 
-const AN_LOGO = "/assets/logos/action-network-logo.png";
+const AN_LOGO = "/assets/logos/action-network-logo.webp";
 
 /** Layout box the simulation runs inside. */
 const WIDTH = 700;
@@ -161,7 +161,7 @@ export default function OrgTree({
     <>
       <span className="orgtree-root-mark">
         <Image
-          src="/assets/logo-on-dark.png"
+          src="/assets/logo-on-dark.webp"
           alt="First Nations Action Network"
           width={1201}
           height={794}

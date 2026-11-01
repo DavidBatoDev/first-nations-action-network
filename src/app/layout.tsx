@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/og.png",
+        url: "/og.webp",
         width: 1200,
         height: 630,
         alt: SITE_NAME,
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
-    images: ["/og.png"],
+    images: ["/og.webp"],
   },
   robots: {
     index: true,
@@ -90,7 +90,7 @@ const orgJsonLd = {
   name: SITE_NAME,
   url: SITE_URL,
   description: SITE_DESCRIPTION,
-  logo: `${SITE_URL}/assets/logo-on-dark.png`,
+  logo: `${SITE_URL}/assets/logo-on-dark.webp`,
   sameAs: [
     EXTERNAL_LINKS.facebook,
     EXTERNAL_LINKS.instagram,
