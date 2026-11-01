@@ -4,8 +4,6 @@ type VideoSlotProps = {
   poster?: string;
   /** Describes the footage for assistive tech. */
   label: string;
-  /** Optional caption chip shown bottom-left, matching ImageSlot's note. */
-  note?: string;
   /** Rounded corners; pass a radius in px (defaults to 16). */
   rounded?: boolean | number;
   /** Extra classes for the slot container (sizing comes from the parent CSS). */
@@ -24,7 +22,6 @@ export default function VideoSlot({
   src,
   poster,
   label,
-  note,
   rounded,
   className = "",
   objectPosition = "center",
@@ -58,7 +55,6 @@ export default function VideoSlot({
         aria-label={label}
         style={{ objectPosition }}
       />
-      {note ? <span className="ph-note">{note}</span> : null}
     </div>
   );
 }
