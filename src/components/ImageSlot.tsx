@@ -3,8 +3,6 @@ import Image from "next/image";
 type ImageSlotProps = {
   src: string;
   alt: string;
-  /** Optional caption chip shown bottom-left (the draft's ph-note). */
-  note?: string;
   /** Rounded corners; pass a radius in px (defaults to 16). */
   rounded?: boolean | number;
   /** Extra classes for the slot container (sizing comes from the parent CSS). */
@@ -25,7 +23,6 @@ type ImageSlotProps = {
 export default function ImageSlot({
   src,
   alt,
-  note,
   rounded,
   className = "",
   sizes = "(max-width: 900px) calc(100vw - 48px), 50vw",
@@ -52,7 +49,6 @@ export default function ImageSlot({
         loading={preload ? undefined : "lazy"}
         style={{ objectFit: "cover", objectPosition }}
       />
-      {note ? <span className="ph-note">{note}</span> : null}
     </div>
   );
 }

@@ -99,7 +99,6 @@ export default function LearnPage() {
                 <ImageSlot
                   src="/images/training.webp"
                   alt="Facilitated session on Country"
-                  note="Facilitated session on Country"
                   rounded={20}
                   sizes="(max-width: 980px) calc(100vw - 48px), 42vw"
                   preload
