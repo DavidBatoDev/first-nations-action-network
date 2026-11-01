@@ -92,7 +92,6 @@ export default async function Contributors() {
               <ImageSlot
                 src="/images/membership.webp"
                 alt="Community leaders and organisations together"
-                note="Community leaders & organisations together"
                 rounded={20}
                 sizes="(max-width: 980px) calc(100vw - 48px), 42vw"
                 preload
@@ -475,7 +474,6 @@ export default async function Contributors() {
             <ImageSlot
               src="/images/who.webp"
               alt="Volunteers coordinating community action"
-              note="Volunteers coordinating community action"
               rounded={18}
             />
           </div>

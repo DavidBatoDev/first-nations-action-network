@@ -180,7 +180,6 @@ export default function WhoWeArePage() {
                 <ImageSlot
                   src="/images/who.webp"
                   alt="First Nations leaders and community members together"
-                  note="First Nations leaders and community members"
                   rounded={18}
                   sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
                   preload
@@ -220,7 +219,6 @@ export default function WhoWeArePage() {
               <ImageSlot
                 src="/images/hero.webp"
                 alt="Community gathering with Elders and young leaders"
-                note="Community gathering · shared purpose"
                 rounded={18}
                 sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
               />
@@ -346,7 +344,6 @@ export default function WhoWeArePage() {
                     <ImageSlot
                       src={person.image}
                       alt="Placeholder portrait of a network contributor"
-                      note="Profile coming soon"
                       rounded={16}
                       sizes="(max-width: 900px) calc(100vw - 48px), 30vw"
                     />

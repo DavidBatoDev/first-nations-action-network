@@ -86,7 +86,6 @@ export default function AllyshipPage() {
               <ImageSlot
                 src="/images/allies.webp"
                 alt="Allies and community together"
-                note="Allies & community together"
                 rounded={16}
                 sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
               />

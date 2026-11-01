@@ -8,8 +8,8 @@ export default function SupportCards() {
       <article className="support-card" data-reveal>
         <div className="sc-media">
           <Image
-            src="/assets/support-group.webp"
-            alt="Community members and an ally wearing First Nations Action Network merchandise, smiling together"
+            src="/assets/donate.webp"
+            alt="A First Nations elder in a First Nations Allies shirt raising flyers while addressing a crowd"
             fill
             sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
           />
@@ -68,8 +68,8 @@ export default function SupportCards() {
       <article className="support-card" data-reveal data-delay="1">
         <div className="sc-media">
           <Image
-            src="/assets/support-merch.webp"
-            alt="Two people seen from behind wearing First Nations Action Network and First Nations Allies merchandise at a community gathering"
+            src="/assets/support-group.webp"
+            alt="Community members and an ally wearing First Nations Action Network merchandise, smiling together"
             fill
             sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
           />

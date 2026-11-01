@@ -4,6 +4,7 @@ import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
+import ImageSlideshow from "@/components/ImageSlideshow";
 import VideoSlot from "@/components/VideoSlot";
 import { AnimatedWave, makeBubbles } from "@/components/AnimatedWave";
 import LogoCarousel from "@/components/LogoCarousel";
@@ -60,7 +61,7 @@ export default async function Home() {
           <div className="wrap hero-grid">
             <div className="hero-copy">
               <span className="kicker on-dark" data-reveal>
-                A First Nations–led national network
+                A First Nations-led national network
               </span>
               <h1 data-reveal data-delay="1">
                 Building Stronger Communities Through Connection, Collaboration and{" "}
@@ -87,7 +88,6 @@ export default async function Home() {
                   src="/videos/hero.webm"
                   poster="/images/hero.webp"
                   label="Community gathering with Elders and young leaders"
-                  note="Community gathering · Elders and young leaders"
                   rounded={20}
                 />
               </div>
@@ -111,7 +111,6 @@ export default async function Home() {
               <ImageSlot
                 src="/images/who-we-are.webp"
                 alt="Network members gathered in front of a Yes quilt"
-                note="Network members · Yes quilt"
                 rounded={18}
                 sizes="(max-width: 900px) calc(100vw - 48px), 50vw"
               />
@@ -177,7 +176,7 @@ export default async function Home() {
               </div>
               <p className="why-statement">
                 The Network helps organisations turn shared challenges into{" "}
-                <em>shared strength</em> — through support, connection and
+                <em>shared strength</em> through support, connection and
                 practical tools.
               </p>
             </div>
@@ -227,15 +226,15 @@ export default async function Home() {
                 Connect. Organise. <span className="em-action">Take Action.</span>
               </h2>
               <p className="lead">
-                Community organising turns shared purpose into community power —
-                and we provide the connection, tools and support to make it
+                Community organising turns shared purpose into community power.
+                We provide the connection, tools and support to make it
                 happen.
               </p>
             </div>
             <div className="cards3">
               <article className="card-step" data-reveal>
                 <span className="edge" />
-                <span className="step-no">01 — Connect</span>
+                <span className="step-no">01 / Connect</span>
                 <div className="step-ico">
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="9" cy="7" r="3" />
@@ -253,7 +252,7 @@ export default async function Home() {
               </article>
               <article className="card-step" data-reveal data-delay="1">
                 <span className="edge" />
-                <span className="step-no">02 — Organise</span>
+                <span className="step-no">02 / Organise</span>
                 <div className="step-ico">
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 6h16M4 12h16M4 18h10" />
@@ -269,7 +268,7 @@ export default async function Home() {
               </article>
               <article className="card-step" data-reveal data-delay="2">
                 <span className="edge" />
-                <span className="step-no">03 — Take Action</span>
+                <span className="step-no">03 / Take Action</span>
                 <div className="step-ico">
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M13 2 4 14h7l-1 8 9-12h-7z" />
@@ -302,7 +301,6 @@ export default async function Home() {
                 <ImageSlot
                   src="/images/membership.webp"
                   alt="Contributors at a network gathering"
-                  note="Contributors at a network gathering"
                   sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
                 />
               </div>
@@ -370,12 +368,30 @@ export default async function Home() {
             </div>
             <div data-reveal data-delay="1">
               <div className="img-frame">
-                <ImageSlot
-                  src="/images/training.webp"
-                  alt="Facilitated session on Country"
-                  note="Facilitated session on Country"
+                <ImageSlideshow
                   rounded={18}
-                  sizes="(max-width: 900px) calc(100vw - 48px), 50vw"
+                  slides={[
+                    {
+                      src: "/images/learn-organisers.webp",
+                      alt: "Organisers in high-vis vests packing supplies and handing out flyers before an event",
+                    },
+                    {
+                      src: "/images/learn-briefing.webp",
+                      alt: "Volunteers in high-vis vests gathered for a briefing before a community event",
+                    },
+                    {
+                      src: "/images/learn-next-generation.webp",
+                      alt: "Three generations of women wearing matching 'Next Generation' polo shirts at a family fun day",
+                    },
+                    {
+                      src: "/images/learn-stall.webp",
+                      alt: "Volunteers behind a community stall stacked with pamphlets and lanyards",
+                    },
+                    {
+                      src: "/images/learn-session.webp",
+                      alt: "Participants listening during a facilitated learning session on Country",
+                    },
+                  ]}
                 />
               </div>
               <div className="train-stat">
@@ -426,7 +442,6 @@ export default async function Home() {
               <ImageSlot
                 src="/images/allies.webp"
                 alt="Allies and community together"
-                note="Allies & community together"
                 rounded={16}
                 sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
               />
@@ -470,16 +485,17 @@ export default async function Home() {
             <div className="story-grid">
               <article className="story-card" data-reveal>
                 <ImageSlot
-                  src="/images/story1.webp"
-                  alt="Young leaders stepping forward"
+                  src="/images/story-leadership.webp"
+                  alt="Children and young men painted in white ochre dancing on a lawn before a seated crowd"
                   sizes="(max-width: 880px) calc(100vw - 48px), 31vw"
                 />
                 <div className="s-body">
                   <span className="s-tag">Leadership</span>
-                  <h3>Young leaders stepping forward</h3>
+                  <h3>Young dancers carrying culture forward</h3>
                   <p>
-                    A regional youth program turning emerging voices into community
-                    organisers and decision-makers.
+                    A new generation performing in ochre at a community
+                    gathering, learning from Elders and leading the way for
+                    those who follow.
                   </p>
                   <span className="more">
                     Read the story <span>→</span>
@@ -488,16 +504,17 @@ export default async function Home() {
               </article>
               <article className="story-card" data-reveal data-delay="1">
                 <ImageSlot
-                  src="/images/story2.webp"
-                  alt="Many groups, one shared campaign"
+                  src="/images/story-collaboration.webp"
+                  alt="A packed lecture theatre watching a presentation on the referendum campaign's main takeaways"
                   sizes="(max-width: 880px) calc(100vw - 48px), 31vw"
                 />
                 <div className="s-body">
                   <span className="s-tag">Collaboration</span>
-                  <h3>Many groups, one shared campaign</h3>
+                  <h3>Coming together to understand what happened</h3>
                   <p>
-                    How neighbouring organisations pooled resources to sustain
-                    momentum and reach more people.
+                    Communities, researchers and organisers filling a hall to
+                    reflect on the referendum campaign and what it means for the
+                    work ahead.
                   </p>
                   <span className="more">
                     Read the story <span>→</span>
@@ -506,16 +523,17 @@ export default async function Home() {
               </article>
               <article className="story-card" data-reveal data-delay="2">
                 <ImageSlot
-                  src="/images/story3.webp"
-                  alt="Culture at the centre of change"
+                  src="/images/story-culture.webp"
+                  alt="Hands in possum skin cloaks holding a carved wooden coolamon together"
                   sizes="(max-width: 880px) calc(100vw - 48px), 31vw"
                 />
                 <div className="s-body">
-                  <span className="s-tag">Local action</span>
+                  <span className="s-tag">Culture</span>
                   <h3>Culture at the centre of change</h3>
                   <p>
-                    A community-led initiative strengthening connection to culture
-                    while creating lasting local impact.
+                    Elders and community leaders holding a carved coolamon
+                    together, passing knowledge between generations as the work
+                    moves forward.
                   </p>
                   <span className="more">
                     Read the story <span>→</span>
@@ -524,11 +542,11 @@ export default async function Home() {
               </article>
             </div>
             <div className="quote-band" data-reveal>
-              <div className="qmark">“</div>
+              <div className="qmark" aria-hidden="true">“</div>
               <div>
                 <blockquote>
                   When communities organise together, the change we create belongs
-                  to everyone — and it lasts.
+                  to everyone, and it lasts.
                 </blockquote>
                 <p className="qby">
                   A community leader in the Network
@@ -537,6 +555,12 @@ export default async function Home() {
                   </span>
                 </p>
               </div>
+              {/*
+                Closing mark. Same glyph as the opener, turned a half turn in
+                CSS, so the pair is guaranteed identical in weight and shape
+                rather than depending on how the serif draws U+201D.
+              */}
+              <div className="qmark qmark-close" aria-hidden="true">“</div>
             </div>
             <div style={{ marginTop: 40 }} data-reveal>
               <Link href="/stories" className="btn btn-ghost">
@@ -623,7 +647,7 @@ export default async function Home() {
             </h2>
             <p className="lead">
               Sign open petitions and share your views through community
-              surveys — every voice strengthens the movement.
+              surveys. Every voice strengthens the movement.
             </p>
           </div>
           {actionFeed.actions.length ? (
@@ -664,7 +688,7 @@ export default async function Home() {
             </div>
           ) : (
             <div className="home-events-empty" role="status">
-              <strong>Nothing open right now — stay tuned.</strong>
+              <strong>Nothing open right now. Stay tuned.</strong>
               <span>
                 Join the Network to hear about new petitions, surveys and ways
                 to take action.
@@ -700,7 +724,7 @@ export default async function Home() {
           <div className="wrap">
             <p className="map-caption" data-reveal>
               A map of Australia showing where the Network is active. Each
-              marker is a state or territory network — hover one to see the
+              marker is a state or territory network. Hover one to see the
               organisations organising there, or select it to zoom in.
             </p>
           </div>
