@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import OpeningWave from "@/components/OpeningWave";
 import ImageSlot from "@/components/ImageSlot";
-import LogoCarousel from "@/components/LogoCarousel";
+
 import { Arrow } from "@/components/icons";
 import Nav, { type NavLink } from "@/components/Nav";
 
@@ -72,13 +73,14 @@ export default function LearnPage() {
         links={navLinks}
         exploreHref="/allyship"
         joinHref="/contributors"
+        solid
       />
 
       <main className="home-page training-page">
         <header className="hero">
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <span className="kicker on-dark" data-reveal>
+              <span className="kicker" data-reveal>
                 Learning and development
               </span>
               <h1 data-reveal data-delay="1">
@@ -108,8 +110,9 @@ export default function LearnPage() {
             </div>
           </div>
         </header>
+        <OpeningWave toColor="var(--cream)" />
 
-        <LogoCarousel nextBackground="var(--cream)" />
+        
 
         <section className="sec bg-cream">
           <div className="wrap split media-left">

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
-import LogoCarousel from "@/components/LogoCarousel";
+import OpeningWave from "@/components/OpeningWave";
+
 import EventsBrowser from "@/components/EventsBrowser";
 import { getActionNetworkEvents } from "@/lib/action-network";
 
@@ -40,7 +41,7 @@ export default async function EventsPage() {
         joinHref="/contributors"
       />
 
-      <header className="events-hero">
+      <header className="events-hero has-wave">
         <div className="wrap">
           <span className="kicker on-dark" data-reveal>
             Community calendar
@@ -59,8 +60,9 @@ export default async function EventsPage() {
           </div>
         </div>
       </header>
+      <OpeningWave fromColor="var(--ink)" />
 
-      <LogoCarousel />
+      
 
       <main className="events-page">
         <EventsBrowser events={eventFeed.events} />

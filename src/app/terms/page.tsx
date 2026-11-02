@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
-import LogoCarousel from "@/components/LogoCarousel";
+import OpeningWave from "@/components/OpeningWave";
+
 
 const navLinks: NavLink[] = [
   { label: "Who We Are", href: "/who-we-are" },
@@ -44,7 +45,8 @@ export default function TermsPage() {
             </div>
           </div>
         </header>
-        <LogoCarousel />
+        <OpeningWave fromColor="var(--cream)" />
+        
         <section className="sec">
           <div className="wrap">
             <div className="doc-draft">

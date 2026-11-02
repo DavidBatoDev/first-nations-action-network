@@ -14,6 +14,7 @@
   --paper: #ffffff;
   --cream: #faf6ef; /* warm off-white alt sections */
   --cream-deep: #f2eadc; /* deeper warm panel */
+  --eggshell: #efe6d3; /* warm opening-section ground */
   --ochre: #d97c00;
   --ochre-deep: #b56300;
   --yellow: #ffda00;
@@ -687,6 +688,13 @@ section[id] {
   color: #eae4d9;
   overflow: hidden;
 }
+.hero.has-wave {
+  background: var(--black);
+}
+.events-hero.has-wave,
+.application-hero.has-wave {
+  background: var(--ink);
+}
 .hero-grid {
   display: grid;
   grid-template-columns: 1.12fr 0.88fr;
@@ -801,10 +809,11 @@ section[id] {
 /* partner logo carousel */
 .logos {
   --wave-h: 280px;
+  --logo-item-width: 248px;
   position: relative;
-  background: #efe6d3;
+  background: var(--eggshell);
   padding: 52px 0 calc(var(--wave-h) + 40px);
-  overflow: hidden;
+  overflow: clip;
 }
 .logos .eyebrow {
   text-align: center;
@@ -874,7 +883,7 @@ section[id] {
   will-change: transform;
 }
 .logo-item {
-  flex: 0 0 248px;
+  flex: 0 0 var(--logo-item-width);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2964,7 +2973,7 @@ a.logo-box {
 }
 /* The band sits at the top of the panel, so pull the section's own top
    padding off and let the crest do the spacing. */
-.final.has-wave {
+.sec.final.has-wave {
   padding-top: 0;
 }
 
@@ -5488,13 +5497,14 @@ button {
     max-width: min(262px, calc(100% - 28px));
   }
   .logos {
+    --logo-item-width: 210px;
     padding: 40px 0 calc(var(--wave-h) + 28px);
   }
   .logos-viewport {
     margin-top: 20px;
   }
-  .logo-item {
-    flex-basis: 210px;
+  .logos-track {
+    margin-left: calc((100% - var(--logo-item-width)) / 2);
   }
   .logo-box {
     height: 104px;
@@ -6187,6 +6197,7 @@ button {
 /* Section 1 · Intro (light page top, no hero styling) */
 .who-intro {
   padding-top: 108px;
+  background: var(--eggshell);
 }
 .who-intro .split {
   align-items: start;
@@ -6211,6 +6222,16 @@ button {
   .who-intro {
     padding-top: 100px;
   }
+}
+.training-page .hero {
+  background: var(--eggshell);
+  color: var(--ink);
+}
+.training-page .hero h1 {
+  color: var(--ink);
+}
+.training-page .hero .lead {
+  color: #4c463d;
 }
 
 /* Footer newsletter subscribe button */

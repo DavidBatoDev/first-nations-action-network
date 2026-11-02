@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ActionNetworkForm from "@/components/ActionNetworkForm";
 import Footer from "@/components/Footer";
-import LogoCarousel from "@/components/LogoCarousel";
+import OpeningWave from "@/components/OpeningWave";
+
 import NewsletterPopupSuppressor from "@/components/NewsletterPopupSuppressor";
 import Nav, { type NavLink } from "@/components/Nav";
 import { Arrow, Tick } from "@/components/icons";
@@ -62,7 +63,7 @@ export default function ContributorApplicationPage() {
       />
 
       <main className="home-page application-page">
-        <header className="application-hero">
+        <header className="application-hero has-wave">
           <div className="wrap application-hero-grid">
             <div>
               <span className="kicker on-dark" data-reveal>
@@ -86,8 +87,9 @@ export default function ContributorApplicationPage() {
             </div>
           </div>
         </header>
+        <OpeningWave fromColor="var(--ink)" toColor="var(--cream)" />
 
-        <LogoCarousel nextBackground="var(--cream)" />
+        
 
         <section className="sec bg-cream application-section">
           <div className="wrap application-layout">

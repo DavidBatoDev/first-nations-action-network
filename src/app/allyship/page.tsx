@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import OpeningWave from "@/components/OpeningWave";
 import ImageSlot from "@/components/ImageSlot";
-import LogoCarousel from "@/components/LogoCarousel";
+
 import Nav, { type NavLink } from "@/components/Nav";
 import SupportCards from "@/components/SupportCards";
 
@@ -94,7 +95,9 @@ export default function AllyshipPage() {
           </div>
         </section>
 
-        <LogoCarousel />
+        
+
+        <OpeningWave fromColor="var(--ink)" />
 
         <section id="what-is-allyship" className="sec">
           <div className="wrap">

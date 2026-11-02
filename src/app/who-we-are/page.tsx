@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import OpeningWave from "@/components/OpeningWave";
 import ImageSlideshow from "@/components/ImageSlideshow";
 import TeamCard from "@/components/TeamCard";
 import VideoSlot from "@/components/VideoSlot";
 import Nav, { type NavLink } from "@/components/Nav";
-import LogoCarousel from "@/components/LogoCarousel";
+import NetworkWelcome from "@/components/NetworkWelcome";
 import SectionWave from "@/components/SectionWave";
 import { Arrow } from "@/components/icons";
 
@@ -236,7 +237,9 @@ export default function WhoWeArePage() {
           </div>
         </section>
 
-        <LogoCarousel nextBackground="var(--black)" />
+        <OpeningWave toColor="var(--cream)" />
+
+        <NetworkWelcome className="sec bg-cream who-what" />
 
         {/* ============ SECTION 3 · VISION & PURPOSE ============ */}
         <section className="sec who-vision">

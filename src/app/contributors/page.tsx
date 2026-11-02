@@ -4,8 +4,9 @@ import path from "node:path";
 import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
+import OpeningWave from "@/components/OpeningWave";
 import NetworkWelcome from "@/components/NetworkWelcome";
-import LogoCarousel from "@/components/LogoCarousel";
+
 import SectionWave from "@/components/SectionWave";
 import NewsletterPopupSuppressor from "@/components/NewsletterPopupSuppressor";
 import ImageSlot from "@/components/ImageSlot";
@@ -61,7 +62,7 @@ export default async function Contributors() {
       />
 
       {/* ============ HERO ============ */}
-      <header className="hero">
+      <header className="hero has-wave">
         <div className="wrap hero-grid">
           <div className="hero-copy">
             <span className="kicker on-dark" data-reveal>
@@ -108,8 +109,9 @@ export default async function Contributors() {
           </div>
         </div>
       </header>
+      <OpeningWave fromColor="var(--black)" toColor="var(--cream)" />
 
-      <LogoCarousel nextBackground="var(--cream)" />
+      
 
       {/* ============ YOU DON'T HAVE TO DO THIS ALONE ============ */}
       <section className="sec bg-cream">

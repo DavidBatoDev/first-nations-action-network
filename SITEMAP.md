@@ -56,9 +56,11 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
   `/images/membership.webp` remain unchanged on other pages.
 - At widths up to 1024px, Who We Are stacks its content above the image.
   Larger screens retain the side-by-side layout.
-- Organisation carousel arrows sit centred below the logo strip, with
-  borderless grey glyphs, 56×44px targets and visible keyboard focus. Manual
-  navigation remains available with reduced motion.
+- The organisation carousel appears only on the homepage. On mobile, the
+  active logo is centred in the viewport during initial display, navigation,
+  autoplay and resizing. Arrows sit centred below the strip, with borderless
+  grey glyphs, 56×44px targets and visible keyboard focus. Manual navigation
+  remains available with reduced motion.
 - The Community Stories quote band features Megan Davis, Director of the
   Indigenous Law Centre, UNSW, with context from her National Allyship Summit
   address and her call for active, shared democratic reform. A muted introduction
@@ -70,24 +72,30 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
   (Governance) and Djab Wurrung Birthing Trees (Country) articles, in that order.
   Cards link directly to their detail pages; UNPFII remains in the full library.
 
-### Shared page media
+### Shared opening and closing waves
 
-- `LogoCarousel` is the shared connected-organisations section after each
-  public page hero. Article detail pages place it after the title and hero
-  photograph; resource lessons place it after their introductory navigation.
-  The nine organisations, links, arrows and reduced-motion behaviour remain
-  shared. `nextBackground` matches its lower wave to the next section.
+- `OpeningWave` matches the adjoining sections: `fromColor` follows the hero
+  or homepage logo band, while `toColor` follows the content below. Its crest
+  and droplets share the hero colour; the divider never includes logos.
+- Who We Are and Learning use the shared eggshell ground (`--eggshell`) above
+  their opening waves. Learning uses dark text and the solid light navigation.
+- Other wave-topped dark heroes use solid backgrounds so a gradient edge
+  cannot create a visible seam. The homepage hero retains its original styling.
+- The homepage carousel includes its own `OpeningWave`; the homepage does not
+  add a second standalone opening divider. Other pages use the wave alone.
 - `SectionWave` is the reusable light-to-dark closing transition. Its
   `fromColor` and `toColor` match the adjoining sections; the scroll-driven
   shape and droplets reuse `AnimatedWave` and remain still with reduced motion.
+- `.sec.final.has-wave` keeps zero top padding above the closing wave even
+  when responsive section-padding rules apply; the wave owns that spacing.
 - Home, Who We Are and Contributors place the wave inside their existing dark
   closing CTA and set `Footer`'s `showWave={false}` to avoid a second divider.
   Other pages use the footer's default wave; `waveFrom` matches their final
   content background. No new CTA content or destinations are introduced.
-- The Who We Are organisation carousel replaces its former standalone
-  "What is the Network" block. The Contributors explanation remains in place.
-- Public landing, library, article, lesson, form and policy routes share these
-  sections. Redirect-only routes and the unlinked 3D-map prototype are unchanged.
+- Who We Are and Contributors retain their "What is the Network" explanations;
+  organisation carousels are not part of these pages or shared content.
+- Public landing, library, article, lesson, form and policy routes share the
+  opening and closing waves. Redirect-only routes and the unlinked 3D-map prototype are unchanged.
 
 
 ### Who We Are media and team profiles

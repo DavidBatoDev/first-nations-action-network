@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { AnimatedWave, makeBubbles } from "./AnimatedWave";
+import OpeningWave from "@/components/OpeningWave";
 
 type Partner = { name: string; file: string; url: string | null };
 
@@ -21,8 +21,8 @@ const partners: Partner[] = [
 const slug = (s: string) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-/** The auto-advancing partner logo marquee, ported from the draft. */
-export default function LogoCarousel({ nextBackground = "var(--paper)" }: { nextBackground?: string }) {
+/** The homepage-only organisation carousel. */
+export default function LogoCarousel() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const stepRef = useRef<((dir: 1 | -1) => void) | null>(null);
@@ -40,7 +40,6 @@ export default function LogoCarousel({ nextBackground = "var(--paper)" }: { next
 
     const N = partners.length;
     const PAUSE = 2000;
-    const itemW = () => items[0].getBoundingClientRect().width || 248;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     let idx = 0;
@@ -85,7 +84,7 @@ export default function LogoCarousel({ nextBackground = "var(--paper)" }: { next
       if (isPaused()) return;
       idx++;
       track.style.transition = "transform .9s cubic-bezier(.45,.05,.25,1)";
-      track.style.transform = "translateX(" + -idx * itemW() + "px)";
+      track.style.transform = `translateX(calc(-${idx} * var(--logo-item-width)))`;
     };
 
     const schedule = () => {
@@ -103,7 +102,7 @@ export default function LogoCarousel({ nextBackground = "var(--paper)" }: { next
     const snapTo = (i: number) => {
       idx = i;
       track.style.transition = "none";
-      track.style.transform = "translateX(" + -idx * itemW() + "px)";
+      track.style.transform = `translateX(calc(-${idx} * var(--logo-item-width)))`;
       void track.offsetWidth; // force reflow so the next move animates
     };
 
@@ -126,7 +125,7 @@ export default function LogoCarousel({ nextBackground = "var(--paper)" }: { next
         return;
       }
       track.style.transition = "transform .9s cubic-bezier(.45,.05,.25,1)";
-      track.style.transform = "translateX(" + -idx * itemW() + "px)";
+      track.style.transform = `translateX(calc(-${idx} * var(--logo-item-width)))`;
     };
     stepRef.current = step;
 
@@ -263,14 +262,7 @@ export default function LogoCarousel({ nextBackground = "var(--paper)" }: { next
           </svg>
         </button>
       </div>
-      {/* Scroll-driven handoff into the next section. Decorative only;
-          its droplets share the closing wave's density and centre gap. */}
-      <AnimatedWave
-        primaryColor={nextBackground}
-        secondaryColor={nextBackground}
-        bubbles={makeBubbles(22)}
-        bubbleCenterGap={0.045}
-      />
+      <OpeningWave />
     </section>
   );
 }

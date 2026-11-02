@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
-import LogoCarousel from "@/components/LogoCarousel";
+import OpeningWave from "@/components/OpeningWave";
+
 import Nav, { type NavLink } from "@/components/Nav";
 import StoriesBrowser from "@/components/StoriesBrowser";
 import { getStorySummaries, STORY_REGIONS, STORY_TAXONOMY } from "@/lib/stories";
@@ -50,7 +51,7 @@ export default async function StoriesPage({ searchParams }: StoriesPageProps) {
     <>
       <Nav brandHref="/" links={navLinks} exploreHref="/allyship" joinHref="/contributors" />
       <main className="home-page stories-page">
-        <header className="hero stories-hero">
+        <header className="hero stories-hero has-wave">
           <div className="wrap hero-grid">
             <div className="hero-copy">
               <span className="kicker on-dark" data-reveal>Community stories</span>
@@ -66,7 +67,8 @@ export default async function StoriesPage({ searchParams }: StoriesPageProps) {
             </aside>
           </div>
         </header>
-        <LogoCarousel nextBackground="var(--cream)" />
+        <OpeningWave fromColor="var(--black)" toColor="var(--cream)" />
+        
         <section className="sec bg-cream stories-library-section" aria-labelledby="stories-library-title">
           <div className="wrap">
             <div className="sec-head" data-reveal>

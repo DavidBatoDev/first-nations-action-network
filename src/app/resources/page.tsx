@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
-import LogoCarousel from "@/components/LogoCarousel";
+import OpeningWave from "@/components/OpeningWave";
+
 import Nav, { type NavLink } from "@/components/Nav";
 import ResourceCatalogue from "@/components/ResourceCatalogue";
 import { RESOURCE_COURSES } from "@/lib/resources";
@@ -38,7 +39,7 @@ export default function ResourcesPage() {
       />
 
       <main className="home-page resources-page">
-        <header className="hero resources-hero">
+        <header className="hero resources-hero has-wave">
           <div className="wrap hero-grid">
             <div className="hero-copy">
               <span className="kicker on-dark" data-reveal>
@@ -70,8 +71,9 @@ export default function ResourcesPage() {
             </aside>
           </div>
         </header>
+        <OpeningWave fromColor="var(--black)" toColor="var(--cream)" />
 
-        <LogoCarousel nextBackground="var(--cream)" />
+        
 
         <section className="sec bg-cream resources-library-section">
           <div className="wrap">

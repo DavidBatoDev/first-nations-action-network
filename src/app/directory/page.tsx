@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import Footer from "@/components/Footer";
-import LogoCarousel from "@/components/LogoCarousel";
+import OpeningWave from "@/components/OpeningWave";
+
 import Nav, { type NavLink } from "@/components/Nav";
 import DirectoryBrowser, {
   type DirectoryEntry,
@@ -62,7 +63,7 @@ export default async function DirectoryPage() {
       />
 
       <main className="home-page directory-page">
-        <header className="hero directory-hero">
+        <header className="hero directory-hero has-wave">
           <div className="wrap hero-grid">
             <div className="hero-copy">
               <span className="kicker on-dark" data-reveal>
@@ -97,8 +98,9 @@ export default async function DirectoryPage() {
             </aside>
           </div>
         </header>
+        <OpeningWave fromColor="var(--black)" toColor="var(--cream)" />
 
-        <LogoCarousel nextBackground="var(--cream)" />
+        
 
         <section className="sec bg-cream directory-discovery-section">
           <div className="wrap">

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
-import LogoCarousel from "@/components/LogoCarousel";
+import OpeningWave from "@/components/OpeningWave";
 import type {
   Story,
   StoryBlock,
@@ -158,7 +158,7 @@ export function CommunityStoryDetail({ story }: { story: Story }) {
         preload
       />
       </div>
-      <LogoCarousel />
+      <OpeningWave fromColor="var(--paper)" />
       <div className="wrap">
       <div className="story-article-body">
         {story.content.map((block, index) => <StoryContentBlock block={block} index={index} key={index} />)}
