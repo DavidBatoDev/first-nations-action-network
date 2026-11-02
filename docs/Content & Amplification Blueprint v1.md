@@ -57,6 +57,9 @@ does not introduce a CMS, accounts or automated submissions.
 - Article WebPs are capped at 1600px wide without upscaling; separate thumbnails
   are capped at 640px. Preserve image dimensions and meaningful detail-page alt
   text, and preload only the article hero on its own page.
+- The Djab Wurrung hero and thumbnail use matching bottom-aligned 16:9 crops,
+  retaining the banner without beige side-fill. Changed crops use new filenames
+  to refresh optimized-image and browser caches; source uploads stay untouched.
 - `featuredOrder` selects the homepage's three real article cards. The library
   uses curated collection order because publication dates are not supplied.
 

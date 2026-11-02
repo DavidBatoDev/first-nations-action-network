@@ -576,7 +576,6 @@ export const STORIES: Story[] = [
       "thumbnailWidth": 640,
       "thumbnailHeight": 418
     },
-    "featuredOrder": 3,
     "content": [
       {
         "type": "paragraph",
@@ -948,14 +947,15 @@ export const STORIES: Story[] = [
       "Birthing Trees"
     ],
     "image": {
-      "src": "/images/stories/djab-wurrung-country.webp",
-      "thumbnail": "/images/stories/djab-wurrung-country-thumb.webp",
+      "src": "/images/stories/djab-wurrung-country-landscape.webp",
+      "thumbnail": "/images/stories/djab-wurrung-country-landscape-thumb.webp",
       "alt": "Supporters holding a Hands Off Djab Wurrung banner beneath a large tree.",
       "width": 1024,
-      "height": 1024,
+      "height": 576,
       "thumbnailWidth": 640,
-      "thumbnailHeight": 640
+      "thumbnailHeight": 360
     },
+    "featuredOrder": 3,
     "content": [
       {
         "type": "paragraph",

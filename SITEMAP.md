@@ -65,8 +65,9 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 - The learning slideshow decodes requested photographs before an 850ms
   directional overlap, keeping the outgoing photograph opaque. Manual controls
   remain available under reduced motion, without autoplay.
-- Homepage story cards feature the reform, allyship summit and UNPFII articles
-  from the shared collection and link directly to their detail pages.
+- Homepage story cards feature the reform (Wellbeing), allyship summit
+  (Governance) and Djab Wurrung Birthing Trees (Country) articles, in that order.
+  Cards link directly to their detail pages; UNPFII remains in the full library.
 
 ### Stories library and article publishing
 
