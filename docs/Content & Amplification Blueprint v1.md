@@ -18,6 +18,62 @@ This blueprint forms the foundation for:
 -   Directory visibility
 -   Future member portal functionality
 
+## Current public website implementation
+
+The public stories library now publishes the five supplied articles at
+`/stories` and `/stories/[slug]`. The submission, portal and syndication flows
+described below remain future product architecture; publishing these articles
+does not introduce a CMS, accounts or automated submissions.
+
+### Article ownership and metadata
+
+- All five current articles explicitly use **First Nations Action Network** as
+  their Organisation, overriding the source DOCX Organisation fields. This is
+  an assignment for these records, not a universal default for future articles.
+- Organisations mentioned in prose and references remain intact. Organisation
+  ownership is not an individual author credit.
+- Publication dates and authors are omitted when the source does not establish
+  them. File timestamps and dates mentioned inside an article are not publishing
+  dates.
+- Categories follow the supplied documents. Approved editorial subcategories
+  are Justice (reform), Leadership (allyship summit), Policy (UNPFII), Heritage
+  (Djab Wurrung) and Treaty (state and territory treaties).
+- Region arrays retain the supplied Federal, state/territory and Global
+  coverage. Global does not automatically match Australian regional filters.
+
+### Authoring and writing styles
+
+- `src/lib/stories.ts` is the canonical typed article collection; DOCX files are
+  editorial sources, not parsed at runtime. `src/lib/story-types.ts` defines
+  metadata and body blocks. The source uploads remain in `new_assets/Articles/`.
+- Use semantic paragraphs, h2/h3 sections beneath the page h1, nested lists,
+  inline emphasis/links, callouts, quotations, figures and accessible tables.
+  Preserve source prose and references rather than pasting arbitrary HTML or
+  ASCII diagrams into the reading view.
+- `src/styles/stories.css` establishes Merriweather headings, Inter body text,
+  a reading column up to 68ch, 18px desktop prose and 16.5px mobile prose with
+  generous line spacing. Links are underlined, tables scroll inside their own
+  keyboard-focusable region, and callouts use restrained ochre accents.
+- Article WebPs are capped at 1600px wide without upscaling; separate thumbnails
+  are capped at 640px. Preserve image dimensions and meaningful detail-page alt
+  text, and preload only the article hero on its own page.
+- `featuredOrder` selects the homepage's three real article cards. The library
+  uses curated collection order because publication dates are not supplied.
+
+### Discovery controls
+
+The row-style library exposes search, Category, Subcategory and Region controls
+without repeated visible labels; each retains an accessible name. Search covers
+full prose and metadata, including Organisation and Topic. Selections combine
+with AND, dependent subcategories reset when incompatible, and clear/no-results
+states are available. URL parameters preserve search/filter selections.
+
+The taxonomy in `src/lib/story-filters.ts` follows `Subcategories List.docx`:
+Governance (Treaty, Title, Policy, Leadership), Country (Rangers, Heritage,
+Sustainability, Conservation), Wellbeing (Health, Justice, Housing, Healing),
+Enterprise (Business, Training, Procurement, Employment), and Culture (Arts,
+Histories, Elders, Events).
+
 # **Vision**
 
 ## **A National Content Network For Community-Led Stories, Events And Action**

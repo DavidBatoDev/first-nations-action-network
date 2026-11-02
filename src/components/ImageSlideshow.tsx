@@ -20,30 +20,15 @@ type ImageSlideshowProps = {
   auto?: boolean;
 };
 
-/** Must match --slide-dur in globals.css. */
-const PUSH_MS = 620;
+type SlideRequest = {
+  id: number;
+  target: number;
+  direction: number;
+};
 
 /**
- * Interactive photo strip: click a bullet, or use the arrow keys, to choose a
- * frame. Autoplay runs unless the reader is interacting with it.
- *
- * The transition is a parallax push. The incoming frame slides in from the side
- * the reader is travelling toward while the outgoing frame drifts out the
- * opposite way at about a third of the distance, so the two separate in depth
- * rather than one simply erasing the other. Both move, which is what sells the
- * sense of sequence; a cross-fade holds the picture still and reads as passive.
- *
- * Two details keep it from feeling like a template:
- *
- *  - Direction is tracked, so stepping back reverses the motion. A gallery that
- *    always pushes one way feels broken the moment you go backwards.
- *  - The photography drifts very slowly outward for the whole time a frame is
- *    held (see `slide-drift`), so a still image is never quite static.
- *
- * The push is a transform on the frame and the drift is a transform on the
- * <img>, which keeps them independent and lets both run on the compositor.
- * See the `.slideshow-frame` rules in globals.css, including the
- * reduced-motion path, which swaps frames with no motion at all.
+ * Decode a chosen photograph before sliding it over the current one.
+ * Only the initial, adjacent and explicitly requested images are loaded.
  */
 export default function ImageSlideshow({
   slides,
@@ -53,31 +38,49 @@ export default function ImageSlideshow({
   auto = true,
 }: ImageSlideshowProps) {
   const [index, setIndex] = useState(0);
-  /** +1 travelling forward, -1 travelling back. Drives the push direction. */
   const [dir, setDir] = useState(1);
-  /** The frame currently pushing out from under `index`. */
   const [leaving, setLeaving] = useState<number | null>(null);
+  const [prepared, setPrepared] = useState(() => new Set([0]));
+  const [request, setRequest] = useState<SlideRequest | null>(null);
   const [visible, setVisible] = useState(true);
-  const [held, setHeld] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
   const [pageHidden, setPageHidden] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState<boolean | null>(null);
   const rootRef = useRef<HTMLDivElement>(null);
+  const imagesRef = useRef<Array<HTMLImageElement | null>>([]);
+  const decodesRef = useRef(new Map<number, Promise<boolean>>());
+  const requestIdRef = useRef(0);
   const count = slides.length;
+
+  const decodeImage = useCallback((target: number) => {
+    const existing = decodesRef.current.get(target);
+    if (existing) return existing;
+    const image = imagesRef.current[target];
+    if (!image) return Promise.resolve(false);
+    // Keep failures cached too: a later selection must not retry a failed image.
+    const decoded = image.decode().then(
+      () => image.naturalWidth > 0,
+      () => false,
+    );
+    decodesRef.current.set(target, decoded);
+    return decoded;
+  }, []);
 
   const goTo = useCallback(
     (next: number) => {
       if (count < 2) return;
-      // Wrap in both directions so it loops at either end.
       const target = ((next % count) + count) % count;
-      if (target === index) return;
-      /*
-       * Direction comes from the requested index, not the wrapped one, so
-       * advancing past the last frame still reads as travelling forward.
-       * Deliberately not done inside a setIndex updater: React may call an
-       * updater twice, and marking the outgoing frame is a side effect.
-       */
-      setDir(next > index ? 1 : -1);
-      setLeaving(index);
-      setIndex(target);
+      const id = ++requestIdRef.current;
+      if (target === index) {
+        setRequest(null);
+        return;
+      }
+      setPrepared((current) =>
+        current.has(target) ? current : new Set(current).add(target),
+      );
+      // Replacing this request invalidates any older decode completion.
+      setRequest({ id, target, direction: next > index ? 1 : -1 });
     },
     [count, index],
   );
@@ -100,17 +103,62 @@ export default function ImageSlideshow({
     return () => document.removeEventListener("visibilitychange", onChange);
   }, []);
 
-  // Release the outgoing frame once its push has finished.
   useEffect(() => {
-    if (leaving === null) return;
-    const id = window.setTimeout(() => setLeaving(null), PUSH_MS);
-    return () => window.clearTimeout(id);
-  }, [leaving]);
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const onChange = () => setReducedMotion(preference.matches);
+    onChange();
+    preference.addEventListener("change", onChange);
+    return () => preference.removeEventListener("change", onChange);
+  }, []);
 
-  const running = auto && count > 1 && visible && !held && !pageHidden;
+  // Prepare just the next neighbour, rather than loading the whole collection.
+  useEffect(() => {
+    if (count < 2) return;
+    const next = (index + 1) % count;
+    setPrepared((current) =>
+      current.has(next) ? current : new Set(current).add(next),
+    );
+  }, [count, index]);
 
-  // Re-armed whenever the frame changes, so choosing by hand also resets the
-  // countdown instead of triggering an instant advance.
+  useEffect(() => {
+    prepared.forEach((target) => {
+      void decodeImage(target);
+    });
+  }, [decodeImage, prepared]);
+
+  useEffect(() => {
+    if (reducedMotion && leaving !== null) {
+      setLeaving(null);
+      return;
+    }
+    // A requested image can load during a handoff, but cannot interrupt it.
+    if (!request || leaving !== null || reducedMotion === null) return;
+    let cancelled = false;
+    void decodeImage(request.target).then((decoded) => {
+      if (cancelled || request.id !== requestIdRef.current) return;
+      setRequest(null);
+      if (!decoded) return;
+      setDir(request.direction);
+      if (!reducedMotion) setLeaving(index);
+      setIndex(request.target);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [decodeImage, index, leaving, reducedMotion, request]);
+
+  const running =
+    auto &&
+    count > 1 &&
+    visible &&
+    !hovered &&
+    !focused &&
+    !pageHidden &&
+    reducedMotion === false &&
+    leaving === null &&
+    request === null;
+
+  // Start a fresh hold after a handoff or a pause, never during image loading.
   useEffect(() => {
     if (!running) return;
     const id = window.setTimeout(() => goTo(index + 1), interval);
@@ -139,10 +187,12 @@ export default function ImageSlideshow({
       aria-roledescription="carousel"
       aria-label="Photos from our learning programs"
       onKeyDown={onKeyDown}
-      onMouseEnter={() => setHeld(true)}
-      onMouseLeave={() => setHeld(false)}
-      onFocusCapture={() => setHeld(true)}
-      onBlurCapture={() => setHeld(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocusCapture={() => setFocused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
+      }}
     >
       {slides.map((slide, i) => {
         const active = i === index;
@@ -151,21 +201,31 @@ export default function ImageSlideshow({
           <div
             key={slide.src}
             className={`slideshow-frame${active ? " is-active" : ""}${
-              handing ? " is-leaving" : ""
-            }`}
+              active && leaving !== null ? " is-entering" : ""
+            }${handing ? " is-leaving" : ""}`}
             role="group"
             aria-roledescription="slide"
             aria-label={`${i + 1} of ${count}`}
             aria-hidden={!active}
+            onAnimationEnd={(event) => {
+              if (active && leaving !== null && event.target === event.currentTarget) {
+                setLeaving(null);
+              }
+            }}
           >
-            <Image
-              src={slide.src}
-              alt={slide.alt}
-              fill
-              sizes={sizes}
-              loading={i === 0 ? "eager" : "lazy"}
-              style={{ objectFit: "cover", objectPosition: "center" }}
-            />
+            {prepared.has(i) ? (
+              <Image
+                ref={(image) => {
+                  imagesRef.current[i] = image;
+                }}
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                sizes={sizes}
+                loading="eager"
+                style={{ objectFit: "cover", objectPosition: "center" }}
+              />
+            ) : null}
           </div>
         );
       })}

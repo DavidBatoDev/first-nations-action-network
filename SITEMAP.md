@@ -35,7 +35,8 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 │   └── /membership/apply — Compatibility redirect to /contributors/apply (permanent, 308)
 ├── /learn — Learning and Development service overview
 ├── /directory — Public Community Directory foundation
-├── /stories — Public Community Stories Library foundation
+├── /stories — Searchable Community Stories Library with editorial entry rows
+│   └── /stories/[slug] — Five published articles with matching images and references
 ├── /resources — Public contributor-learning library preview
 └── /events — Public events hub powered by Action Network
     ├── Events — Upcoming and past event views
@@ -57,6 +58,26 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 - Organisation carousel arrows sit centred below the logo strip, with
   borderless grey glyphs, 56×44px targets and visible keyboard focus. Manual
   navigation remains available with reduced motion.
+- The learning slideshow decodes requested photographs before an 850ms
+  directional overlap, keeping the outgoing photograph opaque. Manual controls
+  remain available under reduced motion, without autoplay.
+- Homepage story cards feature the reform, allyship summit and UNPFII articles
+  from the shared collection and link directly to their detail pages.
+
+### Stories library and article publishing
+
+- `/stories` searches article prose and metadata and combines category,
+  subcategory and region filters. URL parameters `q`, `category`, `subcategory`
+  and `region` preserve selections on reload and browser back/forward.
+- The supplied five-category, twenty-subcategory taxonomy drives the controls.
+  Organisation and Topic remain searchable without separate dropdowns.
+- All five current articles belong to First Nations Action Network. Their
+  source organisations remain in prose/references; no publication dates or
+  individual author credits are invented.
+- Article content and featured order live in `src/lib/stories.ts`; schema and
+  writing styles are in `src/lib/story-types.ts` and `src/styles/stories.css`.
+  Uploaded DOCX and image sources are retained in `new_assets/Articles/`.
+
 
 ## Navigation map
 
@@ -68,7 +89,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 | Learn from the header | `/learn` | The Learn navigation item opens the Learning and Development page; the homepage keeps its `#learn` preview section. |
 | Learn about First Nations Allies | `/allyship` | Provisional introduction using current homepage content; final message and CTA remain to be confirmed with Steve. |
 | Explore allyship from the header | `/allyship` | Steven approved the allyship journey; every Explore Allyship button now opens the page. The homepage keeps its `#allies` preview section. |
-| Browse Community Stories | `/stories` | Public library foundation; approved stories are being prepared. |
+| Browse Community Stories | `/stories` | Five published articles with search, category/subcategory/region filters and linked detail pages. |
 | Explore resources | `/resources` | Public contributor-learning preview with three provisional homepage resources and non-indexed detail views; content requires approval. |
 | Join the Network | `/contributors` | Version 1 is an information and enquiry journey; Stripe Checkout is deferred. |
 | Apply to contribute | `/contributors/apply` | Organisation application; shows an honest unavailable state until the approved Action Network widget is configured. |
@@ -84,7 +105,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 
 ## Search-engine routes
 
-- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/who-we-are`, `/contact`, `/contributors`, `/contributors/apply`, `/events`, `/allyship`, `/learn`, `/directory`, `/stories`, and `/resources`, plus the utility and policy pages registered in `src/lib/site-pages.ts`. External fundraiser and merchandise destinations are not included.
+- `/sitemap.xml` — generated from `src/app/sitemap.ts`; currently lists `/`, `/who-we-are`, `/contact`, `/contributors`, `/contributors/apply`, `/events`, `/allyship`, `/learn`, `/directory`, `/stories`, all five `/stories/[slug]` articles, and `/resources`, plus the utility and policy pages registered in `src/lib/site-pages.ts`. External fundraiser and merchandise destinations are not included.
 - `/robots.txt` — generated from `src/app/robots.ts`; points crawlers to the XML sitemap.
 
 ## Not-found and error states
@@ -95,7 +116,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
   automatically, so a mistyped or out-of-date link stays visible in the address
   bar. It is marked `noindex, nofollow` and is not listed in `sitemap.xml`.
   The same page is shown wherever a route calls `notFound()`, including an
-  unknown `/resources/[slug]`.
+  unknown `/resources/[slug]` or `/stories/[slug]`.
 - A runtime error inside a route renders `src/app/error.tsx`, which offers
   **Try again** and **Return home**. It shows only the error digest, never the
   error message.

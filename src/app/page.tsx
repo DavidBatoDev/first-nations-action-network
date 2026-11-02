@@ -17,6 +17,7 @@ import {
   getActionNetworkEvents,
 } from "@/lib/action-network";
 import { dateParts, isPastEvent, sortEvents } from "@/lib/events";
+import { getFeaturedStories } from "@/lib/stories";
 
 const navLinks: NavLink[] = [
   { label: "Who We Are", href: "/who-we-are", spy: "#who" },
@@ -43,6 +44,7 @@ export default async function Home() {
   const upcomingEvents = sortEvents(eventFeed.events)
     .filter((event) => !isPastEvent(event, new Date()))
     .slice(0, 3);
+  const featuredStories = getFeaturedStories();
 
   return (
     <>
@@ -483,63 +485,33 @@ export default async function Home() {
               </p>
             </div>
             <div className="story-grid">
-              <article className="story-card" data-reveal>
-                <ImageSlot
-                  src="/images/story-leadership.webp"
-                  alt="Children and young men painted in white ochre dancing on a lawn before a seated crowd"
-                  sizes="(max-width: 880px) calc(100vw - 48px), 31vw"
-                />
-                <div className="s-body">
-                  <span className="s-tag">Leadership</span>
-                  <h3>Young dancers carrying culture forward</h3>
-                  <p>
-                    A new generation performing in ochre at a community
-                    gathering, learning from Elders and leading the way for
-                    those who follow.
-                  </p>
-                  <span className="more">
-                    Read the story <span>→</span>
-                  </span>
-                </div>
-              </article>
-              <article className="story-card" data-reveal data-delay="1">
-                <ImageSlot
-                  src="/images/story-collaboration.webp"
-                  alt="A packed lecture theatre watching a presentation on the referendum campaign's main takeaways"
-                  sizes="(max-width: 880px) calc(100vw - 48px), 31vw"
-                />
-                <div className="s-body">
-                  <span className="s-tag">Collaboration</span>
-                  <h3>Coming together to understand what happened</h3>
-                  <p>
-                    Communities, researchers and organisers filling a hall to
-                    reflect on the referendum campaign and what it means for the
-                    work ahead.
-                  </p>
-                  <span className="more">
-                    Read the story <span>→</span>
-                  </span>
-                </div>
-              </article>
-              <article className="story-card" data-reveal data-delay="2">
-                <ImageSlot
-                  src="/images/story-culture.webp"
-                  alt="Hands in possum skin cloaks holding a carved wooden coolamon together"
-                  sizes="(max-width: 880px) calc(100vw - 48px), 31vw"
-                />
-                <div className="s-body">
-                  <span className="s-tag">Culture</span>
-                  <h3>Culture at the centre of change</h3>
-                  <p>
-                    Elders and community leaders holding a carved coolamon
-                    together, passing knowledge between generations as the work
-                    moves forward.
-                  </p>
-                  <span className="more">
-                    Read the story <span>→</span>
-                  </span>
-                </div>
-              </article>
+              {featuredStories.map((story, index) => (
+                <article
+                  key={story.slug}
+                  className="story-card"
+                  data-reveal
+                  data-delay={index || undefined}
+                >
+                  <Link
+                    href={`/stories/${story.slug}`}
+                    className="story-card-link"
+                  >
+                    <ImageSlot
+                      src={story.image.thumbnail}
+                      alt={story.image.alt}
+                      sizes="(max-width: 880px) calc(100vw - 48px), 31vw"
+                    />
+                    <div className="s-body">
+                      <span className="s-tag">{story.category}</span>
+                      <h3>{story.title}</h3>
+                      <p>{story.summary}</p>
+                      <span className="more">
+                        Read the story <span aria-hidden="true">→</span>
+                      </span>
+                    </div>
+                  </Link>
+                </article>
+              ))}
             </div>
             <div className="quote-band" data-reveal>
               <div className="qmark" aria-hidden="true">“</div>
