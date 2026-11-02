@@ -214,28 +214,54 @@ export default function LogoCarousel() {
     >
       <div className="wrap logos-head">
         <p className="eyebrow">Connected organisations across Australia</p>
-        <div className="logos-controls">
-          <button
-            type="button"
-            aria-label="Previous organisations"
-            onClick={() => stepRef.current?.(-1)}
-          >
-            ←
-          </button>
-          <button
-            type="button"
-            aria-label="Next organisations"
-            onClick={() => stepRef.current?.(1)}
-          >
-            →
-          </button>
-        </div>
       </div>
       <div className="logos-viewport">
         <div className="logos-track" ref={trackRef}>
           {partners.map((p, i) => renderItem(p, `a-${i}`))}
           {partners.map((p, i) => renderItem(p, `b-${i}`))}
         </div>
+      </div>
+      <div className="logos-controls">
+        <button
+          type="button"
+          aria-label="Previous organisations"
+          onClick={() => stepRef.current?.(-1)}
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            width="40"
+            height="16"
+            viewBox="0 0 40 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.5}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M39 8H1M8 1L1 8L8 15" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          aria-label="Next organisations"
+          onClick={() => stepRef.current?.(1)}
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            width="40"
+            height="16"
+            viewBox="0 0 40 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.5}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M1 8H39M32 1L39 8L32 15" />
+          </svg>
+        </button>
       </div>
       {/* Scroll-driven cream handoff into the paper page below.
           Decorative only. Circulating droplets use the same density and

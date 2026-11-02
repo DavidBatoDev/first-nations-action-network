@@ -87,7 +87,7 @@ export default async function Home() {
                 <VideoSlot
                   src="/videos/hero.webm"
                   poster="/images/hero.webp"
-                  label="Community gathering with Elders and young leaders"
+                  label="Community gatherings and collective action across the network"
                   rounded={20}
                 />
               </div>
@@ -110,7 +110,7 @@ export default async function Home() {
             <div className="img-frame" data-reveal>
               <ImageSlot
                 src="/images/who-we-are.webp"
-                alt="Network members gathered in front of a Yes quilt"
+                alt="First Nations Action Network organisers addressing a community gathering"
                 rounded={18}
                 sizes="(max-width: 900px) calc(100vw - 48px), 50vw"
               />
@@ -298,10 +298,10 @@ export default async function Home() {
             </div>
             <div className="member" data-reveal data-delay="1">
               <div className="m-img">
-                <ImageSlot
-                  src="/images/membership.webp"
-                  alt="Contributors at a network gathering"
-                  sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
+                <VideoSlot
+                  src="/videos/contributors.webm"
+                  poster="/images/contributors-poster.webp"
+                  label="Community organising and gatherings across the network"
                 />
               </div>
               <div className="m-body">
@@ -440,8 +440,8 @@ export default async function Home() {
             </div>
             <div className="a-img" data-reveal data-delay="1">
               <ImageSlot
-                src="/images/allies.webp"
-                alt="Allies and community together"
+                src="/images/allies-home.webp"
+                alt="Community members gathered behind an Invasion Day banner"
                 rounded={16}
                 sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
               />
