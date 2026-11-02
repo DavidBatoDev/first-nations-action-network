@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
-import ImageSlot from "@/components/ImageSlot";
+import ImageSlideshow from "@/components/ImageSlideshow";
+import TeamCard from "@/components/TeamCard";
+import VideoSlot from "@/components/VideoSlot";
 import Nav, { type NavLink } from "@/components/Nav";
-import NetworkWelcome from "@/components/NetworkWelcome";
+import LogoCarousel from "@/components/LogoCarousel";
+import SectionWave from "@/components/SectionWave";
 import { Arrow } from "@/components/icons";
 
 const WHO_DESCRIPTION =
@@ -112,29 +115,73 @@ const workCards = [
 
 const people = [
   {
-    image: "/images/story1.webp",
+    image: "/images/who-we-are/stephen-mam.webp",
     name: "Stephen Mam",
-    role: "Founder / Executive Director",
+    role: "Founder, First Nations Action Network",
+    biography:
+      "Stephen Mam is a proud Torres Strait Islander man, community leader and social justice advocate with over 25 years of experience. As founder of the First Nations Action Network, he works to amplify First Nations voices and mobilise allies for meaningful change.",
   },
   {
-    image: "/images/membership.webp",
+    image: "/images/who-we-are/pablo-teleg.webp",
     name: "Pablo Teleg",
     role: "Creative Designer",
+    biography:
+      "With a background in environmentalism, architecture and digital arts, Pablo Teleg has been involved in First Nations advocacy through 350.org since arriving in Naarm in 2022 as a Filipino immigrant. Before coming to Australia, he was part of KATRIBU in Manila, advocating for Indigenous rights in the Philippines.",
+    objectPosition: "50% 35%",
   },
   {
-    image: "/images/training.webp",
+    image: "/images/who-we-are/suzanne-thompson.webp",
     name: "Suzanne Thompson",
-    role: "Ambassador (QLD)",
+    role: "Queensland Ambassador",
+    biography:
+      "Suzanne Thompson is a proud Iningai woman from Central West Queensland and the founder of YACHATDAC, an Aboriginal organisation dedicated to cultural heritage, caring for Country and community empowerment. She champions First Nations knowledge, self-determination and sustainable futures.",
+    objectPosition: "60% 35%",
   },
   {
-    image: "/images/story2.webp",
+    image: "/images/who-we-are/sharon-wright.webp",
     name: "Sharon Wright",
-    role: "Ambassador (QLD)",
+    role: "Queensland Ambassador",
+    biography:
+      "Sharon Wright is a community organiser and reconciliation advocate based on the Sunshine Coast. Through her work with Noosa First Nations Allies and the First Nations Action Network, she supports meaningful relationships, community engagement and collective action for change.",
+    objectPosition: "40% 40%",
   },
   {
-    image: "/images/allies.webp",
+    image: "/images/who-we-are/peter-murchland.webp",
     name: "Peter Murchland",
-    role: "Ambassador (SA)",
+    role: "South Australia Ambassador",
+    biography:
+      "Peter Murchland is a South Australian advocate for reconciliation, First Nations rights and community-led change. Drawing on his background in organisational development and systems thinking, he supports practical approaches to allyship, truth-telling and closing the gap.",
+  },
+];
+
+const communitySlides = [
+  {
+    src: "/images/who-we-are/carousel/on-country.webp",
+    alt: "Sharing knowledge outdoors on Country",
+  },
+  {
+    src: "/images/who-we-are/carousel/community-gathering.webp",
+    alt: "Community members together at a truth-telling gathering",
+  },
+  {
+    src: "/images/who-we-are/carousel/community-voices.webp",
+    alt: "Network members gathered beneath a colourful community banner",
+  },
+  {
+    src: "/images/who-we-are/carousel/shared-conversations.webp",
+    alt: "Speakers in conversation at a community event",
+  },
+  {
+    src: "/images/who-we-are/carousel/collective-action.webp",
+    alt: "First Nations peoples and allies walking together for change",
+  },
+  {
+    src: "/images/who-we-are/carousel/celebrating-together.webp",
+    alt: "Community members celebrating together at an event",
+  },
+  {
+    src: "/images/who-we-are/carousel/network-connections.webp",
+    alt: "Network members connecting around a table",
   },
 ];
 
@@ -177,20 +224,19 @@ export default function WhoWeArePage() {
             </div>
             <div data-reveal data-delay="1">
               <div className="img-frame">
-                <ImageSlot
-                  src="/images/who.webp"
-                  alt="First Nations leaders and community members together"
+                <ImageSlideshow
+                  slides={communitySlides}
+                  interval={3000}
+                  label="First Nations Action Network community photos"
                   rounded={18}
                   sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
-                  preload
                 />
               </div>
             </div>
           </div>
         </section>
 
-        {/* ============ SECTION 2 · WHAT IS THE NETWORK ============ */}
-        <NetworkWelcome className="sec bg-cream who-what" />
+        <LogoCarousel nextBackground="var(--black)" />
 
         {/* ============ SECTION 3 · VISION & PURPOSE ============ */}
         <section className="sec who-vision">
@@ -216,11 +262,11 @@ export default function WhoWeArePage() {
               </div>
             </div>
             <div className="who-vision-media" data-reveal data-delay="1">
-              <ImageSlot
-                src="/images/hero.webp"
-                alt="Community gathering with Elders and young leaders"
+              <VideoSlot
+                src="/videos/hero.webm"
+                poster="/images/hero.webp"
+                label="Community gatherings and collective action across the network"
                 rounded={18}
-                sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
               />
             </div>
           </div>
@@ -334,32 +380,19 @@ export default function WhoWeArePage() {
             </div>
             <div className="who-people-grid">
               {people.map((person, index) => (
-                <article
+                <TeamCard
                   key={person.name}
-                  className="who-person"
-                  data-reveal
-                  data-delay={index % 3 ? String(index % 3) : undefined}
-                >
-                  <div className="who-person-photo">
-                    <ImageSlot
-                      src={person.image}
-                      alt="Placeholder portrait of a network contributor"
-                      rounded={16}
-                      sizes="(max-width: 900px) calc(100vw - 48px), 30vw"
-                    />
-                  </div>
-                  <div className="who-person-body">
-                    <h3>{person.name}</h3>
-                    <span className="who-person-role">{person.role}</span>
-                  </div>
-                </article>
+                  {...person}
+                  delay={index % 3 ? String(index % 3) : undefined}
+                />
               ))}
             </div>
           </div>
         </section>
 
         {/* ============ SECTION 8 · CLOSING CTA ============ */}
-        <section className="sec final who-final">
+        <section className="sec final who-final has-wave">
+          <SectionWave />
           <div className="wrap">
             <span className="kicker on-dark centered" data-reveal>
               This is a peoples movement
@@ -385,7 +418,7 @@ export default function WhoWeArePage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer showWave={false} />
     </>
   );
 }

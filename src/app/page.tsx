@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
 import ImageSlideshow from "@/components/ImageSlideshow";
 import VideoSlot from "@/components/VideoSlot";
-import { AnimatedWave, makeBubbles } from "@/components/AnimatedWave";
+import SectionWave from "@/components/SectionWave";
 import LogoCarousel from "@/components/LogoCarousel";
 import NewsletterPopup from "@/components/NewsletterPopup";
 import { Tick, Arrow } from "@/components/icons";
@@ -729,27 +729,7 @@ export default async function Home() {
 
         {/* ============ FINAL CTA ============ */}
         <section id="join" className="sec final has-wave">
-          {/* Wave that spills the white page down into the dark panel.
-              Matches the reference divider: the upper section's colour runs
-              down to the crest, the lower section's colour shows beneath,
-              and droplets of the upper colour sit in the lower section.
-              `secondaryColor` draws the thin companion line above the crest;
-              `background` matches the panel below so the fill runs on
-              seamlessly into it. */}
-          <div className="join-wave-band">
-            <AnimatedWave
-              height={280}
-              background="#16130f"
-              primaryColor="#ffffff"
-              secondaryColor="#16130f"
-              bubbleColor="#ffffff"
-              bubbles={makeBubbles(22)}
-              baselineFraction={0.4}
-              fillUp
-              harmonic={0.5}
-              bubbleCenterGap={0.045}
-            />
-          </div>
+          <SectionWave />
           <div className="wrap">
             <span className="kicker on-dark centered" data-reveal>
               Join the movement
@@ -775,7 +755,7 @@ export default async function Home() {
         </section>
       </main>
 
-      <Footer />
+      <Footer showWave={false} />
       <NewsletterPopup />
     </>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
+import LogoCarousel from "@/components/LogoCarousel";
 import { Arrow } from "@/components/icons";
 import Nav, { type NavLink } from "@/components/Nav";
 
@@ -107,6 +108,8 @@ export default function LearnPage() {
             </div>
           </div>
         </header>
+
+        <LogoCarousel nextBackground="var(--cream)" />
 
         <section className="sec bg-cream">
           <div className="wrap split media-left">

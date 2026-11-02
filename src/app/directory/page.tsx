@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import Footer from "@/components/Footer";
+import LogoCarousel from "@/components/LogoCarousel";
 import Nav, { type NavLink } from "@/components/Nav";
 import DirectoryBrowser, {
   type DirectoryEntry,
@@ -97,6 +98,8 @@ export default async function DirectoryPage() {
           </div>
         </header>
 
+        <LogoCarousel nextBackground="var(--cream)" />
+
         <section className="sec bg-cream directory-discovery-section">
           <div className="wrap">
             <div className="sec-head" data-reveal>
@@ -118,7 +121,7 @@ export default async function DirectoryPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer waveFrom="var(--cream)" />
     </>
   );
 }

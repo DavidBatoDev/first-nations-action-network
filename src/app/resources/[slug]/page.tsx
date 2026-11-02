@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
+import LogoCarousel from "@/components/LogoCarousel";
 import Nav, { type NavLink } from "@/components/Nav";
 import { ResourceLearningLayout } from "@/components/ResourceCourse";
 import { getResourceCourse, RESOURCE_COURSES } from "@/lib/resources";
@@ -68,6 +69,9 @@ export default async function ResourceDetailPage({
             <Link href="/resources">← All resources</Link>
             <span>Prototype learning content · Client approval required</span>
           </div>
+        </div>
+        <LogoCarousel nextBackground="var(--cream)" />
+        <div className="wrap">
           <ResourceLearningLayout
             activeLessonId={activeLessonId}
             course={course}
@@ -75,7 +79,7 @@ export default async function ResourceDetailPage({
           />
         </div>
       </main>
-      <Footer />
+      <Footer waveFrom="var(--cream)" />
     </>
   );
 }

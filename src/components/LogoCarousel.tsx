@@ -22,7 +22,7 @@ const slug = (s: string) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 /** The auto-advancing partner logo marquee, ported from the draft. */
-export default function LogoCarousel() {
+export default function LogoCarousel({ nextBackground = "var(--paper)" }: { nextBackground?: string }) {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const stepRef = useRef<((dir: 1 | -1) => void) | null>(null);
@@ -263,10 +263,11 @@ export default function LogoCarousel() {
           </svg>
         </button>
       </div>
-      {/* Scroll-driven cream handoff into the paper page below.
-          Decorative only. Circulating droplets use the same density and
-          centre gap as the Join divider so both waves read as one system. */}
+      {/* Scroll-driven handoff into the next section. Decorative only;
+          its droplets share the closing wave's density and centre gap. */}
       <AnimatedWave
+        primaryColor={nextBackground}
+        secondaryColor={nextBackground}
         bubbles={makeBubbles(22)}
         bubbleCenterGap={0.045}
       />

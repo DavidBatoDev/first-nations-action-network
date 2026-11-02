@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ActionNetworkForm from "@/components/ActionNetworkForm";
 import Footer from "@/components/Footer";
+import LogoCarousel from "@/components/LogoCarousel";
 import NewsletterPopupSuppressor from "@/components/NewsletterPopupSuppressor";
 import Nav, { type NavLink } from "@/components/Nav";
 import { Tick } from "@/components/icons";
@@ -93,6 +94,8 @@ export default function ContactPage() {
           </div>
         </header>
 
+        <LogoCarousel nextBackground="var(--cream)" />
+
         <section className="sec bg-cream application-section">
           <div className="wrap application-layout">
             <aside className="application-rail" data-reveal>
@@ -149,7 +152,7 @@ export default function ContactPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer waveFrom="var(--cream)" />
       <NewsletterPopupSuppressor />
     </>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
+import LogoCarousel from "@/components/LogoCarousel";
 import Nav, { type NavLink } from "@/components/Nav";
 import SupportCards from "@/components/SupportCards";
 
@@ -92,6 +93,8 @@ export default function AllyshipPage() {
             </div>
           </div>
         </section>
+
+        <LogoCarousel />
 
         <section id="what-is-allyship" className="sec">
           <div className="wrap">
@@ -352,7 +355,7 @@ export default function AllyshipPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer waveFrom="var(--cream)" />
     </>
   );
 }

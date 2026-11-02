@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LogoCarousel from "@/components/LogoCarousel";
 import { DECEASED_PERSONS_NOTICE } from "@/lib/site-pages";
 
 const navLinks: NavLink[] = [
@@ -48,6 +49,7 @@ export default function AcknowledgementOfCountryPage() {
             </div>
           </div>
         </header>
+        <LogoCarousel />
         <section className="sec">
           <div className="wrap">
             <div className="doc-draft">

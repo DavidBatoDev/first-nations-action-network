@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
+import LogoCarousel from "@/components/LogoCarousel";
 import Nav, { type NavLink } from "@/components/Nav";
 import ResourceCatalogue from "@/components/ResourceCatalogue";
 import { RESOURCE_COURSES } from "@/lib/resources";
@@ -70,6 +71,8 @@ export default function ResourcesPage() {
           </div>
         </header>
 
+        <LogoCarousel nextBackground="var(--cream)" />
+
         <section className="sec bg-cream resources-library-section">
           <div className="wrap">
             <div className="sec-head" data-reveal>
@@ -89,7 +92,7 @@ export default function ResourcesPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer waveFrom="var(--cream)" />
     </>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LogoCarousel from "@/components/LogoCarousel";
 
 const navLinks: NavLink[] = [
   { label: "Who We Are", href: "/who-we-are" },
@@ -44,6 +45,7 @@ export default function PrivacyPage() {
             </div>
           </div>
         </header>
+        <LogoCarousel />
         <section className="sec">
           <div className="wrap">
             <div className="doc-draft">

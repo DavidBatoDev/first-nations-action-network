@@ -2953,12 +2953,11 @@ a.logo-box {
   color: var(--grey);
   text-align: center;
 }
-/* Wave that spills the white page down into the dark Join panel. The band
-   overlaps the section above by 1px so no seam shows at the join. */
+/* Shared light-to-dark transition before closing CTAs and footers. */
 .join-wave-band {
   position: relative;
   height: 280px;
-  margin-top: -56px;
+  margin-top: -1px;
   margin-bottom: -1px;
   background: #16130f;
   overflow: hidden;
@@ -5488,16 +5487,16 @@ button {
     bottom: 28px;
     max-width: min(262px, calc(100% - 28px));
   }
-  .home-page .logos {
+  .logos {
     padding: 40px 0 calc(var(--wave-h) + 28px);
   }
-  .home-page .logos-viewport {
+  .logos-viewport {
     margin-top: 20px;
   }
-  .home-page .logo-item {
+  .logo-item {
     flex-basis: 210px;
   }
-  .home-page .logo-box {
+  .logo-box {
     height: 104px;
   }
   .home-page .split,
@@ -6025,25 +6024,119 @@ button {
 }
 .who-person {
   flex: 0 1 calc((100% - 60px) / 3);
+  min-width: 0;
+  position: relative;
+  perspective: 1400px;
+}
+.who-person-inner {
+  display: grid;
+  min-height: 520px;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.who-person[data-flipped="true"] .who-person-inner {
+  transform: rotateY(180deg);
+}
+.who-person-front,
+.who-person-back {
+  grid-area: 1 / 1;
+  position: relative;
+  min-width: 0;
   border: 1px solid var(--line);
   border-radius: 18px;
   overflow: hidden;
-  background: var(--paper);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.who-person-front[aria-hidden="true"],
+.who-person-back[aria-hidden="true"] {
+  pointer-events: none;
+}
+.who-person-front {
   display: flex;
   flex-direction: column;
+  background: var(--paper);
+}
+.who-person-photo {
+  position: relative;
+  flex: 1;
+  min-height: 300px;
 }
 .who-person-photo .img-slot {
-  width: 100%;
-  height: 300px;
+  position: absolute;
+  inset: 0;
   border-radius: 0;
-  --is-bg: #e7ded0;
-  background: #e7ded0;
+  background: var(--cream-deep);
 }
 .who-person-body {
-  padding: 24px 26px 28px;
+  padding: 24px 26px 82px;
 }
-.who-person-body h3 {
-  font-size: 21px;
+.who-person h3 {
+  font-size: 23px;
+  line-height: 1.25;
+}
+.who-person-back {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 30px 28px 82px;
+  background: var(--ink);
+  color: var(--cream);
+  transform: rotateY(180deg);
+}
+.who-person-back h3 {
+  color: var(--yellow);
+}
+.who-person-back .who-person-role {
+  color: var(--cream-deep);
+}
+.who-person-back p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.who-person-toggle {
+  position: absolute;
+  bottom: 20px;
+  left: 26px;
+  right: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 10px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+  color: var(--ochre-deep);
+  font: 600 13px var(--sans);
+  text-align: left;
+  cursor: pointer;
+}
+.who-person-back .who-person-toggle {
+  color: var(--yellow);
+  border-color: rgb(255 255 255 / 20%);
+}
+.who-person-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .who-person-inner,
+  .who-person[data-flipped="true"] .who-person-inner,
+  .who-person-back {
+    transform: none;
+    transition: none;
+  }
+  .who-person-back,
+  .who-person[data-flipped="true"] .who-person-front {
+    opacity: 0;
+  }
+  .who-person[data-flipped="true"] .who-person-back {
+    opacity: 1;
+  }
 }
 .who-person-role {
   display: block;
@@ -6070,10 +6163,13 @@ button {
     grid-template-columns: 1fr;
   }
   .who-person {
-    flex-basis: 100%;
+    flex-basis: calc((100% - 30px) / 2);
   }
 }
 @media (max-width: 620px) {
+  .who-person {
+    flex-basis: 100%;
+  }
   .who-timeline::before {
     left: 21px;
   }

@@ -61,8 +61,8 @@ export default async function StoryPage({ params }: StoryPageProps) {
       <main className="story-article-page">
         <div className="wrap">
           <div className="story-article-topbar"><Link href="/stories">← All stories</Link></div>
-          <CommunityStoryDetail story={story} />
         </div>
+        <CommunityStoryDetail story={story} />
       </main>
       <Footer />
     </>

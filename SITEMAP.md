@@ -24,6 +24,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 │   ├── #directory — Community directory highlight (state-network map)
 │   ├── #join — Join the Network call to action
 │   └── #contact — Contact and conversation links in the footer
+├── /who-we-are — Network introduction, vision, story and interactive team profiles
 ├── /contact — "Book a conversation" contact form (Action Network widget)
 ├── /contributors — Contributor information and joining journey
 │   └── /contributors/apply — Version 1 organisation application and Action Network handoff
@@ -52,7 +53,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
   at 640px tall. Desktop retains its existing cover crop.
 - Who We Are uses `/images/who-we-are.webp`; the homepage Allies preview uses
   `/images/allies-home.webp`. Shared `/images/allies.webp` and
-  `/images/membership.webp` remain unchanged on other pages and team entries.
+  `/images/membership.webp` remain unchanged on other pages.
 - At widths up to 1024px, Who We Are stacks its content above the image.
   Larger screens retain the side-by-side layout.
 - Organisation carousel arrows sit centred below the logo strip, with
@@ -68,6 +69,48 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 - Homepage story cards feature the reform (Wellbeing), allyship summit
   (Governance) and Djab Wurrung Birthing Trees (Country) articles, in that order.
   Cards link directly to their detail pages; UNPFII remains in the full library.
+
+### Shared page media
+
+- `LogoCarousel` is the shared connected-organisations section after each
+  public page hero. Article detail pages place it after the title and hero
+  photograph; resource lessons place it after their introductory navigation.
+  The nine organisations, links, arrows and reduced-motion behaviour remain
+  shared. `nextBackground` matches its lower wave to the next section.
+- `SectionWave` is the reusable light-to-dark closing transition. Its
+  `fromColor` and `toColor` match the adjoining sections; the scroll-driven
+  shape and droplets reuse `AnimatedWave` and remain still with reduced motion.
+- Home, Who We Are and Contributors place the wave inside their existing dark
+  closing CTA and set `Footer`'s `showWave={false}` to avoid a second divider.
+  Other pages use the footer's default wave; `waveFrom` matches their final
+  content background. No new CTA content or destinations are introduced.
+- The Who We Are organisation carousel replaces its former standalone
+  "What is the Network" block. The Contributors explanation remains in place.
+- Public landing, library, article, lesson, form and policy routes share these
+  sections. Redirect-only routes and the unlinked 3D-map prototype are unchanged.
+
+
+### Who We Are media and team profiles
+
+- `/who-we-are` opens with seven supplied community photographs, converted to
+  WebP in `public/images/who-we-are/carousel/`. It reuses the decoded-image
+  slideshow with a three-second hold per photo, photo buttons and left/right
+  arrow-key navigation. Autoplay
+  pauses on hover, keyboard focus, leaving the viewport, or a hidden browser tab;
+  reduced motion disables autoplay and the sliding transition.
+- Vision and Purpose reuse the homepage's `/videos/hero.webm` silent loop and
+  `/images/hero.webp` poster. Reduced-motion visitors see the poster.
+- Five team profiles use the supplied portraits and biographies. Cards turn on
+  mouse hover. Read story and Back to portrait controls live on their respective
+  rotating faces, so labels, icons and hit areas follow the animation. Only the
+  active face accepts pointer or keyboard interaction; focus transfers between
+  its controls. Touch, Enter and Space are supported. Escape, focus exit or
+  mouse exit restores the portrait. Reduced motion swaps faces without rotation
+  or losing focus. Hidden faces are excluded from assistive technology, and
+  card height grows to fit the biography.
+- Converted photographs live in `public/images/who-we-are/`; unused supplied
+  reference photographs are converted under its `references/` directory.
+
 
 ### Stories library and article publishing
 

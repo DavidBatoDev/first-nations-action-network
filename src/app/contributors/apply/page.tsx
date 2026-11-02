@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ActionNetworkForm from "@/components/ActionNetworkForm";
 import Footer from "@/components/Footer";
+import LogoCarousel from "@/components/LogoCarousel";
 import NewsletterPopupSuppressor from "@/components/NewsletterPopupSuppressor";
 import Nav, { type NavLink } from "@/components/Nav";
 import { Arrow, Tick } from "@/components/icons";
@@ -86,6 +87,8 @@ export default function ContributorApplicationPage() {
           </div>
         </header>
 
+        <LogoCarousel nextBackground="var(--cream)" />
+
         <section className="sec bg-cream application-section">
           <div className="wrap application-layout">
             <aside className="application-rail" data-reveal>
@@ -153,7 +156,7 @@ export default function ContributorApplicationPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer waveFrom="var(--cream)" />
       <NewsletterPopupSuppressor />
     </>
   );

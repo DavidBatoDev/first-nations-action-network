@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
+import LogoCarousel from "@/components/LogoCarousel";
 import Nav, { type NavLink } from "@/components/Nav";
 import StoriesBrowser from "@/components/StoriesBrowser";
 import { getStorySummaries, STORY_REGIONS, STORY_TAXONOMY } from "@/lib/stories";
@@ -65,6 +66,7 @@ export default async function StoriesPage({ searchParams }: StoriesPageProps) {
             </aside>
           </div>
         </header>
+        <LogoCarousel nextBackground="var(--cream)" />
         <section className="sec bg-cream stories-library-section" aria-labelledby="stories-library-title">
           <div className="wrap">
             <div className="sec-head" data-reveal>
@@ -76,7 +78,7 @@ export default async function StoriesPage({ searchParams }: StoriesPageProps) {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer waveFrom="var(--cream)" />
     </>
   );
 }

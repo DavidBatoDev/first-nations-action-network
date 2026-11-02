@@ -10,6 +10,8 @@ export type Slide = {
 
 type ImageSlideshowProps = {
   slides: Slide[];
+  /** Accessible name describing this collection. */
+  label?: string;
   /** Milliseconds each frame holds before advancing. */
   interval?: number;
   /** Corner radius in px. */
@@ -32,6 +34,7 @@ type SlideRequest = {
  */
 export default function ImageSlideshow({
   slides,
+  label = "Photos from our learning programs",
   interval = 5200,
   rounded = 18,
   sizes = "(max-width: 900px) calc(100vw - 48px), 50vw",
@@ -185,7 +188,7 @@ export default function ImageSlideshow({
       style={{ borderRadius: rounded }}
       role="group"
       aria-roledescription="carousel"
-      aria-label="Photos from our learning programs"
+      aria-label={label}
       onKeyDown={onKeyDown}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

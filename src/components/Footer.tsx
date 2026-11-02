@@ -2,9 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { EXTERNAL_LINKS } from "@/lib/external-links";
 import { UTILITY_PAGES, DECEASED_PERSONS_NOTICE } from "@/lib/site-pages";
+import SectionWave from "@/components/SectionWave";
 
-export default function Footer() {
+type FooterProps = {
+  /** Omit when the page already has a wave before its closing dark CTA. */
+  showWave?: boolean;
+  /** Match the final content section to avoid a seam above the wave. */
+  waveFrom?: string;
+};
+
+export default function Footer({ showWave = true, waveFrom = "var(--paper)" }: FooterProps) {
   return (
+    <>
+      {showWave ? <SectionWave fromColor={waveFrom} toColor="#0c0b09" /> : null}
     <footer id="contact" className="foot">
       <div className="wrap">
         <div className="foot-top">
@@ -171,5 +181,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

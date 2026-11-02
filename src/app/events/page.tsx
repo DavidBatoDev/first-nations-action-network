@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LogoCarousel from "@/components/LogoCarousel";
 import EventsBrowser from "@/components/EventsBrowser";
 import { getActionNetworkEvents } from "@/lib/action-network";
 
@@ -59,6 +60,8 @@ export default async function EventsPage() {
         </div>
       </header>
 
+      <LogoCarousel />
+
       <main className="events-page">
         <EventsBrowser events={eventFeed.events} />
       </main>
@@ -84,7 +87,7 @@ export default async function EventsPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer waveFrom="var(--cream)" />
     </>
   );
 }

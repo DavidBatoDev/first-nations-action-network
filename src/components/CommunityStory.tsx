@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
+import LogoCarousel from "@/components/LogoCarousel";
 import type {
   Story,
   StoryBlock,
@@ -137,6 +138,7 @@ export function CommunityStoryRow({ story }: { story: StorySummary }) {
 export function CommunityStoryDetail({ story }: { story: Story }) {
   return (
     <article className="story-article">
+      <div className="wrap">
       <header className="story-article-header">
         <p className="story-article-category">{story.category} <span aria-hidden="true">/</span> {story.subcategory}</p>
         <h1>{story.title}</h1>
@@ -155,10 +157,14 @@ export function CommunityStoryDetail({ story }: { story: Story }) {
         sizes="(max-width: 360px) calc(100vw - 36px), (max-width: 640px) calc(100vw - 48px), (max-width: 1240px) calc(100vw - 96px), 1144px"
         preload
       />
+      </div>
+      <LogoCarousel />
+      <div className="wrap">
       <div className="story-article-body">
         {story.content.map((block, index) => <StoryContentBlock block={block} index={index} key={index} />)}
       </div>
       <div className="story-article-end"><Link href="/stories">← All stories</Link></div>
+      </div>
     </article>
   );
 }

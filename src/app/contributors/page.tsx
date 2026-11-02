@@ -5,6 +5,8 @@ import Link from "next/link";
 import Nav, { type NavLink } from "@/components/Nav";
 import Footer from "@/components/Footer";
 import NetworkWelcome from "@/components/NetworkWelcome";
+import LogoCarousel from "@/components/LogoCarousel";
+import SectionWave from "@/components/SectionWave";
 import NewsletterPopupSuppressor from "@/components/NewsletterPopupSuppressor";
 import ImageSlot from "@/components/ImageSlot";
 import { Tick, Arrow } from "@/components/icons";
@@ -106,6 +108,8 @@ export default async function Contributors() {
           </div>
         </div>
       </header>
+
+      <LogoCarousel nextBackground="var(--cream)" />
 
       {/* ============ YOU DON'T HAVE TO DO THIS ALONE ============ */}
       <section className="sec bg-cream">
@@ -997,7 +1001,8 @@ export default async function Contributors() {
       </section>
 
       {/* ============ FINAL CTA ============ */}
-      <section className="sec final">
+      <section className="sec final has-wave">
+        <SectionWave fromColor="var(--cream)" />
         <div className="wrap">
           <span className="kicker on-dark centered" data-reveal>
             Join the network
@@ -1022,7 +1027,7 @@ export default async function Contributors() {
         </div>
       </section>
 
-      <Footer />
+      <Footer showWave={false} />
       <NewsletterPopupSuppressor />
     </>
   );
