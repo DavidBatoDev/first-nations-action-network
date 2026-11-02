@@ -43,6 +43,21 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
     └── Discover — Public event discovery
 ```
 
+### Homepage media and organisation carousel
+
+- Hero and Contributors use silent, full-length VP9 WebM loops with WebP
+  posters; reduced-motion visitors see the still posters. At widths up to 980px,
+  the homepage hero fills the content width in a 4:5 cover-cropped frame capped
+  at 640px tall. Desktop retains its existing cover crop.
+- Who We Are uses `/images/who-we-are.webp`; the homepage Allies preview uses
+  `/images/allies-home.webp`. Shared `/images/allies.webp` and
+  `/images/membership.webp` remain unchanged on other pages and team entries.
+- At widths up to 1024px, Who We Are stacks its content above the image.
+  Larger screens retain the side-by-side layout.
+- Organisation carousel arrows sit centred below the logo strip, with
+  borderless grey glyphs, 56×44px targets and visible keyboard focus. Manual
+  navigation remains available with reduced motion.
+
 ## Navigation map
 
 | Visitor intent | Current destination | Notes |
