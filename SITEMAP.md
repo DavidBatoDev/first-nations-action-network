@@ -58,6 +58,10 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 - Organisation carousel arrows sit centred below the logo strip, with
   borderless grey glyphs, 56×44px targets and visible keyboard focus. Manual
   navigation remains available with reduced motion.
+- The Community Stories quote band features Megan Davis, Director of the
+  Indigenous Law Centre, UNSW, with context from her National Allyship Summit
+  address and her call for active, shared democratic reform. A muted introduction
+  sits 24px above the quotation, which scales from 20px on mobile to 24px on desktop.
 - The learning slideshow decodes requested photographs before an 850ms
   directional overlap, keeping the outgoing photograph opaque. Manual controls
   remain available under reduced motion, without autoplay.
@@ -77,7 +81,6 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 - Article content and featured order live in `src/lib/stories.ts`; schema and
   writing styles are in `src/lib/story-types.ts` and `src/styles/stories.css`.
   Uploaded DOCX and image sources are retained in `new_assets/Articles/`.
-
 
 ## Navigation map
 

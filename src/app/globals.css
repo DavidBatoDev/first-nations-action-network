@@ -576,6 +576,7 @@ section[id] {
   .slideshow-frame.is-leaving {
     visibility: hidden;
   }
+
 }
 /* ---------- Interactive slideshow ---------- */
 /*
@@ -2500,13 +2501,20 @@ a.logo-box {
   justify-self: start;
   margin-left: -8px;
 }
+.quote-band .quote-intro {
+  margin: 0 0 24px;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--grey);
+}
 .quote-band blockquote {
   margin: 0;
   font-family: var(--serif);
   font-weight: 700;
   font-style: italic;
-  font-size: clamp(22px, 2.4vw, 30px);
-  line-height: 1.45;
+  font-size: clamp(20px, 1.8vw, 24px);
+  line-height: 1.5;
   color: var(--ink);
 }
 .quote-band .qby {

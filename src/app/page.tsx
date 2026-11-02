@@ -516,15 +516,22 @@ export default async function Home() {
             <div className="quote-band" data-reveal>
               <div className="qmark" aria-hidden="true">“</div>
               <div>
+                <p className="quote-intro">
+                  During her address at the <em>National Allyship Summit</em>{" "}
+                  at UNSW, Professor Megan Davis challenged attendees to move beyond
+                  passive support and step up as full co-owners of Australia&apos;s
+                  democratic reform:
+                </p>
                 <blockquote>
-                  When communities organise together, the change we create belongs
-                  to everyone, and it lasts.
+                  They need to be walking next to us, not behind us... We want their
+                  active input because it&apos;s their democracy and it&apos;s our
+                  democracy. The whole idea was working with Aussies across 151
+                  electorates... building the movement because it needs to be us
+                  together.
                 </blockquote>
                 <p className="qby">
-                  A community leader in the Network
-                  <span>
-                    Shared with permission · representative of contributor voices
-                  </span>
+                  Megan Davis
+                  <span>Director of the Indigenous Law Centre, UNSW</span>
                 </p>
               </div>
               {/*
