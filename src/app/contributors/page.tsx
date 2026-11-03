@@ -167,7 +167,13 @@ export default async function Contributors() {
       </section>
 
       {/* ============ WHAT IS THE NETWORK ============ */}
-      <NetworkWelcome className="sec bg-cream" />
+      <NetworkWelcome
+        className="sec bg-cream"
+        video={{
+          src: "/videos/network-welcome-bg.webm",
+          poster: "/images/network-welcome-poster.webp",
+        }}
+      />
 
       {/* ============ BENEFIT CARDS ============ */}
       <section id="benefits" className="sec">
@@ -478,8 +484,8 @@ export default async function Contributors() {
         <div className="wrap split media-left">
           <div className="img-frame" data-reveal>
             <ImageSlot
-              src="/images/who.webp"
-              alt="Volunteers coordinating community action"
+              src="/images/community-tools.webp"
+              alt="A laptop open on a desk showing the Action Network dashboard for the First Nations Action Network"
               rounded={18}
             />
           </div>
@@ -811,15 +817,6 @@ export default async function Contributors() {
                   <span className="num">$1,200</span>
                   <span className="per">per year</span>
                 </div>
-              </div>
-              <div
-                className="price-amounts"
-                style={{ marginTop: 18, alignItems: "center" }}
-              >
-                <span className="price-or">or</span>
-                <span className="price-alt">
-                  $150 <span>per month</span>
-                </span>
               </div>
               <p className="price-note">
                 Access belongs to the organisation and includes
