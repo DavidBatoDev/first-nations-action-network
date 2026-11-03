@@ -1322,33 +1322,53 @@ a.logo-box {
   margin-top: 8px;
   max-width: 18ch;
 }
+/*
+ * Callout note.
+ *
+ * Sits on the cream section, so it is built from the page's own materials
+ * rather than a tint of them: a paper fill lifts off the cream the way the
+ * cards elsewhere on the site do, and a 3px ochre rule down the left edge
+ * gives it a spine. The rule is doing the "this is a callout" work, which is
+ * why the box itself does not need a heavy border or a drop shadow.
+ *
+ * The icon is drawn in ochre on a pale tint of the same hue, so it reads as
+ * part of the rule rather than a sticker floating inside the box.
+ */
 .note-card {
+  position: relative;
   margin-top: 34px;
   display: flex;
-  gap: 16px;
+  gap: 18px;
   align-items: flex-start;
-  background: var(--cream-deep);
-  border-radius: 14px;
-  padding: 22px 24px;
+  padding: 24px 26px;
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-left: 3px solid var(--ochre);
+  border-radius: 4px 14px 14px 4px;
 }
 .note-card .ni {
   flex: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: var(--yellow);
-  color: var(--ink);
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--ochre) 12%, transparent);
+  color: var(--ochre-deep);
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Aligns the icon's optical centre with the first line of text. */
+  margin-top: 1px;
 }
 .note-card p {
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.62;
   color: #403a32;
+  /* A callout is read, not scanned; shorten the measure. */
+  max-width: 44ch;
 }
 .note-card b {
   color: var(--ink);
+  font-weight: 700;
 }
 
 /* ---------- Allies (dark / yellow moment) ---------- */
@@ -1516,22 +1536,191 @@ a.logo-box {
   gap: 18px;
   margin-top: 56px;
 }
+/*
+ * Learning Focus band: video behind the copy at half opacity, over black.
+ *
+ * The section goes dark on purpose. It sits between two cream sections, so this
+ * is a deliberate break in the page rhythm, and it gives the longest paragraph
+ * on the page somewhere quiet to land.
+ *
+ * The treatment is black first, video second. The black background is the
+ * constant and the footage sits on top at 50%, so the frame never depends on
+ * what the video happens to be showing: a dark shot and a bright shot land at
+ * the same working contrast, and the copy stays legible either way. That is
+ * more predictable than dimming a bright video to match a dark one.
+ *
+ * `isolation: isolate` keeps the -1 layers inside this section; without it they
+ * would drop behind neighbouring sections.
+ *
+ * `.video-band` is the same treatment applied to any other section — the
+ * "What is the Network" statement uses it. Both names are listed together so
+ * the two bands cannot drift apart: change the opacity here and both move.
+ */
+.training-focus-band,
+.video-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #000;
+  color: #f4efe6;
+}
+/*
+ * The Network band is a showcase, not a statement: the footage is the point,
+ * so it gets a stage to play on rather than a 120px text stripe.
+ *
+ * The height is driven by `56.25vw` — that is 9/16 of the viewport width, the
+ * exact proportions of the 1280x720 source. Matching the band to the footage
+ * means `object-fit: cover` has nothing to crop at full width: the whole frame
+ * is visible instead of a letterboxed slice of it. A viewport-relative height
+ * (like 68vh) was the wrong axis — on a short window it fell below the floor
+ * and the band never grew at all.
+ *
+ * The clamp keeps it sane at both extremes: 560px stops it collapsing on small
+ * laptops, and 820px stops it becoming a full-screen takeover on very wide
+ * displays. A min-height rather than a fixed height lets a long paragraph push
+ * it taller instead of clipping the text.
+ *
+ * Centring is flex, so the copy sits mid-frame at any height. Scoped to
+ * `.video-band` alone: the Learning Focus band carries four cards and sets its
+ * own height from them, so it must not inherit this.
+ */
+.video-band {
+  min-height: clamp(560px, 56.25vw, 820px);
+  display: flex;
+  align-items: center;
+}
+/*
+ * `.wrap` is `max-width: 1240px; margin: 0 auto` — fine as a block, but as a
+ * flex item `width: auto` resolves to its content box, so the wrapper collapsed
+ * to 856px and the copy sat 192px right of the column every other section uses.
+ * Pinning it to full width restores the normal centred column; the max-width
+ * and auto margins still cap and centre it inside the band.
+ */
+.video-band .wrap {
+  width: 100%;
+}
+.training-focus-media,
+.video-band-media {
+  position: absolute;
+  inset: 0;
+  /*
+   * Below the scrim below, not level with it. Both layers start at -1, and at
+   * equal z-index paint order falls back to tree order — the ::before wash
+   * comes first, so it ends up *under* the footage and does nothing. One step
+   * lower puts the media beneath the wash and makes the scrim real.
+   */
+  z-index: -2;
+  /* The instruction, expressed once. */
+  opacity: 0.5;
+}
+.training-focus-media video,
+.video-band-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+/*
+ * A single soft wash on top of the half-opacity footage, for the text only.
+ * Not a heavy scrim: the 50% layer already halves the video's brightness, so
+ * this just deepens the left column where the paragraph runs and eases off to
+ * the right so the footage is still visible as footage.
+ */
+.training-focus-band::before,
+.video-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    100deg,
+    rgba(0, 0, 0, 0.62) 0%,
+    rgba(0, 0, 0, 0.45) 48%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+}
+/* Copy over video reads light, not dark. */
+.training-focus-band .kicker,
+.video-band .kicker {
+  color: var(--yellow);
+}
+.training-focus-band h2,
+.video-band h2 {
+  color: #f4efe6;
+}
+.training-focus-band .sec-head .lead,
+.video-band .sec-head .lead {
+  color: rgba(244, 239, 230, 0.84);
+}
+/*
+ * Phones: a 16:9 band on a portrait screen is a thin sliver, and the paragraph
+ * needs about 300px of column height. `56.25vw` comes out near 219px here, so
+ * the floor does the work; 78svh leaves room for the copy without pushing the
+ * band past the fold (`svh`, not `vh`, so mobile browser chrome cannot crop it).
+ */
+@media (max-width: 640px) {
+  .video-band {
+    min-height: max(78svh, 460px);
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+/*
+ * Glassmorphism cards.
+ *
+ * Three ingredients, and the effect needs all three:
+ *
+ *  - A translucent fill, so the footage tint shows through the card.
+ *  - `backdrop-filter: blur()` to soften what is behind it. This is what makes
+ *    it read as glass rather than a grey box; the fill alone just looks dim.
+ *  - A hairline top highlight, drawn with an inset shadow rather than a border,
+ *    so it catches the top edge like light on a real pane.
+ *
+ * The blur has a real cost, so it is confined to four small cards rather than
+ * the full-bleed section.
+ */
 .training-focus-card {
   min-height: 198px;
   padding: 30px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 14px;
-  background: var(--paper);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  /*
+   * Declared once, unprefixed. An earlier version listed the -webkit- line too;
+   * the minifier kept only that one, and this engine does not support the prefix
+   * for backdrop-filter, so the glass silently degraded to a flat tint. A single
+   * standard declaration is what survives the build intact.
+   */
+  backdrop-filter: blur(16px) saturate(1.4);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
+    0 8px 32px rgba(0, 0, 0, 0.32);
 }
 .training-focus-card h3 {
   font-size: clamp(22px, 2.1vw, 29px);
+  color: #fff;
 }
 .training-focus-card p {
   max-width: 39ch;
   margin-top: 14px;
   font-size: 15.5px;
   line-height: 1.7;
-  color: #5b554c;
+  color: rgba(255, 255, 255, 0.78);
+}
+/*
+ * Reduced motion: hold the frame still. The black base and the wash stay, so
+ * contrast is unchanged; only the movement stops.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .training-focus-media video,
+  .video-band-media video {
+    display: none;
+  }
 }
 .training-conversation .sec-head {
   max-width: 700px;
@@ -1561,6 +1750,49 @@ a.logo-box {
 }
 .training-conversation .actions {
   margin-top: 42px;
+}
+/*
+ * Partner / sample-work block under the branding services.
+ *
+ * Set apart from the offerings row by a hairline, so it reads as an aside about
+ * who does the work rather than a fourth service. The rule is short and left
+ * aligned so it doesn't look like a section divider.
+ */
+.training-partner {
+  margin-top: 38px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  max-width: 62ch;
+}
+.training-partner-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ochre-deep);
+}
+.training-partner-label::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: var(--ochre);
+}
+.training-partner p {
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #5b554c;
+}
+.training-partner p strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+.training-partner .btn {
+  margin-top: 24px;
 }
 
 /* ---------- Community Directory page ---------- */
@@ -4715,24 +4947,6 @@ a.logo-box {
   font-weight: 500;
   margin-left: 6px;
 }
-.price-or {
-  font-size: 14px;
-  color: #a39c90;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-.price-alt {
-  font-family: var(--serif);
-  font-weight: 700;
-  color: var(--yellow);
-  font-size: 26px;
-}
-.price-alt span {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 15px;
-  color: #c9c2b6;
-}
 .price-note {
   margin-top: 34px;
   font-size: 15px;
@@ -6070,17 +6284,30 @@ button {
 }
 .who-person-photo {
   position: relative;
-  flex: 1;
+  /*
+   * Fixed square, not `flex: 1`.
+   *
+   * The photo used to absorb whatever the body text left over, so a card whose
+   * name wrapped to a second line got a shorter portrait than its neighbours:
+   * 337px against 358px. Every card is the same width, so pinning the ratio
+   * makes every portrait identical, and the body below takes up the slack
+   * instead. Cards still come out equal height, because the row stretches to
+   * its tallest member.
+   */
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
   min-height: 300px;
+}
+.who-person-body {
+  /* Take the remaining height so cards in a row finish level. */
+  flex: 1;
+  padding: 24px 26px 82px;
 }
 .who-person-photo .img-slot {
   position: absolute;
   inset: 0;
   border-radius: 0;
   background: var(--cream-deep);
-}
-.who-person-body {
-  padding: 24px 26px 82px;
 }
 .who-person h3 {
   font-size: 23px;

@@ -1,6 +1,15 @@
 type NetworkWelcomeProps = {
   /** Section classes, so each page sets its own background. */
   className?: string;
+  /**
+   * Optional background footage. When supplied the section becomes a dark video
+   * band, using the same treatment as the Learning Focus band on /learn: the
+   * footage sits at half opacity over black, and the copy flips to light.
+   */
+  video?: {
+    src: string;
+    poster: string;
+  };
 };
 
 /**
@@ -11,9 +20,25 @@ type NetworkWelcomeProps = {
  */
 export default function NetworkWelcome({
   className = "sec",
+  video,
 }: NetworkWelcomeProps) {
   return (
-    <section className={className}>
+    <section
+      className={video ? `${className} video-band` : className}
+    >
+      {video && (
+        <div className="video-band-media" aria-hidden="true">
+          <video
+            src={video.src}
+            poster={video.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+          />
+        </div>
+      )}
       <div className="wrap">
         <div className="sec-head" data-reveal>
           <span className="kicker">What is the Network</span>

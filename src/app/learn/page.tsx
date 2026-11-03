@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import OpeningWave from "@/components/OpeningWave";
-import ImageSlot from "@/components/ImageSlot";
+import VideoSlot from "@/components/VideoSlot";
 
 import { Arrow } from "@/components/icons";
 import Nav, { type NavLink } from "@/components/Nav";
@@ -99,12 +99,11 @@ export default function LearnPage() {
             </div>
             <div className="hero-media" data-reveal data-delay="2">
               <div className="img-frame">
-                <ImageSlot
-                  src="/images/training.webp"
-                  alt="Facilitated session on Country"
+                <VideoSlot
+                  src="/videos/training.webm"
+                  poster="/images/training.webp"
+                  label="Facilitated learning session on Country"
                   rounded={20}
-                  sizes="(max-width: 980px) calc(100vw - 48px), 42vw"
-                  preload
                 />
               </div>
             </div>
@@ -148,7 +147,27 @@ export default function LearnPage() {
           </div>
         </section>
 
-        <section className="sec">
+        <section className="sec training-focus-band">
+          <div className="training-focus-media" aria-hidden="true">
+            {/*
+              Decorative background loop. Muted and looping, no controls, and
+              hidden from assistive tech because it carries no information.
+
+              This is a boomerang: eight seconds of a speaker at a lectern,
+              played forward then mirrored, so the loop has no edit point in
+              it. A plain forward loop would hard-cut from her last frame back
+              to her first, which reads as a jump every four seconds.
+            */}
+            <video
+              src="/videos/learning-focus-boomerang.webm"
+              poster="/images/learning-focus-boomerang-poster.webp"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+            />
+          </div>
           <div className="wrap">
             <div className="sec-head" data-reveal>
               <span className="kicker">Learning focus</span>
@@ -206,7 +225,7 @@ export default function LearnPage() {
         </section>
 
         {/* ============ MARKETING & BRANDING SUPPORT (draft) ============ */}
-        <section className="sec">
+        <section className="sec training-branding">
           <div className="wrap">
             <div className="sec-head" data-reveal>
               <span className="kicker">Marketing and branding</span>
@@ -224,6 +243,34 @@ export default function LearnPage() {
               {brandingServices.map((service) => (
                 <span key={service}>{service}</span>
               ))}
+            </div>
+            {/*
+              Framing before the link. Without it the section listed three
+              services and then linked out to a partner with no explanation of
+              who they are or why the link is there, so a reader could not tell
+              a client from a sponsor from an unrelated site.
+
+              Split into a short label, a sentence saying what the work is, and
+              the button: the label is scannable, the sentence carries the
+              meaning, and the button stays the single action.
+            */}
+            <div className="training-partner" data-reveal data-delay="2">
+              <span className="training-partner-label">Sample work</span>
+              <p>
+                These services are delivered with{" "}
+                <strong>YACHATDAC</strong>, an Aboriginal-owned organisation
+                working in cultural heritage, caring for Country and community
+                empowerment. Their site is a good example of the work.
+              </p>
+              <a
+                href="https://yachatdac.com.au/"
+                className="btn btn-primary"
+                target="_blank"
+                rel="noopener"
+                aria-label="See sample work at YACHATDAC (opens in a new tab)"
+              >
+                See the sample work <Arrow />
+              </a>
             </div>
           </div>
         </section>

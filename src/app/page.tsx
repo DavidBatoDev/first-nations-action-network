@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ImageSlot from "@/components/ImageSlot";
 import ImageSlideshow from "@/components/ImageSlideshow";
 import VideoSlot from "@/components/VideoSlot";
+import ResponsiveVideoSlot from "@/components/ResponsiveVideoSlot";
 import SectionWave from "@/components/SectionWave";
 import LogoCarousel from "@/components/LogoCarousel";
 import NewsletterPopup from "@/components/NewsletterPopup";
@@ -300,9 +301,11 @@ export default async function Home() {
             </div>
             <div className="member" data-reveal data-delay="1">
               <div className="m-img">
-                <VideoSlot
-                  src="/videos/contributors.webm"
-                  poster="/images/contributors-poster.webp"
+                <ResponsiveVideoSlot
+                  desktopSrc="/videos/contributors-desktop.webm"
+                  desktopPoster="/images/contributors-desktop-poster.webp"
+                  mobileSrc="/videos/contributors.webm"
+                  mobilePoster="/images/contributors-poster.webp"
                   label="Community organising and gatherings across the network"
                 />
               </div>
