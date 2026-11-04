@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import OpeningWave from "@/components/OpeningWave";
-import ImageSlot from "@/components/ImageSlot";
+import VideoSlot from "@/components/VideoSlot";
+import FaqGrid from "@/components/FaqGrid";
 
 import Nav, { type NavLink } from "@/components/Nav";
 import SupportCards from "@/components/SupportCards";
@@ -85,11 +86,11 @@ export default function AllyshipPage() {
               </div>
             </div>
             <div className="a-img" data-reveal data-delay="1">
-              <ImageSlot
-                src="/images/allies.webp"
-                alt="Allies and community together"
+              <VideoSlot
+                src="/videos/allyship-hero.webm"
+                poster="/images/allyship-hero-poster.webp"
+                label="Allies and community gathering, marching and sharing culture"
                 rounded={16}
-                sizes="(max-width: 900px) calc(100vw - 48px), 46vw"
               />
             </div>
           </div>
@@ -111,7 +112,7 @@ export default function AllyshipPage() {
                 rarely. These are the questions people ask most.
               </p>
             </div>
-            <div className="faq-grid">
+            <FaqGrid>
               <details className="faq-item" data-reveal open>
                 <summary>
                   What does reconciliation with First Nations peoples mean?{" "}
@@ -204,7 +205,7 @@ export default function AllyshipPage() {
                   </ul>
                 </div>
               </details>
-            </div>
+            </FaqGrid>
           </div>
         </section>
 
