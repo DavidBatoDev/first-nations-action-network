@@ -36,14 +36,14 @@
           "name": "Orange Together",
           "actionNetworkUrl": "https://actionnetwork.org/groups/orange-together",
           "siteUrl": "https://orangetogether.org.au/",
-          "logo": "/assets/logos/orange-together.png",
+          "logo": "/assets/logos/orange-together.webp",
           "category": "Community groups"
         },
         {
           "name": "Voice from the Heart Alliance",
           "actionNetworkUrl": "https://actionnetwork.org/groups/voice-from-the-heart-alliance",
           "siteUrl": "https://voicefromtheheartalliance.com/",
-          "logo": "/assets/logos/voice-from-the-heart.png",
+          "logo": "/assets/logos/voice-from-the-heart.webp",
           "category": "Advocacy organisations"
         },
         {
@@ -93,14 +93,14 @@
           "name": "First Nations Allies (Brisbane City)",
           "actionNetworkUrl": "https://actionnetwork.org/groups/first-nations-allies",
           "siteUrl": "https://www.facebook.com/FirstNationsAlliesBrisbane/",
-          "logo": "/assets/logos/first-nations-allies.png",
+          "logo": "/assets/logos/first-nations-allies.webp",
           "category": "Ally organisations"
         },
         {
           "name": "Foundation for Aboriginal and Torres Strait Islander Research Action (FAIRA)",
           "actionNetworkUrl": "https://actionnetwork.org/groups/faira",
           "siteUrl": "https://www.faira.org.au/",
-          "logo": "/assets/logos/faira.png",
+          "logo": "/assets/logos/faira.webp",
           "category": "First Nations organisations"
         },
         {
@@ -122,20 +122,20 @@
           "name": "Noosa First Nations Allies & Sunshine Coast Reconciliation Group",
           "actionNetworkUrl": "https://actionnetwork.org/groups/noosa-first-nations-allies",
           "siteUrl": "https://noosaallies.org.au/",
-          "logo": "/assets/logos/noosa.png",
+          "logo": "/assets/logos/noosa.webp",
           "category": "Reconciliation groups"
         },
         {
           "name": "Wynnum Allies",
           "actionNetworkUrl": "https://actionnetwork.org/groups/wynnum-allies",
-          "logo": "/assets/logos/wynnum.png",
+          "logo": "/assets/logos/wynnum.webp",
           "category": "Ally organisations"
         },
         {
           "name": "YACHATDAC (Barcaldine)",
           "actionNetworkUrl": "https://actionnetwork.org/groups/yachatdac",
           "siteUrl": "https://yachatdac.com.au/",
-          "logo": "/assets/logos/yachatdac.png",
+          "logo": "/assets/logos/yachatdac.webp",
           "category": "First Nations organisations"
         },
         {
@@ -201,7 +201,7 @@
           "name": "Unley Allies with First Nations Peoples",
           "actionNetworkUrl": "https://actionnetwork.org/groups/unley-allies-with-first-nations-peoples",
           "siteUrl": "https://unleyallies.org/",
-          "logo": "/assets/logos/unley-allies.png",
+          "logo": "/assets/logos/unley-allies.webp",
           "category": "Ally organisations"
         },
         {
