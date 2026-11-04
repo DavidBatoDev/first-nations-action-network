@@ -226,7 +226,6 @@ export default function WhoWeArePage() {
               <div className="img-frame">
                 <ImageSlideshow
                   slides={communitySlides}
-                  interval={3000}
                   label="First Nations Action Network community photos"
                   rounded={18}
                   sizes="(max-width: 900px) calc(100vw - 48px), 46vw"

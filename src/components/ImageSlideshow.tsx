@@ -35,7 +35,7 @@ type SlideRequest = {
 export default function ImageSlideshow({
   slides,
   label = "Photos from our learning programs",
-  interval = 5200,
+  interval = 3000,
   rounded = 18,
   sizes = "(max-width: 900px) calc(100vw - 48px), 50vw",
   auto = true,

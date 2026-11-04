@@ -39,7 +39,9 @@ export default function LogoCarousel() {
     if (!vp || items.length === 0) return;
 
     const N = partners.length;
-    const PAUSE = 2000;
+    // How long each logo holds before the next 0.9s slide; matches
+    // ImageSlideshow's default `interval` so every carousel keeps one cadence.
+    const PAUSE = 3000;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     let idx = 0;
