@@ -60,8 +60,10 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 - The organisation carousel appears only on the homepage. On mobile, the
   active logo is centred in the viewport during initial display, navigation,
   autoplay and resizing. Arrows sit centred below the strip, with borderless
-  grey glyphs, 56×44px targets and visible keyboard focus. Manual navigation
-  remains available with reduced motion.
+  grey glyphs, 56×44px targets and visible keyboard focus. Autoplay holds each
+  logo for 3 seconds and pauses only while a mouse is over the logo strip, the
+  carousel is off screen, or the tab is hidden; touch never pauses it. Manual
+  navigation remains available with reduced motion, which disables autoplay.
 - The Community Stories quote band features Megan Davis, Director of the
   Indigenous Law Centre, UNSW, with context from her National Allyship Summit
   address and her call for active, shared democratic reform. A muted introduction

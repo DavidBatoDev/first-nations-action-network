@@ -131,11 +131,17 @@ export default function LogoCarousel() {
     };
     stepRef.current = step;
 
-    const onEnter = () => {
+    // Pause only while a mouse is over the logo strip itself. Listening on the
+    // whole section also caught the empty wave below it, so a resting cursor
+    // stopped autoplay; and touch taps fire an emulated enter with no leave,
+    // which left it stopped after any tap on the arrows.
+    const onEnter = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") return;
       hoverPaused = true;
       schedule();
     };
-    const onLeave = () => {
+    const onLeave = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") return;
       hoverPaused = false;
       updatePlayback();
     };
@@ -155,8 +161,8 @@ export default function LogoCarousel() {
     );
 
     track.addEventListener("transitionend", onTransitionEnd);
-    section.addEventListener("mouseenter", onEnter);
-    section.addEventListener("mouseleave", onLeave);
+    vp.addEventListener("pointerenter", onEnter);
+    vp.addEventListener("pointerleave", onLeave);
     document.addEventListener("visibilitychange", onVisibilityChange);
     reducedMotion.addEventListener("change", onReducedMotionChange);
     visibilityObserver.observe(section);
@@ -168,8 +174,8 @@ export default function LogoCarousel() {
       window.clearTimeout(timer);
       visibilityObserver.disconnect();
       track.removeEventListener("transitionend", onTransitionEnd);
-      section.removeEventListener("mouseenter", onEnter);
-      section.removeEventListener("mouseleave", onLeave);
+      vp.removeEventListener("pointerenter", onEnter);
+      vp.removeEventListener("pointerleave", onLeave);
       document.removeEventListener("visibilitychange", onVisibilityChange);
       reducedMotion.removeEventListener("change", onReducedMotionChange);
     };
