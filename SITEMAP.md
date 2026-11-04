@@ -12,6 +12,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 ```text
 /
 ├── Homepage sections
+│   ├── What is the Network — network statement, between the logo carousel and #who
 │   ├── #who — Who We Are
 │   ├── #why — Why the Network
 │   ├── #how — How It Works
@@ -24,7 +25,7 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 │   ├── #directory — Community directory highlight (state-network map)
 │   ├── #join — Join the Network call to action
 │   └── #contact — Contact and conversation links in the footer
-├── /who-we-are — Network introduction, vision, story and interactive team profiles
+├── /who-we-are — Introduction, vision, story and interactive team profiles
 ├── /contact — "Book a conversation" contact form (Action Network widget)
 ├── /contributors — Contributor information and joining journey
 │   └── /contributors/apply — Version 1 organisation application and Action Network handoff
@@ -92,8 +93,11 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
   closing CTA and set `Footer`'s `showWave={false}` to avoid a second divider.
   Other pages use the footer's default wave; `waveFrom` matches their final
   content background. No new CTA content or destinations are introduced.
-- Who We Are and Contributors retain their "What is the Network" explanations;
-  organisation carousels are not part of these pages or shared content.
+- The homepage and Contributors carry the "What is the Network" statement
+  (`NetworkWelcome`); Who We Are no longer repeats it. On the homepage it sits
+  on cream directly below the logo carousel, whose wave fills cream into it, so
+  the white Who We Are section that follows stays visually separate.
+  Organisation carousels are not part of other pages or shared content.
 - Public landing, library, article, lesson, form and policy routes share the
   opening and closing waves. Redirect-only routes and the unlinked 3D-map prototype are unchanged.
 

@@ -9,6 +9,7 @@ import VideoSlot from "@/components/VideoSlot";
 import ResponsiveVideoSlot from "@/components/ResponsiveVideoSlot";
 import SectionWave from "@/components/SectionWave";
 import LogoCarousel from "@/components/LogoCarousel";
+import NetworkWelcome from "@/components/NetworkWelcome";
 import NewsletterPopup from "@/components/NewsletterPopup";
 import { Tick, Arrow } from "@/components/icons";
 import SupportCards from "@/components/SupportCards";
@@ -106,6 +107,9 @@ export default async function Home() {
 
         {/* Connected organisations · logo carousel */}
         <LogoCarousel />
+
+        {/* ============ WHAT IS THE NETWORK ============ */}
+        <NetworkWelcome className="sec bg-cream" />
 
         {/* ============ WHO WE ARE ============ */}
         <section id="who" className="sec">

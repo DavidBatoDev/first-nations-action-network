@@ -6,7 +6,6 @@ import ImageSlideshow from "@/components/ImageSlideshow";
 import TeamCard from "@/components/TeamCard";
 import VideoSlot from "@/components/VideoSlot";
 import Nav, { type NavLink } from "@/components/Nav";
-import NetworkWelcome from "@/components/NetworkWelcome";
 import SectionWave from "@/components/SectionWave";
 import { Arrow } from "@/components/icons";
 
@@ -237,9 +236,7 @@ export default function WhoWeArePage() {
           </div>
         </section>
 
-        <OpeningWave toColor="var(--cream)" />
-
-        <NetworkWelcome className="sec bg-cream who-what" />
+        <OpeningWave toColor="var(--black)" />
 
         {/* ============ SECTION 3 · VISION & PURPOSE ============ */}
         <section className="sec who-vision">

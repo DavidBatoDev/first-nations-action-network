@@ -170,6 +170,7 @@ export default async function Contributors() {
       {/* ============ WHAT IS THE NETWORK ============ */}
       <NetworkWelcome
         className="sec bg-cream"
+        heading="First Nations Action Network"
         video={{
           src: "/videos/network-welcome-bg.webm",
           poster: "/images/network-welcome-poster.webp",
