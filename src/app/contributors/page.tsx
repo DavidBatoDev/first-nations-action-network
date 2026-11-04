@@ -10,6 +10,7 @@ import NetworkWelcome from "@/components/NetworkWelcome";
 import SectionWave from "@/components/SectionWave";
 import NewsletterPopupSuppressor from "@/components/NewsletterPopupSuppressor";
 import ImageSlot from "@/components/ImageSlot";
+import FaqGrid from "@/components/FaqGrid";
 import { Tick, Arrow } from "@/components/icons";
 import {
   NetworkMap,
@@ -869,7 +870,7 @@ export default async function Contributors() {
             <span className="kicker">Questions</span>
             <h2>Frequently Asked Questions</h2>
           </div>
-          <div className="faq-grid">
+          <FaqGrid>
             <details className="faq-item" data-reveal open>
               <summary>
                 What type of organisations can join?{" "}
@@ -995,7 +996,7 @@ export default async function Contributors() {
                 relationships and coordinate community action.
               </div>
             </details>
-          </div>
+          </FaqGrid>
         </div>
       </section>
 
