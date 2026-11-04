@@ -397,6 +397,7 @@ export default async function Home() {
                       alt: "Participants listening during a facilitated learning session on Country",
                     },
                   ]}
+                  interval={3000}
                 />
               </div>
               <div className="train-stat">
