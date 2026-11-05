@@ -104,6 +104,19 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
   opening and closing waves. Redirect-only routes and the unlinked 3D-map prototype are unchanged.
 
 
+### Hero height
+
+- Every page hero (`.hero`, `.events-hero`, `.application-hero`, `.doc-hero`,
+  Who We Are's `.who-intro` and Allyship's `.allies`) has `min-height: 100svh`
+  and centres its content, so all heroes match the viewport height. They use
+  the same top padding (152px, 128px on desktop windows up to 820px tall) so
+  the gap under the fixed navigation is the same everywhere.
+- Desktop hero media height follows `--hero-media-h`
+  (`clamp(320px, 100svh - 300px, 560px)`) so the content fits shorter windows.
+- A hero whose text and media are taller than the viewport (mobile stacks, or
+  desktop windows under about 700px tall) grows to fit its content rather than
+  clipping it.
+
 ### Who We Are media and team profiles
 
 - `/who-we-are` opens with seven supplied community photographs, converted to

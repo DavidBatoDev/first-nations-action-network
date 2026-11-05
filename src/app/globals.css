@@ -692,6 +692,43 @@ section[id] {
 .application-hero.has-wave {
   background: var(--ink);
 }
+/* Every page hero fills the viewport, with its content centred below the
+   fixed nav. min-height (not height) lets tall content grow instead of
+   clipping; svh keeps mobile browser chrome from adding extra scroll. */
+.hero,
+.events-hero,
+.application-hero,
+.doc-hero,
+.who-intro,
+.allyship-page .allies {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero > .wrap,
+.events-hero > .wrap,
+.application-hero > .wrap,
+.doc-hero > .wrap,
+.who-intro > .wrap,
+.allyship-page .allies > .wrap {
+  width: 100%;
+}
+/* Desktop hero media scales with the viewport so the content still fits a
+   short window instead of pushing the hero past 100svh. */
+:root {
+  --hero-media-h: clamp(320px, calc(100svh - 300px), 560px);
+}
+@media (min-width: 901px) {
+  .who-intro .slideshow,
+  .allyship-page .allies .img-slot {
+    height: var(--hero-media-h);
+  }
+}
+.allyship-page .allies {
+  padding: 152px 0 96px;
+}
 .hero-grid {
   display: grid;
   grid-template-columns: 1.12fr 0.88fr;
@@ -738,7 +775,7 @@ section[id] {
 }
 .hero-media .img-slot {
   width: 100%;
-  height: 560px;
+  height: var(--hero-media-h);
   --is-bg: #000000;
   background: #000000;
   color: #6f6a62;
@@ -5684,7 +5721,9 @@ button {
   .home-page .sec {
     padding: 88px 0;
   }
-  .hero {
+  .hero,
+  .home-page .who-intro,
+  .allyship-page .allies {
     padding: 132px 0 80px;
   }
   .home-page .hero-grid {
@@ -5859,7 +5898,9 @@ button {
   }
   .hero,
   .events-hero,
-  .application-hero {
+  .application-hero,
+  .home-page .who-intro,
+  .allyship-page .allies {
     padding: calc(108px + env(safe-area-inset-top)) 0 68px;
   }
   .hero h1,
@@ -6420,7 +6461,7 @@ button {
 
 /* Section 1 · Intro (light page top, no hero styling) */
 .who-intro {
-  padding-top: 108px;
+  padding: 152px 0 96px;
   background: var(--eggshell);
 }
 .who-intro .split {
@@ -6441,11 +6482,6 @@ button {
 }
 .who-intro .actions {
   margin-top: 34px;
-}
-@media (max-width: 900px) {
-  .who-intro {
-    padding-top: 100px;
-  }
 }
 .training-page .hero {
   background: var(--eggshell);
@@ -7524,5 +7560,20 @@ a.orgtree-node-main:focus-visible .orgtree-node-fallback {
   .notfound-page .hero-cta .btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* Short desktop windows: trim the hero's vertical padding (the fixed nav still
+   clears) so text-heavy heroes such as Allyship stay at 100svh instead of
+   growing past it. Placed last so it wins over each hero's own padding. */
+@media (min-width: 981px) and (max-height: 820px) {
+  .hero,
+  .events-hero,
+  .application-hero,
+  .doc-hero,
+  .home-page .who-intro,
+  .allyship-page .allies {
+    padding-top: 128px;
+    padding-bottom: 48px;
   }
 }
