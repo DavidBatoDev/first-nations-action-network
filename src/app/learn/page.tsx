@@ -153,14 +153,12 @@ export default function LearnPage() {
               Decorative background loop. Muted and looping, no controls, and
               hidden from assistive tech because it carries no information.
 
-              This is a boomerang: eight seconds of a speaker at a lectern,
-              played forward then mirrored, so the loop has no edit point in
-              it. A plain forward loop would hard-cut from her last frame back
-              to her first, which reads as a jump every four seconds.
+              A plain forward loop of the 24-second speaker clip: it cuts from
+              the last frame back to the first once per loop.
             */}
             <video
-              src="/videos/learning-focus-boomerang.webm"
-              poster="/images/learning-focus-boomerang-poster.webp"
+              src="/videos/learning-focus.webm"
+              poster="/images/learning-focus-poster.webp"
               autoPlay
               muted
               loop
