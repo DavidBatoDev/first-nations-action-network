@@ -244,6 +244,14 @@ export default function LearnPage() {
                 <span key={service}>{service}</span>
               ))}
             </div>
+            <div className="training-promo" data-reveal data-delay="2">
+              <VideoSlot
+                src="/videos/yachatdac-promo.webm"
+                poster="/images/yachatdac-promo-poster.webp"
+                label="YACHATDAC promotional video: people walking Country, rock art and cultural heritage sites"
+                rounded={18}
+              />
+            </div>
             {/*
               Framing before the link. Without it the section listed three
               services and then linked out to a partner with no explanation of

@@ -1785,6 +1785,15 @@ a.logo-box {
 .training-conversation .actions {
   margin-top: 42px;
 }
+.training-promo {
+  margin-top: 38px;
+}
+.training-promo .img-slot {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  --is-bg: #16130f;
+  background-color: #16130f;
+}
 /*
  * Partner / sample-work block under the branding services.
  *
