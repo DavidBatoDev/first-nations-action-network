@@ -273,9 +273,9 @@ export default function LearnPage() {
                 className="btn btn-primary"
                 target="_blank"
                 rel="noopener"
-                aria-label="See sample work at YACHATDAC (opens in a new tab)"
+                aria-label="See YACHATDAC’s website (opens in a new tab)"
               >
-                See the sample work <Arrow />
+                See YACHATDAC&rsquo;s website <Arrow />
               </a>
             </div>
           </div>
