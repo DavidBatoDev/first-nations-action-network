@@ -5,6 +5,12 @@ type OpeningWaveProps = {
   fromColor?: string;
   /** Match the content section below the divider. */
   toColor?: string;
+  /**
+   * Let the section below show through under the crest. The divider fills only
+   * above the crest (in `fromColor`) and leaves the rest transparent, so the
+   * next section has to extend up beneath this strip, e.g. a photo band.
+   */
+  overImage?: boolean;
 };
 
 const bubbles = makeBubbles(22);
@@ -13,12 +19,18 @@ const bubbles = makeBubbles(22);
 export default function OpeningWave({
   fromColor = "var(--eggshell)",
   toColor = "var(--paper)",
+  overImage = false,
 }: OpeningWaveProps) {
   return (
-    <div className="opening-wave" aria-hidden="true" style={{ background: fromColor }}>
+    <div
+      className="opening-wave"
+      aria-hidden="true"
+      style={{ background: overImage ? "transparent" : fromColor }}
+    >
       <AnimatedWave
-        background={fromColor}
-        primaryColor={toColor}
+        background={overImage ? undefined : fromColor}
+        fillUp={overImage}
+        primaryColor={overImage ? fromColor : toColor}
         secondaryColor={toColor}
         bubbleColor={fromColor}
         bubbles={bubbles}

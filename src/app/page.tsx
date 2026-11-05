@@ -109,7 +109,13 @@ export default async function Home() {
         <LogoCarousel />
 
         {/* ============ WHAT IS THE NETWORK ============ */}
-        <NetworkWelcome className="sec bg-cream" />
+        <NetworkWelcome
+          className="sec"
+          image={{
+            src: "/images/network-welcome-home.webp",
+            mobile: "/images/network-welcome-home-mobile.webp",
+          }}
+        />
 
         {/* ============ WHO WE ARE ============ */}
         <section id="who" className="sec">

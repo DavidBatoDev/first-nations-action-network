@@ -845,7 +845,14 @@ section[id] {
   --wave-h: 280px;
   --logo-item-width: 248px;
   position: relative;
-  background: var(--eggshell);
+  /*
+   * Eggshell stops where the wave strip begins. The strip draws its own
+   * eggshell above the crest and is transparent below it, so the photo band
+   * behind it shows through under the wave.
+   */
+  background: linear-gradient(var(--eggshell), var(--eggshell)) top left / 100%
+    calc(100% - var(--wave-h)) no-repeat;
+  z-index: 1;
   padding: 52px 0 calc(var(--wave-h) + 40px);
   overflow: clip;
 }
@@ -1674,18 +1681,80 @@ a.logo-box {
     rgba(0, 0, 0, 0.18) 100%
   );
 }
-/* Copy over video reads light, not dark. */
+/* Copy over video or a photograph reads light, not dark. */
 .training-focus-band .kicker,
-.video-band .kicker {
+.video-band .kicker,
+.image-band .kicker {
   color: var(--yellow);
 }
 .training-focus-band h2,
-.video-band h2 {
+.video-band h2,
+.image-band h2 {
   color: #f4efe6;
 }
 .training-focus-band .sec-head .lead,
-.video-band .sec-head .lead {
+.video-band .sec-head .lead,
+.image-band .sec-head .lead {
   color: rgba(244, 239, 230, 0.84);
+}
+/*
+ * Photo version of the "What is the Network" band (homepage).
+ *
+ * The logo carousel's 280px wave strip is transparent under its crest, so this
+ * band starts 280px early (negative margin) and the photo shows through the
+ * wave. `padding-top: 280px` keeps the copy clear of that strip. The copy is
+ * anchored to the bottom so the text lies on the grass.
+ *
+ * Framing follows the supplied reference: the band is 56.25vw tall (16:9, like
+ * `.video-band`) and the 3:2 photo is bottom-anchored, which crops the top of
+ * the sky/building so the crowd sits just below the wave crest.
+ *
+ * Specificity is `.home-page .sec.image-band` so the homepage's own
+ * `.home-page .sec` padding rules cannot override it at any width.
+ *
+ * Black wash is a flat 40%, as specified, rather than the video band's
+ * left-weighted gradient.
+ */
+.home-page .sec.image-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #16130f;
+  color: #f4efe6;
+  margin-top: -280px;
+  min-height: clamp(560px, 56.25vw, 820px);
+  padding: 280px 0 clamp(56px, 7vw, 100px);
+  display: flex;
+  align-items: flex-end;
+}
+.image-band .wrap {
+  width: 100%;
+}
+.image-band-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.image-band-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+.image-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.4);
+}
+/* Phones: the portrait crop is served here; keep the copy on the grass. */
+@media (max-width: 768px) {
+  .home-page .sec.image-band {
+    min-height: calc(280px + 440px);
+    padding-bottom: 56px;
+  }
 }
 /*
  * Phones: a 16:9 band on a portrait screen is a thin sliver, and the paragraph

@@ -270,7 +270,7 @@ export default function LogoCarousel() {
           </svg>
         </button>
       </div>
-      <OpeningWave toColor="var(--cream)" />
+      <OpeningWave toColor="var(--cream)" overImage />
     </section>
   );
 }

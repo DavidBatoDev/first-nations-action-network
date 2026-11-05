@@ -96,9 +96,12 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
   Other pages use the footer's default wave; `waveFrom` matches their final
   content background. No new CTA content or destinations are introduced.
 - The homepage and Contributors carry the "What is the Network" statement
-  (`NetworkWelcome`); Who We Are no longer repeats it. On the homepage it sits
-  on cream directly below the logo carousel, whose wave fills cream into it, so
-  the white Who We Are section that follows stays visually separate.
+  (`NetworkWelcome`); Who We Are no longer repeats it. On the homepage it is a
+  photo band (`/images/network-welcome-home.webp`, a 40% black wash, light
+  copy) directly below the logo carousel. The carousel's wave strip is
+  transparent under its crest, so the photo shows through the wave; the band
+  starts 280px early to sit behind it. Phones get a centre-cropped portrait
+  (`network-welcome-home-mobile.webp`) via `<picture>`.
   Organisation carousels are not part of other pages or shared content.
 - Public landing, library, article, lesson, form and policy routes share the
   opening and closing waves. Redirect-only routes and the unlinked 3D-map prototype are unchanged.
