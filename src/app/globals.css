@@ -129,14 +129,11 @@ p {
   content: "";
   width: 30px;
   height: 2px;
-  background: var(--ochre);
+  background: currentColor;
   display: inline-block;
 }
 .kicker.on-dark {
   color: var(--yellow);
-}
-.kicker.on-dark::before {
-  background: var(--yellow);
 }
 .kicker.centered {
   justify-content: center;
@@ -1779,7 +1776,7 @@ a.logo-box {
   content: "";
   width: 20px;
   height: 2px;
-  background: var(--ochre);
+  background: currentColor;
 }
 .training-partner p {
   margin-top: 14px;
@@ -5068,7 +5065,7 @@ a.logo-box {
   color: var(--ochre-deep);
   transition: transform 0.3s ease, background 0.2s ease, border-color 0.2s ease;
 }
-.faq-item[open] .faq-ico {
+.faq-item[open]:not([data-closing]) .faq-ico {
   transform: rotate(45deg);
   background: var(--yellow);
   border-color: var(--yellow);
