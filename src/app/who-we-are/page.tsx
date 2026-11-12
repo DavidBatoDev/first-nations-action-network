@@ -156,10 +156,6 @@ const people = [
 
 const communitySlides = [
   {
-    src: "/images/who-we-are/carousel/on-country.webp",
-    alt: "Sharing knowledge outdoors on Country",
-  },
-  {
     src: "/images/who-we-are/carousel/community-gathering.webp",
     alt: "Community members together at a truth-telling gathering",
   },

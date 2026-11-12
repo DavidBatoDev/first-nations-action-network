@@ -135,8 +135,9 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 
 ### Who We Are media and team profiles
 
-- `/who-we-are` opens with seven supplied community photographs, converted to
-  WebP in `public/images/who-we-are/carousel/`. It reuses the decoded-image
+- `/who-we-are` opens with six supplied community photographs, beginning with
+  `community-gathering.webp`, converted to WebP in
+  `public/images/who-we-are/carousel/`. It reuses the decoded-image
   slideshow with a three-second hold per photo, photo buttons and left/right
   arrow-key navigation. Autoplay
   pauses on hover, keyboard focus, leaving the viewport, or a hidden browser tab;
