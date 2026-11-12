@@ -1705,9 +1705,10 @@ a.logo-box {
  * wave. `padding-top: 280px` keeps the copy clear of that strip. The copy is
  * anchored to the bottom so the text lies on the grass.
  *
- * Framing follows the supplied reference: the band is 56.25vw tall (16:9, like
- * `.video-band`) and the 3:2 photo is bottom-anchored, which crops the top of
- * the sky/building so the crowd sits just below the wave crest.
+ * Framing: the band is 56.25vw tall (16:9, like `.video-band`). The photo is
+ * bottom-anchored with its lowest `--image-band-crop` (80px) cropped off: the
+ * <img> is that much taller than the band and hangs below its bottom edge, so
+ * the crowd is pushed down clear of the wave's crest instead of hiding behind it.
  *
  * Specificity is `.home-page .sec.image-band` so the homepage's own
  * `.home-page .sec` padding rules cannot override it at any width.
@@ -1731,14 +1732,18 @@ a.logo-box {
   width: 100%;
 }
 .image-band-media {
+  --image-band-crop: 80px;
   position: absolute;
   inset: 0;
   z-index: -2;
 }
 .image-band-media img {
+  position: absolute;
+  left: 0;
+  bottom: calc(var(--image-band-crop) * -1);
   display: block;
   width: 100%;
-  height: 100%;
+  height: calc(100% + var(--image-band-crop));
   object-fit: cover;
   object-position: center bottom;
 }
