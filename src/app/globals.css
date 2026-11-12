@@ -1705,10 +1705,17 @@ a.logo-box {
  * wave. `padding-top: 280px` keeps the copy clear of that strip. The copy is
  * anchored to the bottom so the text lies on the grass.
  *
- * Framing: the band is 56.25vw tall (16:9, like `.video-band`). The photo is
- * bottom-anchored with its lowest `--image-band-crop` (80px) cropped off: the
- * <img> is that much taller than the band and hangs below its bottom edge, so
- * the crowd is pushed down clear of the wave's crest instead of hiding behind it.
+ * Framing: the band is 56.25vw tall (16:9, like `.video-band`), capped at 820px.
+ * The photo is bottom-anchored with its lowest `--image-band-crop` cropped off:
+ * the <img> is that much taller than the band and hangs below its bottom edge,
+ * so the crowd is pushed down clear of the wave's crest.
+ *
+ * The photo scales with the viewport width but the band stops growing at 820px,
+ * so on wide screens a fixed crop pushed the crowd up behind the wave. From
+ * 769px up the crop therefore grows with the width, holding the top of the
+ * crowd about 245px below the band's top edge: the crowd sits ~40% down a 3:2
+ * photo (40vw of its 66.67vw height), so crop = 245px - band height + 40vw.
+ * `max(80px, …)` keeps the 80px minimum, which is what applies up to ~1568px.
  *
  * Specificity is `.home-page .sec.image-band` so the homepage's own
  * `.home-page .sec` padding rules cannot override it at any width.
@@ -1746,6 +1753,14 @@ a.logo-box {
   height: calc(100% + var(--image-band-crop));
   object-fit: cover;
   object-position: center bottom;
+}
+@media (min-width: 769px) {
+  .image-band-media {
+    --image-band-crop: max(
+      80px,
+      calc(245px - clamp(560px, 56.25vw, 820px) + 40vw)
+    );
+  }
 }
 .image-band::before {
   content: "";
