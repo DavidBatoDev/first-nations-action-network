@@ -243,12 +243,20 @@ export default function LearnPage() {
               ))}
             </div>
             <div className="training-promo" data-reveal data-delay="2">
-              <VideoSlot
-                src="/videos/yachatdac-promo.webm"
-                poster="/images/yachatdac-promo-poster.webp"
-                label="YACHATDAC promotional video: people walking Country, rock art and cultural heritage sites"
-                rounded={18}
-              />
+              <a
+                href="https://yachatdac.com.au/"
+                className="training-promo-link"
+                target="_blank"
+                rel="noopener"
+                aria-label="Watch the YACHATDAC promotional video and visit their website (opens in a new tab)"
+              >
+                <VideoSlot
+                  src="/videos/yachatdac-promo.webm"
+                  poster="/images/yachatdac-promo-poster.webp"
+                  label="YACHATDAC promotional video: people walking Country, rock art and cultural heritage sites"
+                  rounded={18}
+                />
+              </a>
             </div>
             {/*
               Framing before the link. Without it the section listed three
