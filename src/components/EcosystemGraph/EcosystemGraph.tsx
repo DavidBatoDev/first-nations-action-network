@@ -49,6 +49,8 @@ type SimLink = SimulationLinkDatum<SimNode> & {
   bowTarget: number;
 };
 
+const FNAN_LOGO = "/assets/logo-on-light.webp";
+
 /** Below this stage width the graph switches to its tighter layout. */
 const COMPACT_BELOW = 470;
 
@@ -620,7 +622,7 @@ export default function EcosystemGraph({
                 <span key={node.id} {...shared}>
                   <span className="ecograph-hub" aria-hidden="true">
                     <Image
-                      src="/assets/logo-on-light.webp"
+                      src={FNAN_LOGO}
                       alt=""
                       width={1202}
                       height={794}
@@ -702,7 +704,6 @@ export default function EcosystemGraph({
                   rel="noopener"
                   data-category={node.category}
                   data-state={state}
-                  data-haslogo={node.logo ? "" : undefined}
                   tabIndex={revealed ? 0 : -1}
                   title={node.name}
                   aria-label={`${node.name}${node.state ? ` (${node.state})` : ""} — opens in a new tab`}
@@ -715,19 +716,17 @@ export default function EcosystemGraph({
                       setActive(node.id);
                     }}
                 >
-                  {node.logo ? (
-                    <motion.img
-                      // A thumbnail that tops out around 90px: next/image's
-                      // optimisation buys nothing, and these logos share no
-                      // intrinsic size to give it. Same call NetworkMap makes.
-                      src={node.logo}
-                      alt=""
-                      loading="lazy"
-                      initial={false}
-                      animate={{ opacity: revealed ? 1 : 0 }}
-                      transition={reducedMotion ? { duration: 0 } : { duration: 0.22 }}
-                    />
-                  ) : null}
+                  <motion.img
+                    // A thumbnail that tops out around 90px: next/image's
+                    // optimisation buys nothing, and these logos share no
+                    // intrinsic size to give it. Same call NetworkMap makes.
+                    src={node.logo || FNAN_LOGO}
+                    alt=""
+                    loading="lazy"
+                    initial={false}
+                    animate={{ opacity: revealed ? 1 : 0 }}
+                    transition={reducedMotion ? { duration: 0 } : { duration: 0.22 }}
+                  />
                 </a>
                 {/* Outside the link, so the node's scale does not blow the
                     text up with it. Its offset tracks the bloom in CSS. */}

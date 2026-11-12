@@ -55,7 +55,7 @@ export const ECOSYSTEM_SHORT_LABELS: Record<EcosystemCategory, string> = {
 export type EcosystemOrg = {
   name: string;
   category: EcosystemCategory;
-  /** Logo asset path under /public. Absent organisations draw as a plain dot. */
+  /** Logo asset path under /public. Missing logos use the FNAN mark when revealed. */
   logo?: string;
   /** Where the node links to: the organisation's own site, else Action Network. */
   href?: string;

@@ -120,6 +120,12 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
   desktop windows under about 700px tall) grows to fit its content rather than
   clipping it.
 
+### Contributors ecosystem graph
+
+- Organisation nodes keep their supplied logos. Those without a logo use the
+  FNAN mark (`/assets/logo-on-light.webp`) when highlighted or focused, rather
+  than an empty white disc. Links, labels and category interactions are unchanged.
+
 ### Allyship hero media
 
 - `/allyship` uses the supplied `new_assets/Explore Allyship vid 1.mp4`,
