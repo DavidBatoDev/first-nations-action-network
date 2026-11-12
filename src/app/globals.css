@@ -7017,7 +7017,7 @@ a.orgtree-root:focus-visible {
   z-index: 1;
 }
 
-/* Organisation cards: logo is the link, Action Network mark beside it */
+/* Organisation cards: logo is the link, FNAN mark beside it (links to the org's Action Network page) */
 .orgtree-node {
   display: flex;
   align-items: center;

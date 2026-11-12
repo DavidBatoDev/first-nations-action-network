@@ -15,7 +15,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { Organisation, StateNetwork } from "./networks";
 
-const AN_LOGO = "/assets/logos/action-network-logo.webp";
+const FNAN_LOGO = "/assets/logo-on-light.webp";
 
 /** Layout box the simulation runs inside. */
 const WIDTH = 700;
@@ -64,7 +64,7 @@ function OrgCard({ organisation }: { organisation: Organisation }) {
           aria-label={`${name} on Action Network (opens in a new tab)`}
           title={`${name} on Action Network`}
         >
-          <Image src={AN_LOGO} alt="Action Network" width={774} height={322} sizes="52px" />
+          <Image src={FNAN_LOGO} alt="First Nations Action Network" width={1202} height={794} sizes="52px" />
         </a>
       ) : null}
     </div>
