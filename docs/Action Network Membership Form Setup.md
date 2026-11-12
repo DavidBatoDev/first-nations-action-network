@@ -4,6 +4,9 @@ This document defines the external Action Network form required by
 `/contributors/apply`. The website intentionally shows an unavailable state until
 this form is created and its widget slug is configured.
 
+The website's Contributor investment note displays **A$1,200 annually** only.
+This display does not change the external form's cadence options below.
+
 ## Action configuration
 
 - Action type: Form

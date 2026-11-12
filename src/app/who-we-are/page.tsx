@@ -262,9 +262,9 @@ export default function WhoWeArePage() {
             </div>
             <div className="who-vision-media" data-reveal data-delay="1">
               <VideoSlot
-                src="/videos/hero.webm"
-                poster="/images/hero.webp"
-                label="Community gatherings and collective action across the network"
+                src="/videos/allyship-hero.webm"
+                poster="/images/allyship-hero-poster.webp"
+                label="Allies and community gathering, marching and sharing culture"
                 rounded={18}
               />
             </div>

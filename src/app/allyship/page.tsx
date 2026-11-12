@@ -87,9 +87,9 @@ export default function AllyshipPage() {
             </div>
             <div className="a-img" data-reveal data-delay="1">
               <VideoSlot
-                src="/videos/allyship-hero.webm"
-                poster="/images/allyship-hero-poster.webp"
-                label="Allies and community gathering, marching and sharing culture"
+                src="/videos/explore-allyship.webm"
+                poster="/images/explore-allyship-poster.webp"
+                label="Allies rallying in support of First Nations communities"
                 rounded={16}
               />
             </div>

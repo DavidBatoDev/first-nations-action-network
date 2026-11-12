@@ -120,6 +120,13 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
   desktop windows under about 700px tall) grows to fit its content rather than
   clipping it.
 
+### Allyship hero media
+
+- `/allyship` uses the supplied `new_assets/Explore Allyship vid 1.mp4`,
+  converted to the silent, full-length VP9 loop `/videos/explore-allyship.webm`.
+  `/images/explore-allyship-poster.webp` provides its matching first-frame
+  poster and reduced-motion still.
+
 ### Who We Are media and team profiles
 
 - `/who-we-are` opens with seven supplied community photographs, converted to
@@ -128,8 +135,9 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
   arrow-key navigation. Autoplay
   pauses on hover, keyboard focus, leaving the viewport, or a hidden browser tab;
   reduced motion disables autoplay and the sliding transition.
-- Vision and Purpose reuse the homepage's `/videos/hero.webm` silent loop and
-  `/images/hero.webp` poster. Reduced-motion visitors see the poster.
+- Vision and Purpose use the former Allyship hero's `/videos/allyship-hero.webm`
+  silent loop and `/images/allyship-hero-poster.webp` poster. Reduced-motion
+  visitors see the poster. The homepage retains its existing hero footage.
 - Five team profiles use the supplied portraits and biographies. Cards turn on
   mouse hover. Read story and Back to portrait controls live on their respective
   rotating faces, so labels, icons and hit areas follow the animation. Only the

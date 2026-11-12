@@ -116,7 +116,6 @@ export default function ContributorApplicationPage() {
               <div className="application-price-note">
                 <span>Contributor investment</span>
                 <strong>A$1,200 annually</strong>
-                <p>or A$150 monthly</p>
               </div>
 
               <Link href="/contributors" className="textlink">
