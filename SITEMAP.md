@@ -103,8 +103,10 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
   starts 280px early to sit behind it. Phones get a centre-cropped portrait
   (`network-welcome-home-mobile.webp`) via `<picture>`.
   Organisation carousels are not part of other pages or shared content.
-- Public landing, library, article, lesson, form and policy routes share the
-  opening and closing waves. Redirect-only routes and the unlinked 3D-map prototype are unchanged.
+- Public landing, library, lesson, form and policy routes share the opening
+  and closing waves. Article pages retain the closing wave but omit the
+  same-colour opening divider between their lead image and article body.
+  Redirect-only routes and the unlinked 3D-map prototype are unchanged.
 
 
 ### Hero height
@@ -169,6 +171,8 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 - All five current articles belong to First Nations Action Network. Their
   source organisations remain in prose/references; no publication dates or
   individual author credits are invented.
+- Article detail pages leave 56px between the lead image and body on desktop
+  and 36px on mobile, without the former 280px invisible wave spacer.
 - Article content and featured order live in `src/lib/stories.ts`; schema and
   writing styles are in `src/lib/story-types.ts` and `src/styles/stories.css`.
   Uploaded DOCX and image sources are retained in `new_assets/Articles/`.
