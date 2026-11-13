@@ -128,8 +128,10 @@ a technical XML sitemap at `/sitemap.xml` for search engines.
 
 ### Allyship hero media
 
-- `/allyship` uses the supplied `new_assets/Explore Allyship vid 1.mp4`,
+- `/allyship` uses the supplied `new_assets/Explore Allyship Video.mp4`,
   converted to the silent, full-length VP9 loop `/videos/explore-allyship.webm`.
+  The 39.9-second clip retains its native 1280×720 resolution, encoded at
+  CRF 24 without upscaling.
   `/images/explore-allyship-poster.webp` provides its matching first-frame
   poster and reduced-motion still.
 
